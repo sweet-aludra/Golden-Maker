@@ -1,0 +1,139 @@
+:root{
+    --cor1: #56396f;
+    --cor2: #0d0d55;
+    --cor3: #38a8bc;
+    --cor4: #bd6c7d;
+    --withe: #f1ffe7;
+    --black: #353535;
+}
+
+* {
+    margin: 0px;
+}
+body {
+    background-color: var(--withe);
+}
+a {
+    text-decoration: none;
+    color: var(--withe);
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    background-color: var(--black);
+    border-bottom: 10px double var(--cor4);
+}
+header img{
+    width: 40px;
+    height: 40px;
+}
+/*~~~~~~~~img fundo ~~~~~~~~*/
+div#img_fundo {
+    display: inline-block;
+    width: 200.1vh;
+    height: 300px;
+    background-color: var(--black);
+    background-image: url('imgs/circuito_fundo.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center bottom;
+}
+@media(max-width: 2000px) {
+    div#img_fundo {
+        width: 218.7vh;
+    }
+}
+@media(max-width: 800px) {
+    div#img_fundo {
+        height: 200px;
+    }
+}
+
+/*~~~~~~~ apresentacao ~~~~~~~~~~*/
+section#apresentacao {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    background-color: var(--black);
+    color: var(--withe);
+    margin: 20px 50px;
+    font-size: 20px;
+    border: 5px groove var(--cor3);
+
+}
+section#apresentacao img{
+    height: 500px;
+    width: 500px;
+}
+
+#txt {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+#galeria {
+    width: 150px;
+    height: 50px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--cor1);
+}
+#galeria:active {
+    background-color: var(--cor4);
+}
+
+@media(max-width: 800px) {
+    section#apresentacao {
+        flex-direction: column;
+        font-size: 15px;
+    }
+    section#apresentacao img{
+        height: 300px;
+        width: 300px;
+    }
+}
+
+/*~~~~~~~ pesqisa por jogos ~~~~~~~*/
+section#secao_jogos {
+    margin: 20px;
+}
+
+div#procura {
+    display: flex;
+    justify-content: center;
+}
+#txt_pesquisa{
+    border: 2px solid var(--black);
+    background-color: var(--withe);
+    border-radius: 10px;
+    font-size: 15px;
+    width: 300px;
+    height: 25px;
+
+    background-image: url('imgs/lupa.png');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 20px 20px;
+    padding-left: 40px;
+}
+#txt_pesquisa:focus {
+    outline: 0px;
+    border: 3px solid var(--cor1);
+}
+
+/*~~~~~~~~~ roda pe ~~~~~~~~~~~~~~~~*/
+footer {
+    background-color: var(--black);
+    border-top: 10px double var(--cor2);
+    color: var(--withe);
+}
+h2 {
+    padding: 15px;
+    text-align: center;
+}

@@ -1,0 +1,59 @@
+:root{
+    --cor1: #56396f;
+    --cor2: #0d0d55;
+    --cor3: #38a8bc;
+    --cor4: #bd6c7d;
+    --withe: #f1ffe7;
+    --black: #353535;
+}
+
+body {
+    background-color: var(--black);
+    display: flex;
+    justify-content: center;
+}
+
+#cadastro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+    width: 50rem;
+    height: 35rem;
+    background-color: var(--withe);
+    border-radius: 10px;
+    border: 10px solid var(--black);
+    outline: 10px solid var(--cor1);
+}
+#cadastro img{
+    width: 100px;
+    height: 100px;
+}
+
+form {
+    align-items: center;
+    flex-direction: column;
+}
+#email, .senha, #nick {
+    background-color: var(--withe);
+    border: none;
+    outline: none;
+    border-bottom: 2px solid var(--cor3);
+    color: var(--black);
+}
+
+#starts {
+    outline: none;
+    border: 3px double var(--cor4);
+    background-color: var(--withe);
+    color: var(--black);
+    border-radius: 10px;
+    width: 100px;
+    height: 40px;
+    font-size: 15px;
+}
+#starts:hover {
+    background-color: var(--cor4);
+    color: var(--withe);
+}
