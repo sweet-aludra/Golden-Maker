@@ -20,8 +20,8 @@ a {
 
 header {
     display: flex;
-    justify-content: center;
-    padding: 5px;
+    justify-content: space-between;
+    padding: 5px 50px;
     background-color: var(--black);
     border-bottom: 10px double var(--cor4);
 }
@@ -130,10 +130,83 @@ div#procura {
 /*~~~~~~~~~ roda pe ~~~~~~~~~~~~~~~~*/
 footer {
     background-color: var(--black);
-    border-top: 10px double var(--cor2);
+    border-top: 10px double var(--cor4);
     color: var(--withe);
 }
 h2 {
     padding: 15px;
     text-align: center;
+}
+
+/*~~~~~~~~~~~perfil html ~~~~~~~~~*/
+#icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 10px;
+}
+#icon img{
+    height: 200px;
+    width: 200px;
+    background-color: var(--black);
+    border-radius: 50%;
+    border-left: 10px solid var(--cor4);
+    border-right: 5px solid var(--cor3);
+}
+
+#configuracao_perfil {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    width: 500px;
+    border-radius: 10px;
+    box-shadow: -20px 15px 0 var(--cor3);
+    background-color: var(--cor4);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: var(--withe);
+}
+
+form input{
+    border: none;
+    outline: none;
+    background-color: var(--withe);
+}
+#nova_senha {
+    text-align: center;
+}
+
+.senha {
+    position: relative;
+    width: 300px;
+    margin-bottom: 20px;
+}
+.senha input{
+    width: 100%;
+    padding: 10px 40px 10px 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 20px;
+    cursor: pointer;
+}
+/* Ícone de olho aberto padrão */
+#senha {
+    background-image: url('imgs/visivel.png');
+}
+
+#confirmar {
+    background-image: url('imgs/visivel.png');
+}
+/* Ícone de olho fechado quando visível */
+#senha[data-visivel="true"] {
+    background-image: url('imgs/nao_visivel.png');
+}
+#confirmar[data-visivel="true"] {
+    background-image: url('imgs/nao_visivel.png');
 }
