@@ -1,4 +1,5 @@
 :root{
+    --cor0: #a681c7;
     --cor1: #56396f;
     --cor2: #0d0d55;
     --cor3: #38a8bc;
@@ -28,6 +29,7 @@ header {
 header img{
     width: 40px;
     height: 40px;
+    border-radius: 50%;
 }
 /*~~~~~~~~img fundo ~~~~~~~~*/
 div#img_fundo {
@@ -43,7 +45,7 @@ div#img_fundo {
 }
 @media(max-width: 2000px) {
     div#img_fundo {
-        width: 218.7vh;
+        width: 214vh;
     }
 }
 @media(max-width: 800px) {
@@ -75,9 +77,16 @@ section#apresentacao img{
     align-items: center;
     flex-direction: column;
 }
+
+.texto_apresentacao {
+    line-height: 1.6;
+    text-align: justify;
+    padding: 0px 150px;
+}
 #galeria {
     width: 150px;
     height: 50px;
+    cursor: pointer;
     border-radius: 20px;
     display: flex;
     align-items: center;
@@ -96,6 +105,11 @@ section#apresentacao img{
     section#apresentacao img{
         height: 300px;
         width: 300px;
+    }
+
+    .texto_apresentacao {
+        line-height: 1.6;
+        padding: 0px 100px;
     }
 }
 
@@ -127,18 +141,35 @@ div#procura {
     border: 3px solid var(--cor1);
 }
 
-/*~~~~~~~~~ roda pe ~~~~~~~~~~~~~~~~*/
+#apresentacao_jogos {
+    text-align: center;
+}
+.carrosel_jogos {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 20px;
+}
+.jogo {
+    height: 200px;
+    width: 300px;
+    border-radius: 10px;
+    background-color: var(--black);
+    cursor: pointer;
+}
+
+/*~~~~~~~~~~~ roda pe ~~~~~~~~~~~~~~~~*/
 footer {
     background-color: var(--black);
     border-top: 10px double var(--cor4);
     color: var(--withe);
 }
 h2 {
-    padding: 15px;
+    padding: 10px;
     text-align: center;
 }
 
-/*~~~~~~~~~~~perfil html ~~~~~~~~~*/
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ perfil html ~~~~~~~~~~~~~~~~~~~~~~~~~*/
 #icon {
     display: flex;
     justify-content: center;
@@ -152,18 +183,32 @@ h2 {
     width: 200px;
     background-color: var(--black);
     border-radius: 50%;
-    border-left: 10px solid var(--cor4);
-    border-right: 5px solid var(--cor3);
+    border-left: 10px solid var(--cor0);
+    border-right: 5px solid var(--cor2);
+}
+#icon button{
+    border: none;
+    background-color: var(--withe);
+    color: var(--cor1);
+    cursor: pointer;
+}
+#icon button:hover{
+    border-radius: 5px;
+    background-color: var(--cor0);
+    color: var(--withe);
 }
 
 #configuracao_perfil {
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 50px;
     padding: 20px;
     width: 500px;
     border-radius: 10px;
-    box-shadow: -20px 15px 0 var(--cor3);
-    background-color: var(--cor4);
+    box-shadow: -20px 15px 0 var(--cor2);
+    background-color: var(--cor0);
+    border-left: 10px double var(--cor3);
+    border-bottom: 10px double var(--cor1);
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -173,6 +218,7 @@ h2 {
 form input{
     border: none;
     outline: none;
+    border-radius: 5px;
     background-color: var(--withe);
 }
 #nova_senha {
@@ -186,7 +232,7 @@ form input{
 }
 .senha input{
     width: 100%;
-    padding: 10px 40px 10px 10px;
+    padding: 5px 40px 5px 10px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;

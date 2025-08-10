@@ -8,8 +8,10 @@
 </head>
 <body>
     <header>
-        <img src="imgs/santinho.png" alt="perfil">
-        <a href="cadastro.html"><img src="imgs/santinho.png" alt="perfil"></a>
+        <img src="imgs/download.jpeg" alt="perfil">
+        <div>
+            <img src="imgs/santinho.png" alt="logo_golden_maker">
+        </div>
     </header>
     <button><a href="index.html">Voltar</a></button><br>
 
@@ -44,12 +46,12 @@
     </main>
 
     <script>
-    function alternarSenha(input) {
-      const visivel = input.getAttribute("data-visivel") === "true";
+        function alternarSenha(input) {
+            const visivel = input.getAttribute("data-visivel") === "true";
 
-      input.type = visivel ? "password" : "text";
-      input.setAttribute("data-visivel", !visivel);
-    }
-  </script>
+            input.type = visivel ? "password" : "text";
+            input.setAttribute("data-visivel", !visivel);
+        }
+    </script>
 </body>
 </html>

@@ -19,8 +19,8 @@ body {
     align-items: center;
     flex-direction: column;
     margin-top: 50px;
-    width: 50rem;
-    height: 35rem;
+    width: 30rem;
+    height: 30rem;
     background-color: var(--withe);
     border-radius: 10px;
     border: 10px solid var(--black);
@@ -32,15 +32,51 @@ body {
 }
 
 form {
+    color:  var(--cor2);
     align-items: center;
     flex-direction: column;
 }
 #email, .senha, #nick {
     background-color: var(--withe);
+    outline: none;
+    border: none;
+    color: var(--black);
+}
+#email, #nick {
+    border-bottom: 2px solid var(--cor1);
+}
+
+/*~~~~~~~~~ configuracao olho ~~~~~~~~~*/
+.senha {
+    position: relative;
+    width: 300px;
+    margin-bottom: 20px;
+}
+.senha input{
+    padding: 0 40px 0 10px;
+    background-color: var(--withe);
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 20px;
+    cursor: pointer;
     border: none;
     outline: none;
-    border-bottom: 2px solid var(--cor3);
-    color: var(--black);
+    border-bottom: 2px solid var(--cor1);
+}
+/* Ícone de olho aberto padrão */
+#senha {
+    background-image: url('imgs/visivel.png');
+}
+
+#confirmar {
+    background-image: url('imgs/visivel.png');
+}
+/* Ícone de olho fechado quando visível */
+#senha[data-visivel="true"] {
+    background-image: url('imgs/nao_visivel.png');
+}
+#confirmar[data-visivel="true"] {
+    background-image: url('imgs/nao_visivel.png');
 }
 
 #starts {

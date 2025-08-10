@@ -13,17 +13,28 @@
             <p>Email:
                 <input type="text" id="email" placeholder="goldenmaker@gmail.com" required>
             </p>
-            <p>Senha:
-                <input type="password" name="senha" class="senha" required>
-            </p>
-            <p>Confirme a senha:
-                <input type="password" name="senha_confirm" class="senha" required>
-            </p>
+            <div class="senha">
+                <p>Senha:
+                    <input type="password" name="nova_senha" id="senha" onclick="alternarSenha(this)" data-visivel="false" required>
+                </p>
+                <p>Confirme:
+                    <input type="password" name="nova_senha" id="confirmar" onclick="alternarSenha(this)" data-visivel="false" requireds>
+                </p>
+            </div>
             <p>Nome:
                 <input type="text" name="nick" id="nick" placeholder="nick" required>
             </p>
             <input type="submit" value="Starts" id="starts">
         </form>
     </div>
+
+    <script>
+        function alternarSenha(input) {
+            const visivel = input.getAttribute("data-visivel") === "true";
+
+            input.type = visivel ? "password" : "text";
+            input.setAttribute("data-visivel", !visivel);
+        }
+    </script>
 </body>
 </html>
