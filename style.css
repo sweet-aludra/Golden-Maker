@@ -170,11 +170,18 @@ h2 {
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~ jogo.html ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/1
+main#secao_jogue {
+    margin: 30px;
+}
+
 section#apresentacao_jogue {
-    width: 200.1vh;
-    height: 300px;
     background-color: var(--black);
     display: flex;
+    flex-direction: column;
+}
+#cabecalho_jogue {
+    display: flex;
+    text-align: end;
 }
 div#cabecalho_jogue img{
     width: 200px;
@@ -183,9 +190,8 @@ div#cabecalho_jogue img{
 }
 #jogue {
     background-color: var(--cor0);
-    width: 100px;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 75rem;
+    height: 40rem;
+    margin-left: auto;
+    margin-right: auto;
 }
