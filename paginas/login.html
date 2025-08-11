@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style_login.css">
+    <title>Golden Maker&reg_cadastro</title>
+</head>
+<body>
+    <div id="cadastro">
+        <img src="../imgs/santinho.png" alt="logo">
+        <form>
+            <p>Email:
+                <input type="text" id="email" placeholder="goldenmaker@gmail.com" required>
+            </p>
+            <div class="senha">
+                <p>Senha:
+                    <input type="password" name="nova_senha" id="senha" onclick="alternarSenha(this)" data-visivel="false" required>
+                </p>
+            </div>
+            <input type="submit" value="Starts" id="starts">
+        </form>
+    </div>
+
+    <script>
+        function alternarSenha(input) {
+        // Pega a posição atual do cursor
+        const start = input.selectionStart;
+        const end = input.selectionEnd;
+
+        // Verifica se está visível
+        const visivel = input.getAttribute("data-visivel") === "true";
+
+        // Alterna o tipo
+        input.type = visivel ? "password" : "text";
+        input.setAttribute("data-visivel", !visivel);
+
+        // Restaura a posição do cursor
+        requestAnimationFrame(() => {
+            input.setSelectionRange(start, end);
+        });
+        }
+    </script>
+</body>
+</html>

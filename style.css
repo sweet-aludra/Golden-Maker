@@ -109,7 +109,7 @@ section#apresentacao img{
 
     .texto_apresentacao {
         line-height: 1.6;
-        padding: 0px 100px;
+        padding: 0px 50px;
     }
 }
 
@@ -169,90 +169,23 @@ h2 {
     text-align: center;
 }
 
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ perfil html ~~~~~~~~~~~~~~~~~~~~~~~~~*/
-#icon {
+/*~~~~~~~~~~~~~~~~~~~~~~ jogo.html ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/1
+section#apresentacao_jogue {
+    width: 200.1vh;
+    height: 300px;
+    background-color: var(--black);
+    display: flex;
+}
+div#cabecalho_jogue img{
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+}
+#jogue {
+    background-color: var(--cor0);
+    width: 100px;
+    height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    flex-direction: column;
-    gap: 10px;
-}
-#icon img{
-    height: 200px;
-    width: 200px;
-    background-color: var(--black);
-    border-radius: 50%;
-    border-left: 10px solid var(--cor0);
-    border-right: 5px solid var(--cor2);
-}
-#icon button{
-    border: none;
-    background-color: var(--withe);
-    color: var(--cor1);
-    cursor: pointer;
-}
-#icon button:hover{
-    border-radius: 5px;
-    background-color: var(--cor0);
-    color: var(--withe);
-}
-
-#configuracao_perfil {
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 50px;
-    padding: 20px;
-    width: 500px;
-    border-radius: 10px;
-    box-shadow: -20px 15px 0 var(--cor2);
-    background-color: var(--cor0);
-    border-left: 10px double var(--cor3);
-    border-bottom: 10px double var(--cor1);
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    color: var(--withe);
-}
-
-form input{
-    border: none;
-    outline: none;
-    border-radius: 5px;
-    background-color: var(--withe);
-}
-#nova_senha {
-    text-align: center;
-}
-
-.senha {
-    position: relative;
-    width: 300px;
-    margin-bottom: 20px;
-}
-.senha input{
-    width: 100%;
-    padding: 5px 40px 5px 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-size: 20px;
-    cursor: pointer;
-}
-/* Ícone de olho aberto padrão */
-#senha {
-    background-image: url('imgs/visivel.png');
-}
-
-#confirmar {
-    background-image: url('imgs/visivel.png');
-}
-/* Ícone de olho fechado quando visível */
-#senha[data-visivel="true"] {
-    background-image: url('imgs/nao_visivel.png');
-}
-#confirmar[data-visivel="true"] {
-    background-image: url('imgs/nao_visivel.png');
 }
