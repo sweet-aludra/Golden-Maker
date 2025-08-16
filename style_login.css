@@ -12,6 +12,9 @@ body {
     display: flex;
     justify-content: center;
 }
+a {
+    text-decoration: none;
+}
 
 #cadastro {
     display: flex;
@@ -29,6 +32,7 @@ body {
 #cadastro img{
     width: 100px;
     height: 100px;
+    filter: drop-shadow(-5px 5px 0 var(--cor3));
 }
 
 form {
@@ -44,6 +48,16 @@ form {
 }
 #email, #nick {
     border-bottom: 2px solid var(--cor1);
+    padding: 0 40px 0 10px;
+}
+#aceito {
+    cursor: pointer;
+}
+label a{
+    color: var(--cor1);
+}
+label a:hover{
+    color: var(--cor3);
 }
 
 /*~~~~~~~~~ configuracao olho ~~~~~~~~~*/
@@ -92,4 +106,25 @@ form {
 #starts:hover {
     background-color: var(--cor4);
     color: var(--withe);
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~ login.html ~~~~~~~~~~~~~~~~~~~~~~~*/
+#cadastre-se {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+    padding: 0 10px;
+    color: var(--withe);
+    background-color: var(--cor4);
+    border-radius: 5px;
+    border: 3px solid var(--withe);
+    outline: 2px solid var(--cor1);
+}
+#cadastre-se a{
+    background-color: var(--withe);
+    padding: 5px;
+    border-radius: 5px;
+    border-bottom: 2px solid var(--cor3);
+    color: var(--cor2);
 }

@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style_login.css">
-    <title>Golden Maker&reg_cadastro</title>
+    <link rel="shortcut icon" href="../imgs/Penelope.png" type="image/x-icon">
+    <title>Golden Maker&reg_Cadastro</title>
 </head>
 
 <body>
     <div id="cadastro">
-        <img src="../imgs/santinho.png" alt="logo">
+        <img src="../imgs/Penelope.png" alt="logo">
         <form>
             <p>Email:
                 <input type="text" id="email" placeholder="goldenmaker@gmail.com" required>
@@ -22,12 +23,17 @@
                 </p>
                 <p>Confirme:
                     <input type="password" name="nova_senha" id="confirmar" onclick="alternarSenha(this)"
-                        data-visivel="false" requireds>
+                        data-visivel="false" required>
                 </p>
             </div>
             <p>Nome:
                 <input type="text" name="nick" id="nick" placeholder="nick" required>
             </p>
+            <div>
+                <input type="checkbox" id="aceito" name="termos" required>
+                <label for="aceito">Aceito os <b><a href="#">termos de uso</a></b></label>
+            </div><br>
+
             <input type="submit" value="Starts" id="starts">
         </form>
     </div>
