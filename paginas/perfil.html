@@ -27,24 +27,34 @@
         <section>
             <h2>Jogos publicados:</h2>
             <div></div>
-            <p id="botao_publicar"><a href="#">+ Publicar</a></p>
+            <p id="botao_publicar"><a href="publicacao_jogo.html">+ Publicar</a></p> <!--ir para a area de publicaçao dos jogos-->
         </section><br>
         <section>
             <form>
                 <p>Novo nick:
-                    <input type="text" name="novo_nick" id="nick">
+                    <input type="text" name="novo_nick" id="nick"> <!--campo para alterar o nome da conta-->
                 </p><br><hr><br>
                 <h3 id="nova_senha">Nova Senha:</h3><br>
-                <div class="senha">
+                <div class="senha"> <!--campo para alterar a senha da conta-->
                     <p>Senha:
-                        <input type="password" name="nova_senha" id="senha" onclick="alternarSenha(this)"
-                            data-visivel="false" required>
+                        <input type="password" 
+                               name="nova_senha" 
+                               id="senha" 
+                               onclick="alternarSenha(this)"
+                               data-visivel="false" 
+                               required>
                     </p><br>
                     <p>Confirme a senha:
-                        <input type="password" name="nova_senha" id="confirmar" onclick="alternarSenha(this)"
-                            data-visivel="false" required>
+                        <input type="password" 
+                               name="nova_senha" 
+                               id="confirmar" 
+                               onclick="alternarSenha(this)"
+                               data-visivel="false" 
+                               required>
                     </p><br>
-                    <input type="submit" value="Atualizar" id="atualizar">
+                    <input type="submit" 
+                           value="Atualizar" 
+                           id="atualizar">
                 </div>
             </form>
         </section>
