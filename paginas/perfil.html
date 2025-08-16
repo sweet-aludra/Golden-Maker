@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +15,8 @@
             flex-direction: column;
             gap: 10px;
         }
-        #icon img{
+
+        #icon img {
             height: 200px;
             width: 200px;
             background-color: var(--black);
@@ -22,13 +24,15 @@
             border-left: 10px solid var(--cor0);
             border-right: 5px solid var(--cor2);
         }
-        #icon button{
+
+        #icon button {
             border: none;
             background-color: var(--withe);
             color: var(--cor1);
             cursor: pointer;
         }
-        #icon button:hover{
+
+        #icon button:hover {
             border-radius: 5px;
             background-color: var(--cor0);
             color: var(--withe);
@@ -51,12 +55,13 @@
             color: var(--withe);
         }
 
-        form input{
+        form input {
             border: none;
             outline: none;
             border-radius: 5px;
             background-color: var(--withe);
         }
+
         #nova_senha {
             text-align: center;
         }
@@ -66,7 +71,8 @@
             width: 300px;
             margin-bottom: 20px;
         }
-        .senha input{
+
+        .senha input {
             width: 100%;
             padding: 5px 40px 5px 10px;
             font-size: 16px;
@@ -77,31 +83,34 @@
             background-size: 20px;
             cursor: pointer;
         }
+
         /* Ícone de olho aberto padrão */
         #senha {
-            background-image: url('imgs/visivel.png');
+            background-image: url('../imgs/visivel.png');
         }
 
         #confirmar {
-            background-image: url('imgs/visivel.png');
+            background-image: url('../imgs/visivel.png');
         }
+
         /* Ícone de olho fechado quando visível */
         #senha[data-visivel="true"] {
-            background-image: url('imgs/nao_visivel.png');
+            background-image: url('../imgs/nao_visivel.png');
         }
+
         #confirmar[data-visivel="true"] {
-            background-image: url('imgs/nao_visivel.png');
+            background-image: url('../imgs/nao_visivel.png');
         }
     </style>
 </head>
+
 <body>
     <header>
         <img src="../imgs/download.jpeg" alt="perfil">
         <div>
-            <img src="../imgs/santinho.png" alt="logo_golden_maker">
+            <a href="../index.html"><img src="../imgs/santinho.png" alt="logo_golden_maker"></a>
         </div>
-    </header>
-    <button><a href="../index.html">Voltar</a></button><br>
+    </header><br>
 
     <div id="icon">
         <img src="../imgs/download.jpeg" alt="icon">
@@ -122,24 +131,38 @@
                 <h3 id="nova_senha">Nova Senha:</h3><br>
                 <div class="senha">
                     <p>Senha:
-                        <input type="password" name="nova_senha" id="senha" onclick="alternarSenha(this)" data-visivel="false">
+                        <input type="password" name="nova_senha" id="senha" onclick="alternarSenha(this)"
+                            data-visivel="false">
                     </p><br>
                     <p>Confirme a senha:
-                        <input type="password" name="nova_senha" id="confirmar" onclick="alternarSenha(this)" data-visivel="false">
+                        <input type="password" name="nova_senha" id="confirmar" onclick="alternarSenha(this)"
+                            data-visivel="false">
                     </p>
                 </div>
-                
+
             </form>
         </section>
     </main>
 
     <script>
         function alternarSenha(input) {
+            // Pega a posição atual do cursor
+            const start = input.selectionStart;
+            const end = input.selectionEnd;
+
+            // Verifica se está visível
             const visivel = input.getAttribute("data-visivel") === "true";
 
+            // Alterna o tipo
             input.type = visivel ? "password" : "text";
             input.setAttribute("data-visivel", !visivel);
+
+            // Restaura a posição do cursor
+            requestAnimationFrame(() => {
+                input.setSelectionRange(start, end);
+            });
         }
     </script>
 </body>
+
 </html>

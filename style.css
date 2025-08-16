@@ -1,9 +1,10 @@
-:root{
+:root {
     --cor0: #a681c7;
     --cor1: #56396f;
     --cor2: #0d0d55;
     --cor3: #38a8bc;
     --cor4: #bd6c7d;
+    --cor5: #00ff00;
     --withe: #f1ffe7;
     --black: #353535;
 }
@@ -11,9 +12,11 @@
 * {
     margin: 0px;
 }
+
 body {
     background-color: var(--withe);
 }
+
 a {
     text-decoration: none;
     color: var(--withe);
@@ -26,11 +29,13 @@ header {
     background-color: var(--black);
     border-bottom: 10px double var(--cor4);
 }
-header img{
+
+header img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
 }
+
 /*~~~~~~~~img fundo ~~~~~~~~*/
 div#img_fundo {
     display: inline-block;
@@ -43,11 +48,13 @@ div#img_fundo {
     background-attachment: fixed;
     background-position: center bottom;
 }
+
 @media(max-width: 2000px) {
     div#img_fundo {
         width: 214vh;
     }
 }
+
 @media(max-width: 800px) {
     div#img_fundo {
         height: 200px;
@@ -67,7 +74,8 @@ section#apresentacao {
     border: 5px groove var(--cor3);
 
 }
-section#apresentacao img{
+
+section#apresentacao img {
     height: 500px;
     width: 500px;
 }
@@ -83,6 +91,7 @@ section#apresentacao img{
     text-align: justify;
     padding: 0px 150px;
 }
+
 #galeria {
     width: 150px;
     height: 50px;
@@ -93,6 +102,7 @@ section#apresentacao img{
     justify-content: center;
     background-color: var(--cor1);
 }
+
 #galeria:active {
     background-color: var(--cor4);
 }
@@ -102,7 +112,8 @@ section#apresentacao img{
         flex-direction: column;
         font-size: 15px;
     }
-    section#apresentacao img{
+
+    section#apresentacao img {
         height: 300px;
         width: 300px;
     }
@@ -122,7 +133,8 @@ div#procura {
     display: flex;
     justify-content: center;
 }
-#txt_pesquisa{
+
+#txt_pesquisa {
     border: 2px solid var(--black);
     background-color: var(--withe);
     border-radius: 10px;
@@ -136,6 +148,7 @@ div#procura {
     background-size: 20px 20px;
     padding-left: 40px;
 }
+
 #txt_pesquisa:focus {
     outline: 0px;
     border: 3px solid var(--cor1);
@@ -144,12 +157,14 @@ div#procura {
 #apresentacao_jogos {
     text-align: center;
 }
+
 .carrosel_jogos {
     display: flex;
     justify-content: center;
     flex-direction: row;
     gap: 20px;
 }
+
 .jogo {
     height: 200px;
     width: 300px;
@@ -164,34 +179,60 @@ footer {
     border-top: 10px double var(--cor4);
     color: var(--withe);
 }
+
 h2 {
     padding: 10px;
-    text-align: center;
 }
 
-/*~~~~~~~~~~~~~~~~~~~~~~ jogo.html ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/1
-main#secao_jogue {
-    margin: 30px;
-}
-
+/*~~~~~~~~~~~~~~~~~~~~~~ jogo.html ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 section#apresentacao_jogue {
+    /* cabeçalho */
     background-color: var(--black);
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
+
 #cabecalho_jogue {
+    /* parte do topo (icone + nome do jogo*/
     display: flex;
-    text-align: end;
+    align-items: end;
+    gap: 20px;
+    font-size: 25px;
+    color: var(--withe);
+    padding: 10px;
 }
-div#cabecalho_jogue img{
+
+div#cabecalho_jogue img {
+    /* icone do jogo */
     width: 200px;
     height: 200px;
     border-radius: 5px;
+    border-right: 5px double var(--cor3);
+    border-bottom: 5px double var(--cor4);
 }
-#jogue {
+
+#descricao {
+    /* caixa de descriçao do jogo */
     background-color: var(--cor0);
-    width: 75rem;
-    height: 40rem;
+    color: var(--withe);
+    font-size: 20px;
+    border-radius: 3px;
+    border-left: 5px double var(--cor5);
+    border-bottom: 5px double var(--cor5);
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50rem;
+    padding: 15px;
+}
+
+#jogue {
+    /* quadro onde o jogo vai rodar */
+    background-color: var(--cor0);
+    width: 70rem;
+    height: 30rem;
     margin-left: auto;
     margin-right: auto;
 }
