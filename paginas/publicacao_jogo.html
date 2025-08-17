@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <img src="../imgs/download.jpeg" alt="perfil">
+        <a href="perfil.html"><img src="../imgs/download.jpeg" alt="perfil"></a>
         <div>
             <a href="../index.html"><img src="../imgs/Penelope.png" alt="logo_golden_maker"></a>
         </div>
@@ -18,46 +18,46 @@
     <h1>Publique seu jogo!</h1><br>
     <main id="publique_jogo">
         <form>
-            <div> <!--campo de nome e descrição do jogo-->
-                <p>Nome do jogo:
+            <div id="descricao_jogo"> <!--campo de nome e descrição do jogo-->
+                <p>Nome do jogo:<br>
                     <input type="text" 
                            name="txt_nome_jogo" 
                            id="nome_jogo"
                            placeholder="add nome"
                            required>
-                </p>
-                <p>Descrição do jogo:
+                </p><br>
+                <p>Descrição do jogo:<br>
                     <input type="text"
                            name="txt_descricao_jogo" 
                            id="descricao_jogo"
                            placeholder="add descricao"
                            required>
                 </p>
-            </div><br>
+            </div><br><hr>
             <h2>Imagens</h2>
             <div>
-                <p>Imagens do cabeçalho</p><br>
+                <h4>Imagens do cabeçalho</h4><br>
+                <p>Icon:</p>
                 <div class="upload-area">
-                    <p>Icon:
                     <input type="file"
                            class="fileUpload"
                            id="img_icon"
                            accept="image/*"
-                           hidden></p>
+                           hidden>
                     <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
                 </div>
+                <p>Imagem de fundo:</p>
                 <div class="upload-area">
-                    <p>Imagem de fundo:
                     <input type="file" 
                            class="fileUpload" 
                            id="img_fundo_cabecalho"
                            accept="image/*"
-                           hidden></p>
+                           hidden>
                     <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
                 </div>
             </div>
             <div>
-                <p>Fotos do jogo</p><br>
+                <h4>Fotos do jogo</h4><br>
                 <div class="upload-area">
                     <input type="file" 
                            class="fileUpload" 
@@ -79,7 +79,7 @@
                            hidden>
                     <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
                 </div>
-            </div>
+            </div><br><hr>
             <h2>Arquivo</h2>
             <div>
                 <input type="file" name="arquivo_jogo" id="arquivo_jogo" accept="arquivo">

@@ -79,18 +79,18 @@ label a:hover{
 }
 /* Ícone de olho aberto padrão */
 #senha {
-    background-image: url('imgs/visivel.png');
+    background-image: url('../imgs/visivel.png');
 }
 
 #confirmar {
-    background-image: url('imgs/visivel.png');
+    background-image: url('../imgs/visivel.png');
 }
 /* Ícone de olho fechado quando visível */
 #senha[data-visivel="true"] {
-    background-image: url('imgs/nao_visivel.png');
+    background-image: url('../imgs/nao_visivel.png');
 }
 #confirmar[data-visivel="true"] {
-    background-image: url('imgs/nao_visivel.png');
+    background-image: url('../imgs/nao_visivel.png');
 }
 
 #starts {
