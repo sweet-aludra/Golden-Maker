@@ -165,21 +165,19 @@ footer {
     background-color: var(--black);
     border-top: 10px double var(--cor4);
     color: var(--withe);
+    text-align: center;
+    align-items: center;
+    padding: 20px;
 }
-
-#titulo1 {
-    font-family: 'Press Start 2P', monospace, Arial, sans-serif;
-    font-size: 25px;
-}
-
-h2 {
-    padding: 10px;
+footer img{
+    width: 55px;
+    height: 55px;
+    align-items: end;
 }
 
 h5 {
-    padding: 13px;
-    text-align: center;
     font-family: 'Press Start 2P';
+    color: var(--cor5);
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~ perfil.html ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -347,7 +345,6 @@ section#apresentacao_jogue {
     display: flex;
     align-items: end;
     gap: 20px;
-    font-size: 25px;
     color: var(--withe);
     padding: 10px;
 }
@@ -363,7 +360,7 @@ div#cabecalho_jogue img {
 
 #descricao {
     /* caixa de descriçao do jogo */
-    background-color: var(--cor0);
+    background-color: var(--cor2);
     color: var(--withe);
     font-size: 20px;
     border-radius: 3px;
@@ -371,36 +368,24 @@ div#cabecalho_jogue img {
     border-bottom: 5px double var(--cor5);
     display: flex;
     justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
     width: 50rem;
     padding: 15px;
+    margin: 10px;
 }
-#carrosel_imgs_jogo{
+section#carrosel_imgs_jogo {
     display: flex;
     align-items: center;
-    gap: 10px;
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    overflow-x: auto;
-    scroll-behavior: smooth;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px 10px;
+    font-size: 25px;
 }
-#carrosel_imgs_jogo div{
-    width: 200px;
-    height: 100px;
+div.imagen_jogo{
+    width: 300px;
+    height: 200px;
     background-color: var(--black);
 }
-#carrosel_imgs_jogo::-webkit-scrollbar {
-    height: 2x;
-}
-#carrosel_imgs_jogo::-webkit-scrollbar-thumb {
-    background-color: var(--cor2);
-    border-radius: 2px;
-}
-#carrosel_imgs_jogo::-webkit-scrollbar-thumb:hover {
-    background-color: var(--cor0);
-}
+
 
 #jogue {
     /* quadro onde o jogo vai rodar */

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 :root {
     --cor1: #56396f;
     --cor2: #0d0d55;
@@ -23,6 +25,10 @@ a {
     text-decoration: none;
 }
 
+h4 {
+    font-family: 'Press Start 2P';
+    font-size: 15px;
+}
 #cadastro {
     display: flex;
     justify-content: center;
@@ -30,7 +36,7 @@ a {
     flex-direction: column;
     margin-top: 50px;
     width: 30rem;
-    height: 33rem;
+    height: 36rem;
     font-size: 20px;
     font-weight: bold;
     background-color: #f1ffe7c5;
@@ -137,7 +143,51 @@ label a:hover {
     color: var(--withe);
 }
 
+#faca_login {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+    padding: 0 10px;
+    font-size: 15px;
+    color: var(--withe);
+    background-color: var(--cor1);
+    border-radius: 5px;
+    border: 3px solid var(--black);
+    outline: 2px solid var(--cor1);
+}
+
+#faca_login a {
+    background-color: var(--withe);
+    padding: 5px;
+    border-radius: 5px;
+    border-bottom: 2px solid var(--cor3);
+    color: var(--cor2);
+}
+
 /*~~~~~~~~~~~~~~~~~~~~~~~ login.html ~~~~~~~~~~~~~~~~~~~~~~~*/
+#login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+    width: 30rem;
+    height: 33rem;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #f1ffe7c5;
+    border-radius: 10px;
+    border: 10px solid var(--black);
+    outline: 10px solid var(--cor1);
+}
+
+#login img {
+    width: 100px;
+    height: 100px;
+    filter: drop-shadow(-5px 2px 0 var(--cor5));
+}
+
 #cadastre-se {
     display: flex;
     align-items: center;
