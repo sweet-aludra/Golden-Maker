@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 :root {
     --cor0: #a681c7;
     --cor1: #56396f;
@@ -31,8 +33,8 @@ header {
 }
 
 header img {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
 }
 
@@ -165,12 +167,24 @@ footer {
     color: var(--withe);
 }
 
+#titulo1 {
+    font-family: 'Press Start 2P', monospace, Arial, sans-serif;
+    font-size: 25px;
+}
+
 h2 {
     padding: 10px;
 }
 
+h5 {
+    padding: 13px;
+    text-align: center;
+    font-family: 'Press Start 2P';
+}
+
 /*~~~~~~~~~~~~~~~~~~~~~~ perfil.html ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-#icon { /* div da parte de cima */
+#icon {
+    /* div da parte de cima */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -187,19 +201,22 @@ h2 {
     border-left: 10px solid var(--cor0);
     border-right: 5px solid var(--cor2);
 }
+
 #icon button {
     border: none;
     background-color: var(--withe);
     color: var(--cor1);
     cursor: pointer;
 }
+
 #icon button:hover {
     border-radius: 5px;
     background-color: var(--cor0);
     color: var(--withe);
 }
 
-#configuracao_perfil { /* conteudo principal (main) */
+#configuracao_perfil {
+    /* conteudo principal (main) */
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 50px;
@@ -223,6 +240,7 @@ h2 {
     border-radius: 5px;
     border: 3px solid var(--cor1);
 }
+
 #botao_publicar:hover {
     background-color: var(--cor1);
 }
@@ -248,20 +266,24 @@ form input {
     border: 3px solid var(--cor5);
     color: var(--withe);
 }
+
 #atualizar_nome:hover {
     background-color: var(--cor0);
 }
 
-#nova_senha { /* titulo2 h2 */
+#nova_senha {
+    /* titulo2 h2 */
     text-align: center;
 }
 
-.senha { /* compo div das senhas*/
+.senha {
+    /* compo div das senhas*/
     position: relative;
     width: 300px;
     margin-bottom: 20px;
 }
-.senha input{
+
+.senha input {
     width: 100%;
     padding: 5px 40px 5px 10px;
     font-size: 16px;
@@ -289,6 +311,7 @@ form input {
 #confirmar[data-visivel="true"] {
     background-image: url('../imgs/nao_visivel.png');
 }
+
 /*~~~~~~~*/
 
 #atualizar {
@@ -298,11 +321,17 @@ form input {
     border: 3px solid var(--black);
     outline: 3px solid var(--cor5);
 }
+
 #atualizar:hover {
     background-color: var(--cor0);
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~ jogo.html ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+h3 {
+    font-family: 'Press Start 2P', monospace, Arial, sans-serif;
+    font-size: 15px;
+}
+
 section#apresentacao_jogue {
     /* cabeçalho */
     background-color: var(--black);
@@ -373,27 +402,29 @@ div#cabecalho_jogue img {
     font-size: 20px;
 }
 
-h1, h2, h4 {
+h1,
+h2,
+h4 {
     text-align: center;
 }
 
-#publique_jogo input{
+#publique_jogo input {
     width: 400px;
     height: 20px;
 }
 
 .upload-area {
-  border: 2px dotted var(--withe);
-  border-radius: 12px;
-  padding: 20px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  cursor: pointer;
-  transition: 0.3s;
-  margin-bottom: 20px;
+    border: 2px dotted var(--withe);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 20px;
 }
 
 .upload-area:hover {
-  border-color: var(--black);
+    border-color: var(--black);
 }

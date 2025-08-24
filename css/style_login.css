@@ -1,17 +1,24 @@
-:root{
+:root {
     --cor1: #56396f;
     --cor2: #0d0d55;
     --cor3: #38a8bc;
     --cor4: #bd6c7d;
+    --cor5: #a761d5;
     --withe: #f1ffe7;
     --black: #353535;
+
 }
 
 body {
+    background-image: url(../imgs/salty-justice-NOMebOREvtc-unsplash.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
     background-color: var(--black);
     display: flex;
     justify-content: center;
 }
+
 a {
     text-decoration: none;
 }
@@ -23,40 +30,57 @@ a {
     flex-direction: column;
     margin-top: 50px;
     width: 30rem;
-    height: 30rem;
-    background-color: var(--withe);
+    height: 33rem;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #f1ffe7c5;
     border-radius: 10px;
     border: 10px solid var(--black);
     outline: 10px solid var(--cor1);
 }
-#cadastro img{
+
+#cadastro img {
     width: 100px;
     height: 100px;
-    filter: drop-shadow(-5px 5px 0 var(--cor3));
+    filter: drop-shadow(-5px 2px 0 var(--cor5));
 }
 
 form {
-    color:  var(--cor2);
+    color: var(--cor2);
     align-items: center;
     flex-direction: column;
 }
-#email, .senha, #nick {
-    background-color: var(--withe);
+
+h4 {
+    text-align: center;
+    color: var(--cor2);
+}
+
+#email,
+#senha,
+#nick {
+    background-color: transparent;
     outline: none;
     border: none;
     color: var(--black);
 }
-#email, #nick {
+
+#email,
+#nick,
+#senha {
     border-bottom: 2px solid var(--cor1);
     padding: 0 40px 0 10px;
 }
+
 #aceito {
     cursor: pointer;
 }
-label a{
+
+label a {
     color: var(--cor1);
 }
-label a:hover{
+
+label a:hover {
     color: var(--cor3);
 }
 
@@ -66,9 +90,10 @@ label a:hover{
     width: 300px;
     margin-bottom: 20px;
 }
-.senha input{
+
+.senha input {
     padding: 0 40px 0 10px;
-    background-color: var(--withe);
+    background-color: transparent;
     background-repeat: no-repeat;
     background-position: right 10px center;
     background-size: 20px;
@@ -77,6 +102,7 @@ label a:hover{
     outline: none;
     border-bottom: 2px solid var(--cor1);
 }
+
 /* Ícone de olho aberto padrão */
 #senha {
     background-image: url('../imgs/visivel.png');
@@ -85,26 +111,29 @@ label a:hover{
 #confirmar {
     background-image: url('../imgs/visivel.png');
 }
+
 /* Ícone de olho fechado quando visível */
 #senha[data-visivel="true"] {
     background-image: url('../imgs/nao_visivel.png');
 }
+
 #confirmar[data-visivel="true"] {
     background-image: url('../imgs/nao_visivel.png');
 }
 
 #starts {
     outline: none;
-    border: 3px double var(--cor4);
-    background-color: var(--withe);
-    color: var(--black);
+    border: none;
+    background-color: var(--cor1);
+    color: var(--withe);
     border-radius: 10px;
     width: 100px;
     height: 40px;
     font-size: 15px;
 }
+
 #starts:hover {
-    background-color: var(--cor4);
+    background-color: var(--black);
     color: var(--withe);
 }
 
@@ -115,13 +144,15 @@ label a:hover{
     margin-top: 20px;
     gap: 10px;
     padding: 0 10px;
+    font-size: 15px;
     color: var(--withe);
-    background-color: var(--cor4);
+    background-color: var(--cor1);
     border-radius: 5px;
-    border: 3px solid var(--withe);
+    border: 3px solid var(--black);
     outline: 2px solid var(--cor1);
 }
-#cadastre-se a{
+
+#cadastre-se a {
     background-color: var(--withe);
     padding: 5px;
     border-radius: 5px;
