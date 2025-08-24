@@ -403,7 +403,7 @@ div.imagen_jogo{
     margin-bottom: 50px;
     padding: 10px 0;
     width: 500px;
-    background-color: var(--cor4);
+    background-color: var(--black);
     border: 5px solid var(--withe);
     outline: 5px solid var(--black);
     border-radius: 5px;
@@ -414,6 +414,10 @@ div.imagen_jogo{
     font-size: 20px;
 }
 
+h1 {
+    font-family: 'Press Start 2P', monospace, Arial, sans-serif;
+    font-size: 20px;
+}
 h1,
 h2,
 h4 {
@@ -438,5 +442,16 @@ h4 {
 }
 
 .upload-area:hover {
-    border-color: var(--black);
+    border-color: var(--cor0);
+}
+
+input#publicar_j {
+    background-color: var(--cor0);
+    color: var(--withe);
+    width: 120px;
+    height: 25px;
+    border-radius: 5px;
+}
+input#publicar_j:hover {
+    background-color: var(--cor1);
 }
