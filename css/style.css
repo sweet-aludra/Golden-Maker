@@ -23,6 +23,11 @@ a {
     text-decoration: none;
     color: var(--withe);
 }
+h1 {
+    font-family: 'Press Start 2P', monospace, Arial, sans-serif;
+    font-size: 20px;
+    text-align: center;
+}
 
 header {
     display: flex;
@@ -54,11 +59,12 @@ div#img_fundo {
 div#logo_golden_maker {
     display: flex;
     justify-content: center;
-    align-items: center;
+    margin-top: 50px;
 }
 div#logo_golden_maker img{
     width: 200px;
     height: 200px;
+    filter: drop-shadow(-5px 10px 0 var(--withe));
 }
 
 @media(max-width: 2000px) {
@@ -229,6 +235,7 @@ h5 {
     margin-right: auto;
     margin-bottom: 50px;
     padding: 20px;
+    font-size: 20px;
     width: 500px;
     border-radius: 10px;
     background-color: var(--black);
@@ -245,12 +252,14 @@ h5 {
     margin-right: auto;
     text-align: center;
     width: 100px;
+    padding: 5px;
     border-radius: 5px;
     border: 3px solid var(--cor1);
+    background-color: var(--cor1);
 }
 
 #botao_publicar:hover {
-    background-color: var(--cor1);
+    background-color: var(--cor4);
 }
 
 hr {
@@ -400,14 +409,22 @@ div.imagen_jogo{
 #jogue {
     /* quadro onde o jogo vai rodar */
     background-color: var(--black);
-    width: 70rem;
-    height: 30rem;
+    width: 75rem;
+    height: 40rem;
     margin-left: auto;
     margin-right: auto;
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ publicacao_jogo.html ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-#publique_jogo {
+h2, h4 {
+    font-size: 20px;
+    text-align: center;
+}
+
+#publicacoes {
+    display: flex;
+}
+#publique_jogo, #publique_midia {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 50px;
@@ -422,16 +439,6 @@ div.imagen_jogo{
     flex-direction: column;
     color: var(--withe);
     font-size: 20px;
-}
-
-h1 {
-    font-family: 'Press Start 2P', monospace, Arial, sans-serif;
-    font-size: 20px;
-}
-h1,
-h2,
-h4 {
-    text-align: center;
 }
 
 #publique_jogo input {
