@@ -43,12 +43,22 @@ div#img_fundo {
     display: inline-block;
     width: 200.1vh;
     height: 300px;
+
     background-color: var(--black);
     background-image: url('../imgs/circuito_fundo.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center bottom;
+}
+div#logo_golden_maker {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+div#logo_golden_maker img{
+    width: 200px;
+    height: 200px;
 }
 
 @media(max-width: 2000px) {
