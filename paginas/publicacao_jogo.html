@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="shortcut icon" href="../imgs/Penelope.png" type="image/x-icon">
     <title>Golden Maker&reg_Publicando_jogos</title>
 </head>
+
 <body>
     <header>
         <a href="perfil.html"><img src="../imgs/download.jpeg" alt="perfil"></a>
@@ -17,87 +19,78 @@
 
     <main id="publicacoes">
         <section id="publique_jogo">
-            <br><h1>Publique seu jogo!</h1><br>
+            <br>
+            <h1>Publique seu jogo!</h1><br>
             <form>
                 <div id="descricao_jogo"> <!--campo de nome e descrição do jogo-->
                     <p>Nome do jogo:<br>
-                        <input type="text" 
-                            name="txt_nome_jogo" 
-                            id="nome_jogo"
-                            placeholder="add nome"
-                            required>
+                        <input type="text" name="txt_nome_jogo" id="nome_jogo" placeholder="add nome" required>
                     </p><br>
                     <p>Descrição do jogo:<br>
-                        <input type="text"
-                            name="txt_descricao_jogo" 
-                            id="descricao_jogo"
-                            placeholder="add descricao"
+                        <input type="text" name="txt_descricao_jogo" id="descricao_jogo" placeholder="add descricao"
                             required>
                     </p>
-                </div><br><hr>
+                </div><br>
+                <hr>
                 <h2>Imagens</h2>
                 <div>
                     <h4>Imagens do cabeçalho</h4><br>
                     <p>Icon:</p>
                     <div class="upload-area">
-                        <input type="file"
-                            class="fileUpload"
-                            id="img_icon"
-                            accept="image/*"
-                            hidden>
+                        <input type="file" class="fileUpload" id="img_icon" accept="image/*" hidden required>
                         <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
                     </div>
                     <p>Imagem de fundo:</p>
                     <div class="upload-area">
-                        <input type="file" 
-                            class="fileUpload" 
-                            id="img_fundo_cabecalho"
-                            accept="image/*"
-                            hidden>
+                        <input type="file" class="fileUpload" id="img_fundo_cabecalho" accept="image/*" hidden>
                         <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
                     </div>
                 </div>
                 <div>
                     <h4>Fotos do jogo</h4><br>
                     <div class="upload-area">
-                        <input type="file" 
-                            class="fileUpload" 
-                            accept="image/*"
-                            hidden>
+                        <input type="file" class="fileUpload" accept="image/*" hidden>
                         <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
                     </div>
                     <div class="upload-area">
-                        <input type="file" 
-                            class="fileUpload" 
-                            accept="image/*"
-                            hidden>
+                        <input type="file" class="fileUpload" accept="image/*" hidden>
                         <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
                     </div>
                     <div class="upload-area">
-                        <input type="file" 
-                            class="fileUpload" 
-                            accept="image/*"
-                            hidden>
+                        <input type="file" class="fileUpload" accept="image/*" hidden>
                         <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
                     </div>
-                </div><br><hr>
-                <h2>Arquivo</h2><br>
-                <div>
-                    <input type="file" name="arquivo_jogo" id="arquivo_jogo" accept="arquivo">
                 </div><br>
-                <input type="submit" 
-                    value="Publicar" 
-                    id="publicar_j">
+                <hr>
+                <h2>Arquivo</h2><br>
+                <div><!-- arquivos do jogo que serão publicado -->
+                    <input type="file" name="arquivo_jogo" id="arquivo_jogo" accept="arquivo" required>
+                </div><br>
+                <!--publicar Jogo-->
+                <input type="submit" value="Publicar" id="publicar_j">
             </form>
         </section><br>
 
         <section id="publique_midia">
-            <br><h1>Publique Video/Foto!</h1><br>
+            <br>
+            <h1>Publique Video/Foto!</h1><br>
             <form>
                 <h2>Arquivo</h2><br>
-                <div>
-                    <input type="file" name="arquivo_jogo" id="arquivo_jogo" accept="arquivo">
-                </div><br>
+                <div id="midia">
+                    <div class="upload-area">
+                        <!-- foto/video que vai ser publicado (!input so aceitando foto por enquanto)-->
+                        <input type="file" class="fileUpload" accept="image/*" hidden required>
+                        <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
+                    </div><br>
+                    <div id="descricao_midia"> <!--campo de descrição da midia-->
+                        <p>Descrição da img/video:<br>
+                            <input type="text" name="txt_descricao_jogo" id="descricao_jogo" placeholder="add descricao"
+                                required>
+                        </p>
+                    </div><br>
+                </div>
+                <!--input para publicar-->
+                <input type="submit" value="Publicar" id="publicar_m"><br><!--publicar midia(video/foto)-->
             </form>
         </section>
     </main>
@@ -111,26 +104,27 @@
     <script>
         // Seleciona todas as áreas de upload
         document.querySelectorAll(".upload-area").forEach(area => {
-        const fileInput = area.querySelector(".fileUpload");
-        const preview = area.querySelector(".preview");
+            const fileInput = area.querySelector(".fileUpload");
+            const preview = area.querySelector(".preview");
 
-        // Clique na área abre o seletor de arquivo
-        area.addEventListener("click", () => fileInput.click());
+            // Clique na área abre o seletor de arquivo
+            area.addEventListener("click", () => fileInput.click());
 
-        // Preview da imagem escolhida
-        fileInput.addEventListener("change", () => {
-            const file = fileInput.files[0];
-            if (file && file.type.startsWith("image/")) {
-            const reader = new FileReader();
-            reader.onload = e => {
-                preview.src = e.target.result;
-                preview.style.display = "block";
-            };
-            reader.readAsDataURL(file);
-            }
-        });
+            // Preview da imagem escolhida
+            fileInput.addEventListener("change", () => {
+                const file = fileInput.files[0];
+                if (file && file.type.startsWith("image/")) {
+                    const reader = new FileReader();
+                    reader.onload = e => {
+                        preview.src = e.target.result;
+                        preview.style.display = "block";
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
         });
 
     </script>
 </body>
+
 </html>
