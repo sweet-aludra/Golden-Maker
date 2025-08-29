@@ -17,6 +17,7 @@
 
 body {
     background-color: var(--withe);
+    font-family: sans-serif;
 }
 
 a {
@@ -48,7 +49,7 @@ header img {
 div#img_fundo {
     display: inline-block;
     width: 200.1vh;
-    height: 300px;
+    height: 70px;
 
     background-color: var(--black);
     background-image: url('../imgs/circuito_fundo.jpg');
@@ -61,13 +62,13 @@ div#img_fundo {
 div#logo_golden_maker {
     display: flex;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 div#logo_golden_maker img {
-    width: 200px;
-    height: 200px;
-    filter: drop-shadow(-5px 5px 0 var(--withe));
+    width: 250px;
+    height: 250px;
+    filter: drop-shadow(-5px 5px 0 var(--black));
 }
 
 @media(max-width: 2000px) {
@@ -281,7 +282,20 @@ form input {
 }
 
 
+.nome input {
+    width: 100%;
+    padding: 5px 40px 5px 10px;
+    font-size: 16px;
+    border-radius: 4px;
+}
+#nick {
+    width: 200px;
+    height: 25px;
+}
+
+/*~~~~atualiza nome~~~~~*/
 #atualizar_nome {
+    width: 90px;
     align-items: center;
     background-color: var(--black);
     border: 3px solid var(--cor5);
@@ -292,6 +306,7 @@ form input {
     background-color: var(--cor0);
 }
 
+/*~~~~~~~~~~~nova senha~~~~~~~*/
 #nova_senha {
     /* titulo2 h2 */
     text-align: center;
@@ -333,7 +348,7 @@ form input {
     background-image: url('../imgs/nao_visivel.png');
 }
 
-/*~~~~~~~*/
+/*~~~~atualiza senha~~~*/
 
 #atualizar {
     width: 90px;
@@ -355,47 +370,42 @@ h3 {
 
 section#apresentacao_jogue {
     /* cabeçalho */
-    background-color: var(--black);
-    background-image: url(../imgs/circuito_fundo.jpg);
-    background-size: cover;
     display: flex;
-    flex-direction: column;
     justify-content: center;
 }
 
 #cabecalho_jogue {
     /* parte do topo (icone + nome do jogo*/
-    display: flex;
-    align-items: end;
-    gap: 20px;
-    color: var(--withe);
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: var(--black);
     padding: 10px;
 }
 
 div#cabecalho_jogue img {
-    /* icone do jogo */
-    width: 200px;
+    /* capa do jogo */
+    width: 300px;
     height: 200px;
     border-radius: 5px;
-    border-right: 5px double var(--cor3);
+    border-right: 5px double var(--cor1);
     border-bottom: 5px double var(--cor1);
 }
 
 #descricao {
     /* caixa de descriçao do jogo */
-    background-color: var(--cor2);
+    background-color: var(--black);
     color: var(--withe);
     font-size: 20px;
     border-radius: 3px;
-    border-left: 5px double var(--cor5);
     border-bottom: 5px double var(--cor5);
-    display: flex;
-    justify-content: center;
     width: 50rem;
     padding: 15px;
-    margin: 10px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
+/* corresel das imgs do jogo */
 section#carrosel_imgs_jogo {
     display: flex;
     align-items: center;
@@ -411,7 +421,7 @@ div.imagen_jogo {
     background-color: var(--black);
 }
 
-
+/* parte principal(onde o jogo vai rodar) */
 #jogue {
     /* quadro onde o jogo vai rodar */
     background-color: var(--black);
@@ -419,6 +429,39 @@ div.imagen_jogo {
     height: 40rem;
     margin-left: auto;
     margin-right: auto;
+}
+
+/* area do grupo que desenvolveu o jogo */
+#grupo_desenvolvedor {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+}
+.integrante img{
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+}
+
+/* area de enviar comentarios */
+div#comentar {
+    display: flex;
+    justify-content: center;
+}
+.comentar input{
+    width: 100%;
+    padding: 5px 40px 5px 10px;
+    font-size: 16px;
+    border-radius: 4px;
+}
+#txt_comentario {
+    border: 2px solid var(--cor0);
+}
+/*envia comentario*/
+#enviar_comentario {
+    background-color: var(--cor1);
+    color: var(--withe);
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ publicacao_jogo.html ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
