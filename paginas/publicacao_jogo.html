@@ -26,23 +26,16 @@
                     <p>Nome do jogo:<br>
                         <input type="text" name="txt_nome_jogo" id="nome_jogo" placeholder="add nome" required>
                     </p><br>
-                    <p>Descrição do jogo:<br>
-                        <input type="text" name="txt_descricao_jogo" id="descricao_jogo" placeholder="add descricao"
-                            required>
-                    </p>
-                </div><br>
-                <hr>
+                    <label for="descricao_j">Descrição do jogo:</label><br>
+                    <textarea id="descricao_j" name="descricao_j" rows="6" cols="40" required></textarea>
+                </div><br><hr><br>
+
                 <h2>Imagens</h2>
                 <div>
                     <h4>Imagens do cabeçalho</h4><br>
-                    <p>Icon:</p>
+                    <p>Capa:</p>
                     <div class="upload-area">
-                        <input type="file" class="fileUpload" id="img_icon" accept="image/*" hidden required>
-                        <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
-                    </div>
-                    <p>Imagem de fundo:</p>
-                    <div class="upload-area">
-                        <input type="file" class="fileUpload" id="img_fundo_cabecalho" accept="image/*" hidden>
+                        <input type="file" class="fileUpload" id="img_capa" accept="image/*" hidden required>
                         <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
                     </div>
                 </div>
@@ -60,8 +53,8 @@
                         <input type="file" class="fileUpload" accept="image/*" hidden>
                         <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
                     </div>
-                </div><br>
-                <hr>
+                </div><br><hr><br>
+
                 <h2>Arquivo</h2><br>
                 <div><!-- arquivos do jogo que serão publicado -->
                     <input type="file" name="arquivo_jogo" id="arquivo_jogo" accept="arquivo" required>
@@ -83,10 +76,8 @@
                         <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
                     </div><br>
                     <div id="descricao_midia"> <!--campo de descrição da midia-->
-                        <p>Descrição da img/video:<br>
-                            <input type="text" name="txt_descricao_jogo" id="descricao_jogo" placeholder="add descricao"
-                                required>
-                        </p>
+                        <label for="descricao_m">Descrição da img/video:</label><br>
+                        <textarea id="descricao_m" name="descricao_m" rows="6" cols="40"></textarea>
                     </div><br>
                 </div>
                 <!--input para publicar-->

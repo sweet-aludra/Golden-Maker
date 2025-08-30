@@ -59,7 +59,7 @@ div#img_fundo {
     background-position: center bottom;
 }
 
-div#logo_golden_maker {
+/*div#logo_golden_maker {
     display: flex;
     justify-content: center;
     margin-top: 20px;
@@ -81,7 +81,7 @@ div#logo_golden_maker img {
     div#img_fundo {
         height: 200px;
     }
-}
+}*/
 
 /*~~~~~~~ apresentacao ~~~~~~~~~~*/
 section#apresentacao {
@@ -98,20 +98,24 @@ section#apresentacao {
 }
 
 section#apresentacao img {
-    height: 500px;
-    width: 500px;
+    width: 300px;
+    height: 300px;
+    margin-left: 50px;
+    /*height: 500px;
+    width: 500px;*/
 }
 
 #txt {
     display: flex;
     align-items: center;
     flex-direction: column;
+    padding: 30px;
 }
 
 .texto_apresentacao {
     line-height: 1.6;
     text-align: justify;
-    padding: 0px 150px;
+    padding: 0 50px;
 }
 
 @media(max-width: 800px) {
@@ -281,7 +285,7 @@ form input {
     background-color: var(--withe);
 }
 
-
+/*~~~~~~~~~~ novo nome ~~~~~~~*/
 .nome input {
     width: 100%;
     padding: 5px 40px 5px 10px;
@@ -445,24 +449,26 @@ div.imagen_jogo {
 }
 
 /* area de enviar comentarios */
-div#comentar {
+/*div#comentar {
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
 }
 .comentar input{
     width: 100%;
     padding: 5px 40px 5px 10px;
     font-size: 16px;
     border-radius: 4px;
-}
-#txt_comentario {
     border: 2px solid var(--cor0);
 }
-/*envia comentario*/
+/*envia comentario 
 #enviar_comentario {
+    width: 90px;
     background-color: var(--cor1);
     color: var(--withe);
-}
+}*/
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ publicacao_jogo.html ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 h2,
@@ -498,6 +504,17 @@ h4 {
     height: 20px;
 }
 
+textarea#descricao_j {
+    max-width: 400px;
+    max-height: 100px;
+    font-size: 15px;
+    background-color: var(--withe);
+    outline: none;
+    border: 3px solid var(--cor1);
+    border-radius: 3px 20px 3px 3px;
+}
+
+/* area das imgs */
 .upload-area {
     border: 2px dotted var(--withe);
     border-radius: 12px;
@@ -508,6 +525,7 @@ h4 {
     cursor: pointer;
     transition: 0.3s;
     margin-bottom: 20px;
+    max-height: 200px;
 }
 
 .upload-area:hover {
@@ -556,6 +574,17 @@ input#publicar_j:hover {
     height: 30px;
 }
 
+textarea#descricao_m {
+    max-width: 400px;
+    max-height: 100px;
+    font-size: 15px;
+    background-color: var(--withe);
+    outline: none;
+    border: 3px solid var(--cor1);
+    border-radius: 3px 20px 3px 3px;
+}
+
+/* publica midia */
 input#publicar_m {
     background-color: var(--cor0);
     color: var(--withe);
