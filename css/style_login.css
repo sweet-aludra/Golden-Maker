@@ -5,7 +5,7 @@
     --cor2: #0d0d55;
     --cor3: #38a8bc;
     --cor4: #bd6c7d;
-    --cor5: #a761d5;
+    --cor5: #bfb5db;
     --withe: #f1ffe7;
     --black: #353535;
 
@@ -29,17 +29,19 @@ h4 {
     font-family: 'Press Start 2P';
     font-size: 15px;
 }
+
 #cadastro {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    text-align: center;
     margin-top: 50px;
-    width: 30rem;
-    height: 36rem;
+    width: 35rem;
+    height: 48rem;
     font-size: 20px;
     font-weight: bold;
-    background-color: #f1ffe7c5;
+    background-color: var(--withe);
     border-radius: 10px;
     border: 10px solid var(--black);
     outline: 10px solid var(--cor1);
@@ -51,10 +53,12 @@ h4 {
     filter: drop-shadow(-5px 2px 0 var(--cor5));
 }
 
-form {
+#formulario_cadastro {
     color: var(--cor2);
-    align-items: center;
     flex-direction: column;
+    display: flex;
+    justify-content: center;
+    text-align: start;
 }
 
 h4 {
@@ -63,19 +67,17 @@ h4 {
 }
 
 #email,
-#senha,
-#nick {
-    background-color: transparent;
-    outline: none;
-    border: none;
-    color: var(--black);
-}
-
-#email,
 #nick,
-#senha {
-    border-bottom: 2px solid var(--cor1);
-    padding: 0 40px 0 10px;
+#senha,
+#confirmar {
+    border: none;
+    background-color: var(--cor5);
+    outline: none;
+    color: var(--black);
+    height: 30px;
+    width: 20rem;
+    border-radius: 3px 5px;
+    font-size: 15px;
 }
 
 #aceito {
@@ -93,8 +95,6 @@ label a:hover {
 /*~~~~~~~~~ configuracao olho ~~~~~~~~~*/
 .senha {
     position: relative;
-    width: 300px;
-    margin-bottom: 20px;
 }
 
 .senha input {
@@ -127,7 +127,10 @@ label a:hover {
     background-image: url('../imgs/nao_visivel.png');
 }
 
+/*~~~~~~*/
 #starts {
+    margin-left: auto;
+    margin-right: auto;
     outline: none;
     border: none;
     background-color: var(--cor1);
@@ -143,6 +146,7 @@ label a:hover {
     color: var(--withe);
 }
 
+/*~~~~~~~*/
 #faca_login {
     display: flex;
     align-items: center;
@@ -172,11 +176,11 @@ label a:hover {
     align-items: center;
     flex-direction: column;
     margin-top: 50px;
-    width: 30rem;
-    height: 33rem;
+    width: 35rem;
+    height: 35rem;
     font-size: 20px;
     font-weight: bold;
-    background-color: #f1ffe7c5;
+    background-color: var(--withe);
     border-radius: 10px;
     border: 10px solid var(--black);
     outline: 10px solid var(--cor1);
@@ -186,6 +190,14 @@ label a:hover {
     width: 100px;
     height: 100px;
     filter: drop-shadow(-5px 2px 0 var(--cor5));
+}
+
+#formulario_login {
+    color: var(--cor2);
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    text-align: start;
 }
 
 #cadastre-se {
