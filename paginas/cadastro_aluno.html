@@ -6,11 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style_login.css">
     <link rel="shortcut icon" href="../imgs/Penelope.png" type="image/x-icon">
-    <title>Golden Maker&reg_Cadastro</title>
+    <title>Golden Maker&reg_Login</title>
 </head>
 
 <body>
-    <main id="cadastro">
+
+    <main id="login" class="mostrar">
+        <img src="../imgs/Penelope.png" alt="logo">
+        <form id="formulario_login">
+            <h4>Login!</h4>
+            <p>Email:
+                <input type="text" id="email" placeholder="goldenmaker@gmail.com" required>
+            </p>
+            <div class="senha">
+                <p>Senha:
+                    <input type="password" name="nova_senha" id="senha" onclick="alternarSenha(this)"
+                        data-visivel="false" required>
+                </p>
+            </div>
+            <input type="submit" value="Starts" class="starts">
+        </form><br>
+
+        <div id="cadastre-se">
+            <p>Ainda não tem conta?</p>
+            <button id="btnCadastro">Cadastre-se</button>
+        </div>
+    </main>
+
+    <main id="cadastro" class="hidden">
         <img src="../imgs/Penelope.png" alt="logo">
         <form id="formulario_cadastro">
             <h4>Cadastre-se!</h4>
@@ -37,16 +60,36 @@
                 <label for="aceito">Aceito os <b><a href="#">termos de uso</a></b></label>
             </div><br>
 
-            <input type="submit" value="Starts" id="starts">
-        </form>
+            <input type="submit" value="Starts" class="starts">
+        </form><br>
 
-        <div id="faca_login">
+        <div class="faca_login">
             <p>Já possui uma conta?</p>
-            <a href="login.html">Login</a>
+            <button id="btnLogin">Login</button>
         </div>
     </main>
 
     <script>
+        const login = document.getElementById("login");
+        const cadastro = document.getElementById("cadastro");
+        const btnCadastro = document.getElementById("btnCadastro");
+        const btnLogin = document.getElementById("btnLogin");
+
+        btnCadastro.addEventListener("click", () => {
+            login.classList.remove("mostrar");
+            login.classList.add("hidden");
+            cadastro.classList.remove("hidden");
+            cadastro.classList.add("mostrar");
+        });
+
+        btnLogin.addEventListener("click", () => {
+            cadastro.classList.remove("mostrar");
+            cadastro.classList.add("hidden");
+            login.classList.remove("hidden");
+            login.classList.add("mostrar");
+        });
+
+        //funçao para alterar input de senha
         function alternarSenha(input) {
             // Pega a posição atual do cursor
             const start = input.selectionStart;

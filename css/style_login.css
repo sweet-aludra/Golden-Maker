@@ -14,11 +14,11 @@
 body {
     background-image: url(../imgs/salty-justice-NOMebOREvtc-unsplash.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
+    background-size: 100%;
+    background-position: center top;
     background-color: var(--black);
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
 }
 
 a {
@@ -36,10 +36,10 @@ h4 {
     align-items: center;
     flex-direction: column;
     text-align: center;
-    margin-top: 50px;
     width: 35rem;
     height: 48rem;
     font-size: 20px;
+    margin: 55px;
     font-weight: bold;
     background-color: var(--withe);
     border-radius: 10px;
@@ -53,7 +53,7 @@ h4 {
     filter: drop-shadow(-5px 2px 0 var(--cor5));
 }
 
-#formulario_cadastro {
+#formulario_cadastro/*, #formulario_cadastro_publicador*/ {
     color: var(--cor2);
     flex-direction: column;
     display: flex;
@@ -80,7 +80,7 @@ h4 {
     font-size: 15px;
 }
 
-#aceito {
+#aceito, #aceito_p {
     cursor: pointer;
 }
 
@@ -110,11 +110,11 @@ label a:hover {
 }
 
 /* Ícone de olho aberto padrão */
-#senha {
+#senha, #senha_p {
     background-image: url('../imgs/visivel.png');
 }
 
-#confirmar {
+#confirmar, #confirmar_p {
     background-image: url('../imgs/visivel.png');
 }
 
@@ -126,9 +126,17 @@ label a:hover {
 #confirmar[data-visivel="true"] {
     background-image: url('../imgs/nao_visivel.png');
 }
+/*~~~~**/
+#senha_p[data-visivel="true"] {
+    background-image: url('../imgs/nao_visivel.png');
+}
+
+#confirmar_p[data-visivel="true"] {
+    background-image: url('../imgs/nao_visivel.png');
+}
 
 /*~~~~~~*/
-#starts {
+.starts {
     margin-left: auto;
     margin-right: auto;
     outline: none;
@@ -141,16 +149,15 @@ label a:hover {
     font-size: 15px;
 }
 
-#starts:hover {
+.starts:hover {
     background-color: var(--black);
     color: var(--withe);
 }
 
 /*~~~~~~~*/
-#faca_login {
+.faca_login {
     display: flex;
     align-items: center;
-    margin-top: 20px;
     gap: 10px;
     padding: 0 10px;
     font-size: 15px;
@@ -161,7 +168,9 @@ label a:hover {
     outline: 2px solid var(--cor1);
 }
 
-#faca_login a {
+.faca_login button {
+    outline: none;
+    border: none;
     background-color: var(--withe);
     padding: 5px;
     border-radius: 5px;
@@ -169,13 +178,77 @@ label a:hover {
     color: var(--cor2);
 }
 
-/*~~~~~~~~~~~~~~~~~~~~~~~ login.html ~~~~~~~~~~~~~~~~~~~~~~~*/
-#login {
+/*~~~~~~~~~~~~~~~*/
+main {
+  display: flex; /* mantém o layout */
+  flex-direction: column;
+  align-items: center;
+  transition: opacity 0.5s ease, visibility 0.5s;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute; /* evita ocupar espaço */
+}
+
+.mostrar {
+  opacity: 1;
+  visibility: visible;
+  position: static;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~ cadastro publi ~~~~~~~~~~~~~~~~~~~~~~~~*/
+#cadastro_publicador {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 50px;
+    text-align: center;
+    width: 35rem;
+    height: 50rem;
+    font-size: 20px;
+    margin: 55px;
+    font-weight: bold;
+    background-color: var(--withe);
+    border-radius: 10px;
+    border: 10px solid var(--black);
+    outline: 10px solid var(--cor1);
+}
+#cadastro_publicador img {
+    width: 100px;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    filter: drop-shadow(-5px 2px 0 var(--cor5));
+}
+#formulario_cadastro_publicador {
+    color: var(--cor2);
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    text-align: start;
+}
+#email_p,
+#nick_p,
+#senha_p,
+#confirmar_p,
+#nome {
+    border: none;
+    background-color: var(--cor5);
+    outline: none;
+    color: var(--black);
+    height: 30px;
+    width: 20rem;
+    border-radius: 3px 5px;
+    font-size: 15px;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~ login.html ~~~~~~~~~~~~~~~~~~~~~~~*/
+#login {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     width: 35rem;
     height: 35rem;
     font-size: 20px;
@@ -184,11 +257,18 @@ label a:hover {
     border-radius: 10px;
     border: 10px solid var(--black);
     outline: 10px solid var(--cor1);
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #login img {
     width: 100px;
     height: 100px;
+    margin-left: auto;
+    margin-right: auto;
     filter: drop-shadow(-5px 2px 0 var(--cor5));
 }
 
@@ -200,10 +280,10 @@ label a:hover {
     text-align: start;
 }
 
+/*~~~~*/
 #cadastre-se {
     display: flex;
     align-items: center;
-    margin-top: 20px;
     gap: 10px;
     padding: 0 10px;
     font-size: 15px;
@@ -214,10 +294,51 @@ label a:hover {
     outline: 2px solid var(--cor1);
 }
 
-#cadastre-se a {
+#cadastre-se button {
+    outline: none;
+    border: none;
     background-color: var(--withe);
     padding: 5px;
     border-radius: 5px;
     border-bottom: 2px solid var(--cor3);
     color: var(--cor2);
+}
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ tipo conta ~~~~~~~~~~~~~~~~~~~~~*/
+#tipo_conta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    text-align: center;
+    width: 35rem;
+    height: 15rem;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: var(--withe);
+    border-radius: 10px;
+    border: 10px solid var(--black);
+    outline: 10px solid var(--cor1);
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+#tipo_conta img {
+    width: 100px;
+    height: 100px;
+    filter: drop-shadow(-5px 2px 0 var(--cor5));
+}
+
+.entrada {
+    background-color: var(--cor1);
+    width: 250px;
+    height: 35px;
+    border-radius: 5px;
+    color: var(--withe);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
