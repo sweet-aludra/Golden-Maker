@@ -98,7 +98,7 @@
     </section><br>
 
     <section>
-        <h1>Galeria</h1><br>
+        <!--<h1>Galeria</h1><br>-->
     </section>
 
     <footer id="roda_pe">
@@ -106,7 +106,38 @@
         <h5>adventure starts here</h5><br>
         <p>Acompanhe nossa <a href="#"><span style="color: #a681c7; cursor: pointer;">empresa</span></a>!</p>
     </footer>
-    <script src="01.js"></script>
+    <script>
+        document.querySelectorAll(".carrosel_jogos").forEach(carrosel => {
+            const slides = carrosel.querySelector(".slides");
+            const itens = slides.querySelectorAll("a"); // pega os <a>, não só os divs
+            const prev = carrosel.querySelector(".prev");
+            const next = carrosel.querySelector(".next");
+
+            let index = 0;
+
+            function updateCarousel() {
+                const itemWidth = itens[0].offsetWidth + 20; // largura + gap
+                slides.style.transform = `translateX(${-index * itemWidth}px)`;
+            }
+
+            prev.addEventListener("click", () => {
+                index--;
+                if (index < 0) {
+                index = itens.length - 1; // volta para o último
+                }
+                updateCarousel();
+            });
+
+            next.addEventListener("click", () => {
+                index++;
+                if (index >= itens.length) {
+                index = 0; // volta para o primeiro
+                }
+                updateCarousel();
+            });
+        });
+
+    </script>
 </body>
 
 </html>

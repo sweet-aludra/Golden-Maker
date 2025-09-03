@@ -31,12 +31,18 @@
                 maiores consequatur. Autem.</p>
         </section><br>
 
-        <section id="carrosel_imgs_jogo">
-            <div class="imagen_jogo"></div>
-            <div class="imagen_jogo"></div>
-            <div class="imagen_jogo"></div>
-            <div class="imagen_jogo"></div>
-        </section><br><hr><br>
+        <section id="galeria_jogo">
+            <button class="ctrl prev">&#10094;</button>
+            <div class="faixa_slides">
+                <div class="img_jogo"></div>
+                <div class="img_jogo"></div>
+                <div class="img_jogo"></div>
+                <div class="img_jogo"></div>
+            </div>
+            <button class="ctrl next">&#10095;</button>
+        </section>
+        <br><hr><br>
+
 
         <article id="jogue">
             <!--onde o jogo vai aparecer-->
@@ -80,6 +86,40 @@
         <h5>adventure starts here</h5><br>
         <p>Acompanhe nossa <a href="#"><span style="color: #a681c7; cursor: pointer;">empresa</span></a>!</p>
     </footer>
+
+    <script>
+        //carrosel de imagens
+        document.querySelectorAll("#galeria_jogo").forEach(galeria => {
+            const faixa = galeria.querySelector(".faixa_slides");
+            const itens = faixa.querySelectorAll(".img_jogo");
+            const prev = galeria.querySelector(".prev");
+            const next = galeria.querySelector(".next");
+
+            let index = 0;
+
+            function atualizarGaleria() {
+                const itemWidth = itens[0].offsetWidth + 20; // largura + gap
+                faixa.style.transform = `translateX(${-index * itemWidth}px)`;
+            }
+
+            prev.addEventListener("click", () => {
+                index--;
+                if (index < 0) {
+                index = itens.length - 1; // volta pro último
+                }
+                atualizarGaleria();
+            });
+
+            next.addEventListener("click", () => {
+                index++;
+                if (index >= itens.length) {
+                index = 0; // volta pro primeiro
+                }
+                atualizarGaleria();
+            });
+        });
+
+    </script>
 </body>
 
 </html>
