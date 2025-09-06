@@ -13,7 +13,8 @@
     <header>
         <a href="perfil.html"><img src="../imgs/download.jpeg" alt="perfil"></a>
         <div>
-            <a href="../index.html"><img src="../imgs/Penelope.png" alt="logo_golden_maker"></a>
+            <a href="../index.html"><img src="../imgs/Penelope.png" alt="logo_golden_maker"
+                    class="penelope_img_header"></a>
         </div>
     </header>
 
@@ -21,12 +22,14 @@
         <section id="apresentacao_jogue">
             <div id="cabecalho_jogue">
                 <img src="../imgs/download.jpeg" alt="capa do jogo"><!--capa que vai aparecer no carrosel do index-->
-                <br><br><h3>Nome Jogo</h3>
+                <br><br>
+                <h3>Nome Jogo</h3>
             </div>
         </section><br>
 
         <section id="descricao"><!--carrosel de img/video do jogo-->
-            <p>descrição do jogo<br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora esse autem odit amet, est
+            <p>descrição do jogo<br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora esse autem odit
+                amet, est
                 enim voluptatum quia sint placeat ratione<br>adipisci voluptate laudantium deleniti, ea fugit eligendi
                 maiores consequatur. Autem.</p>
         </section><br>
@@ -41,12 +44,14 @@
             </div>
             <button class="ctrl next">&#10095;</button>
         </section>
-        <br><hr><br>
+        <br>
+        <hr><br>
 
 
         <article id="jogue">
             <!--onde o jogo vai aparecer-->
-        </article><br><hr><br>
+        </article><br>
+        <hr><br>
 
         <section id="grupo_desenvolvedor"><!--area dos integrantes do projeto-->
             <div class="integrante">
@@ -65,7 +70,8 @@
                 <img src="../imgs/download.jpeg" alt="foto de desenvolvedor"><br>
                 <p>Nome integrante</p>
             </div>
-        </section><br><hr><br>
+        </section><br>
+        <hr><br>
 
         <!--<section> parte dos comentarios
             <div id="comentar">
@@ -105,7 +111,7 @@
             prev.addEventListener("click", () => {
                 index--;
                 if (index < 0) {
-                index = itens.length - 1; // volta pro último
+                    index = itens.length - 1; // volta pro último
                 }
                 atualizarGaleria();
             });
@@ -113,7 +119,7 @@
             next.addEventListener("click", () => {
                 index++;
                 if (index >= itens.length) {
-                index = 0; // volta pro primeiro
+                    index = 0; // volta pro primeiro
                 }
                 atualizarGaleria();
             });

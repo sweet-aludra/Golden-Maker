@@ -13,7 +13,8 @@
     <header>
         <img src="../imgs/download.jpeg" alt="perfil">
         <div>
-            <a href="../index.html"><img src="../imgs/Penelope.png" alt="logo_golden_maker"></a>
+            <a href="../index.html"><img src="../imgs/Penelope.png" alt="logo_golden_maker"
+                    class="penelope_img_header"></a>
         </div>
     </header><br>
 
@@ -26,47 +27,34 @@
     <main id="configuracao_perfil">
         <section>
             <div></div>
-            <p id="botao_publicar"><a href="publicacao_jogo.html">+ Publicar</a></p> <!--ir para a area de publicaçao dos jogos-->
+            <p id="botao_publicar"><a href="publicacao_jogo.html">+ Publicar</a></p>
+            <!--ir para a area de publicaçao dos jogos-->
         </section><br>
         <section>
             <form id="campo_novo_nome">
                 <div class="nome">
                     <p>Novo nick:
-                        <input type="text"
-                            name="novo_nick" 
-                            id="nick" 
-                            placeholder="@pelelope" 
-                            required> <!--campo para alterar o nome da conta-->
-                        <input type="submit" 
-                        value="Atualizar" 
-                        id="atualizar_nome">
+                        <input type="text" name="novo_nick" id="nick" placeholder="@pelelope" required>
+                        <!--campo para alterar o nome da conta-->
+                        <input type="submit" value="Atualizar" id="atualizar_nome">
                     </p>
                 </div>
-                <br><hr><br>
+                <br>
+                <hr><br>
             </form>
 
             <form id="campo_nova_senha">
                 <h3 id="nova_senha">Nova Senha:</h3><br>
                 <div class="senha"> <!--campo para alterar a senha da conta-->
                     <p>Senha:
-                        <input type="password" 
-                               name="nova_senha" 
-                               id="senha" 
-                               onclick="alternarSenha(this)"
-                               data-visivel="false" 
-                               required>
+                        <input type="password" name="nova_senha" id="senha" onclick="alternarSenha(this)"
+                            data-visivel="false" required>
                     </p><br>
                     <p>Confirme a senha:
-                        <input type="password" 
-                               name="nova_senha" 
-                               id="confirmar" 
-                               onclick="alternarSenha(this)"
-                               data-visivel="false" 
-                               required>
+                        <input type="password" name="nova_senha" id="confirmar" onclick="alternarSenha(this)"
+                            data-visivel="false" required>
                     </p><br>
-                    <input type="submit" 
-                           value="Atualizar" 
-                           id="atualizar">
+                    <input type="submit" value="Atualizar" id="atualizar">
                 </div>
             </form>
         </section>
@@ -77,7 +65,7 @@
         <h5>adventure starts here</h5><br>
         <p>Acompanhe nossa <a href="#"><span style="color: #a681c7; cursor: pointer;">empresa</span></a>!</p>
     </footer>
-    
+
     <script>
         function alternarSenha(input) {
             // Pega a posição atual do cursor

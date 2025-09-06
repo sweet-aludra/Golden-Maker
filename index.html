@@ -13,7 +13,7 @@
     <header>
         <a href="paginas/perfil.html"><img src="imgs/download.jpeg" alt="perfil"></a>
         <div>
-            <img src="imgs/Penelope.png" alt="logo_golden_maker">
+            <img src="imgs/Penelope.png" alt="logo_golden_maker" class="penelope_img_header">
         </div>
     </header>
 
@@ -24,7 +24,6 @@
     </div><br>
 
     <section id="apresentacao">
-        <img src="imgs/Logo_gm.png" alt="Logo Golden Maker">
         <div id="txt">
             <h1 id="titulo1">Hello Gamer!</h1><br>
             <div class="texto_apresentacao">
@@ -35,8 +34,9 @@
                     inovadoras e divertidas.</p>
                 <p>Nosso objetivo é proporcionar um ambiente que incentive a originalidade, fortaleça a presença dos
                     produtores independentes no mercado e valorize o impacto cultural de suas obras.</p>
-            </div><br>
+            </div>
         </div>
+        <img src="imgs/Logo_gm.png" alt="Logo Golden Maker"><br>
         <!--<img src="imgs/Cyber_bunny-removebg-preview.png" alt="penelope">-->
     </section>
 
@@ -57,10 +57,18 @@
                 <div class="carrosel_jogos">
                     <button class="btn prev">&#10094;</button>
                     <div class="slides">
-                        <a href="paginas/jogo.html"><div class="jogo"></div></a>
-                        <a href="paginas/jogo.html"><div class="jogo"></div></a>
-                        <a href="paginas/jogo.html"><div class="jogo"></div></a>
-                        <a href="paginas/jogo.html"><div class="jogo"></div></a>
+                        <a href="paginas/jogo.html">
+                            <div class="jogo"></div>
+                        </a>
+                        <a href="paginas/jogo.html">
+                            <div class="jogo"></div>
+                        </a>
+                        <a href="paginas/jogo.html">
+                            <div class="jogo"></div>
+                        </a>
+                        <a href="paginas/jogo.html">
+                            <div class="jogo"></div>
+                        </a>
                     </div>
                     <button class="btn next">&#10095;</button>
                 </div>
@@ -71,10 +79,18 @@
                 <div class="carrosel_jogos">
                     <button class="btn prev">&#10094;</button>
                     <div class="slides">
-                        <a href="paginas/jogo.html"><div class="jogo"></div></a>
-                        <a href="paginas/jogo.html"><div class="jogo"></div></a>
-                        <a href="paginas/jogo.html"><div class="jogo"></div></a>
-                        <a href="paginas/jogo.html"><div class="jogo"></div></a>
+                        <a href="paginas/jogo.html">
+                            <div class="jogo"></div>
+                        </a>
+                        <a href="paginas/jogo.html">
+                            <div class="jogo"></div>
+                        </a>
+                        <a href="paginas/jogo.html">
+                            <div class="jogo"></div>
+                        </a>
+                        <a href="paginas/jogo.html">
+                            <div class="jogo"></div>
+                        </a>
                     </div>
                     <button class="btn next">&#10095;</button>
                 </div>
@@ -85,9 +101,15 @@
                 <div class="carrosel_jogos">
                     <button class="btn prev">&#10094;</button>
                     <div class="slides">
-                        <a href="paginas/jogo.html"><div class="jogo"></div></a>
-                        <a href="paginas/jogo.html"><div class="jogo"></div></a>
-                        <a href="paginas/jogo.html"><div class="jogo"></div></a>
+                        <a href="paginas/jogo.html">
+                            <div class="jogo"></div>
+                        </a>
+                        <a href="paginas/jogo.html">
+                            <div class="jogo"></div>
+                        </a>
+                        <a href="paginas/jogo.html">
+                            <div class="jogo"></div>
+                        </a>
                     </div>
                     <button class="btn next">&#10095;</button>
                 </div>
@@ -123,7 +145,7 @@
             prev.addEventListener("click", () => {
                 index--;
                 if (index < 0) {
-                index = itens.length - 1; // volta para o último
+                    index = itens.length - 1; // volta para o último
                 }
                 updateCarousel();
             });
@@ -131,7 +153,7 @@
             next.addEventListener("click", () => {
                 index++;
                 if (index >= itens.length) {
-                index = 0; // volta para o primeiro
+                    index = 0; // volta para o primeiro
                 }
                 updateCarousel();
             });

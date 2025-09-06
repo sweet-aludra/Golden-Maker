@@ -13,7 +13,8 @@
     <header>
         <a href="perfil.html"><img src="../imgs/download.jpeg" alt="perfil"></a>
         <div>
-            <a href="../index.html"><img src="../imgs/Penelope.png" alt="logo_golden_maker"></a>
+            <a href="../index.html"><img src="../imgs/Penelope.png" alt="logo_golden_maker"
+                    class="penelope_img_header"></a>
         </div>
     </header><br>
 
@@ -28,12 +29,13 @@
                     </p><br>
                     <label for="descricao_j">Descrição do jogo:</label><br>
                     <textarea id="descricao_j" name="descricao_j" rows="6" cols="40" required></textarea>
-                </div><br><hr><br>
+                </div><br>
+                <hr><br>
 
                 <h2>Imagens</h2>
                 <div>
                     <h4>Imagens do cabeçalho</h4><br>
-                    <p>Capa:</p>
+                    <p style="text-align: center;">Capa:</p><br>
                     <div class="upload-area">
                         <input type="file" class="fileUpload" id="img_capa" accept="image/*" hidden required>
                         <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
@@ -53,55 +55,60 @@
                         <input type="file" class="fileUpload" accept="image/*" hidden>
                         <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
                     </div>
-                </div><br><hr><br>
+                </div><br>
+                <hr><br>
 
                 <h2>Arquivo</h2><br>
                 <div><!-- arquivos do jogo que serão publicado -->
                     <input type="file" name="arquivo_jogo" id="arquivo_jogo" accept="arquivo" required>
                 </div><br>
+                <hr><br>
 
                 <h2>Informações do grupo</h2><br>
-                <div>
-                    <h4>Fotos</h4>
+                <div id="informacoes_grupo">
+                    <h4>Fotos</h4><br>
                     <div>
                         <div class="upload-area">
                             <input type="file" class="fileUpload" accept="image/*" hidden>
                             <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
                         </div>
-                        <p>Nome(completo):
+                        <p>Nome(completo):<br>
                             <input type="text" class="txt_nome_integrante" placeholder="Santiago de santana">
                         </p>
-                    </div><br>
+                    </div><br><br>
                     <div>
                         <div class="upload-area">
                             <input type="file" class="fileUpload" accept="image/*" hidden>
                             <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
                         </div>
-                        <p>Nome(completo):
+                        <p>Nome(completo):<br>
                             <input type="text" class="txt_nome_integrante" placeholder="Santiago de santana">
                         </p>
-                    </div><br>
+                    </div><br><br>
                     <div>
                         <div class="upload-area">
                             <input type="file" class="fileUpload" accept="image/*" hidden>
                             <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
                         </div>
-                        <p>Nome(completo):
+                        <p>Nome(completo):<br>
                             <input type="text" class="txt_nome_integrante" placeholder="Santiago de santana">
                         </p>
-                    </div><br>
+                    </div><br><br>
                     <div>
                         <div class="upload-area">
                             <input type="file" class="fileUpload" accept="image/*" hidden>
                             <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
                         </div>
-                        <p>Nome(completo):
+                        <p>Nome(completo):<br>
                             <input type="text" class="txt_nome_integrante" placeholder="Santiago de santana">
                         </p>
                     </div>
-                </div>
+                </div><br>
                 <!--publicar Jogo-->
-                <input type="submit" value="Publicar" id="publicar_j">
+                <div id="publicar_j">
+                    <input type="submit" value="Publicar">
+                </div>
+
             </form>
         </section><br>
 
@@ -122,7 +129,9 @@
                     </div><br>
                 </div>
                 <!--input para publicar-->
-                <input type="submit" value="Publicar" id="publicar_m"><br><!--publicar midia(video/foto)-->
+                <div  id="publicar_m">
+                    <input type="submit" value="Publicar">
+                </div><br><!--publicar midia(video/foto)-->
             </form>
         </section>
     </main>

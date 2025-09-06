@@ -53,7 +53,7 @@ h4 {
     filter: drop-shadow(-5px 2px 0 var(--cor5));
 }
 
-#formulario_cadastro/*, #formulario_cadastro_publicador*/ {
+#formulario_cadastro {
     color: var(--cor2);
     flex-direction: column;
     display: flex;
@@ -80,7 +80,8 @@ h4 {
     font-size: 15px;
 }
 
-#aceito, #aceito_p {
+#aceito,
+#aceito_p {
     cursor: pointer;
 }
 
@@ -110,11 +111,13 @@ label a:hover {
 }
 
 /* Ícone de olho aberto padrão */
-#senha, #senha_p {
+#senha,
+#senha_p {
     background-image: url('../imgs/visivel.png');
 }
 
-#confirmar, #confirmar_p {
+#confirmar,
+#confirmar_p {
     background-image: url('../imgs/visivel.png');
 }
 
@@ -126,6 +129,7 @@ label a:hover {
 #confirmar[data-visivel="true"] {
     background-image: url('../imgs/nao_visivel.png');
 }
+
 /*~~~~**/
 #senha_p[data-visivel="true"] {
     background-image: url('../imgs/nao_visivel.png');
@@ -144,12 +148,30 @@ label a:hover {
     background-color: var(--cor1);
     color: var(--withe);
     border-radius: 10px;
-    width: 100px;
+    width: 16rem;
     height: 40px;
     font-size: 15px;
 }
 
 .starts:hover {
+    background-color: var(--black);
+    color: var(--withe);
+}
+
+.starts_c {
+    margin-left: auto;
+    margin-right: auto;
+    outline: none;
+    border: none;
+    background-color: var(--cor1);
+    color: var(--withe);
+    border-radius: 10px;
+    width: 14rem;
+    height: 40px;
+    font-size: 15px;
+}
+
+.starts_c:hover {
     background-color: var(--black);
     color: var(--withe);
 }
@@ -180,22 +202,24 @@ label a:hover {
 
 /*~~~~~~~~~~~~~~~*/
 main {
-  display: flex; /* mantém o layout */
-  flex-direction: column;
-  align-items: center;
-  transition: opacity 0.5s ease, visibility 0.5s;
+    display: flex;
+    /* mantém o layout */
+    flex-direction: column;
+    align-items: center;
+    transition: opacity 0.5s ease, visibility 0.5s;
 }
 
 .hidden {
-  opacity: 0;
-  visibility: hidden;
-  position: absolute; /* evita ocupar espaço */
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    /* evita ocupar espaço */
 }
 
 .mostrar {
-  opacity: 1;
-  visibility: visible;
-  position: static;
+    opacity: 1;
+    visibility: visible;
+    position: static;
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~ cadastro publi ~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -215,6 +239,7 @@ main {
     border: 10px solid var(--black);
     outline: 10px solid var(--cor1);
 }
+
 #cadastro_publicador img {
     width: 100px;
     height: 100px;
@@ -222,6 +247,7 @@ main {
     margin-right: auto;
     filter: drop-shadow(-5px 2px 0 var(--cor5));
 }
+
 #formulario_cadastro_publicador {
     color: var(--cor2);
     flex-direction: column;
@@ -229,6 +255,7 @@ main {
     justify-content: center;
     text-align: start;
 }
+
 #email_p,
 #nick_p,
 #senha_p,
@@ -244,7 +271,7 @@ main {
     font-size: 15px;
 }
 
-/*~~~~~~~~~~~~~~~~~~~~~~~ login.html ~~~~~~~~~~~~~~~~~~~~~~~*/
+/*~~~~~~~~~~~~~~~~~~~~~~~ login ~~~~~~~~~~~~~~~~~~~~~~~*/
 #login {
     display: flex;
     justify-content: center;
@@ -315,6 +342,7 @@ main {
     width: 35rem;
     height: 15rem;
     font-size: 20px;
+    gap: 25px;
     font-weight: bold;
     background-color: var(--withe);
     border-radius: 10px;
@@ -326,6 +354,7 @@ main {
     top: 50%;
     transform: translate(-50%, -50%);
 }
+
 #tipo_conta img {
     width: 100px;
     height: 100px;
