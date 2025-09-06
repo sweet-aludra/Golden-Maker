@@ -12,10 +12,10 @@
 }
 
 body {
-    background-image: url(../imgs/salty-justice-NOMebOREvtc-unsplash.jpg);
+    background-image: url(../imgs/funddd.jpeg);
     background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: center top;
+    background-size: cover;
+    background-position: left top;
     background-color: var(--black);
     display: flex;
     justify-content: flex-end;
