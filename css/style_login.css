@@ -12,10 +12,10 @@
 }
 
 body {
-    background-image: url(../imgs/funddd.jpeg);
+    /*background-image: url(../imgs/funddd.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: left top;
+    background-position: left top;*/
     background-color: var(--black);
     display: flex;
     justify-content: flex-end;
@@ -284,6 +284,7 @@ main {
     border-radius: 10px;
     border: 10px solid var(--black);
     outline: 10px solid var(--cor1);
+    margin-top: 50px;
 
     position: absolute;
     left: 50%;

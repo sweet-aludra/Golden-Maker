@@ -34,14 +34,14 @@ h1 {
 header {
     display: flex;
     justify-content: space-between;
-    padding: 5px 50px;
+    padding: 15px 50px;
     background-color: var(--black);
     border-bottom: 10px double var(--cor4);
 }
 
 header img {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
 }
 
@@ -49,7 +49,8 @@ header img {
     display: flex;
     gap: 55px;
 }
-#menu ul{
+
+/*#menu ul{
     list-style: none;
     display: flex;
     gap: 20px;
@@ -59,7 +60,7 @@ header img {
 }
 #menu li:hover {
     color: var(--cor5);
-}
+}*/
 .penelope_img_header {
     filter: drop-shadow(-2px 2px 0 var(--withe));
 }
@@ -68,7 +69,7 @@ header img {
 div#img_fundo {
     display: inline-block;
     width: 213.1vh;
-    height: 70px;
+    height: 430px;
 
     background-color: var(--black);
     background-image: url('../imgs/circuito_fundo.jpg');
@@ -76,6 +77,7 @@ div#img_fundo {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center bottom;
+    border-bottom: 10px double var(--cor4);
 }
 
 /*div#logo_golden_maker {
@@ -113,12 +115,11 @@ section#apresentacao {
     margin: 20px 50px;
     font-size: 20px;
     border: 5px groove var(--cor3);
-
 }
 
 section#apresentacao img {
-    width: 300px;
-    height: 250px;
+    width: 350px;
+    height: 300px;
     margin: 35px;
 }
 
@@ -126,7 +127,7 @@ section#apresentacao img {
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding: 50px;
+    padding: 50px 25px;
 }
 
 .texto_apresentacao {
@@ -649,6 +650,7 @@ div#informacoes_grupo {
     margin-left: auto;
     margin-right: auto;
 }
+
 #informacoes_grupo input {
     height: 40px;
 }
@@ -658,7 +660,8 @@ div#publicar_j {
     display: flex;
     justify-content: center;
 }
-#publicar_j input{
+
+#publicar_j input {
     background-color: var(--cor0);
     color: var(--withe);
     width: 250px;
@@ -716,7 +719,8 @@ div#publicar_m {
     display: flex;
     justify-content: center;
 }
-#publicar_m input{
+
+#publicar_m input {
     background-color: var(--cor0);
     color: var(--withe);
     width: 250px;
