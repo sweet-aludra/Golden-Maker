@@ -68,8 +68,8 @@ header img {
 /*~~~~~~~~img fundo ~~~~~~~~*/
 div#img_fundo {
     display: inline-block;
-    width: 213.1vh;
-    height: 430px;
+    width: auto;
+    height: auto;
 
     background-color: var(--black);
     background-image: url('../imgs/circuito_fundo.jpg');
@@ -79,31 +79,6 @@ div#img_fundo {
     background-position: center bottom;
     border-bottom: 10px double var(--cor4);
 }
-
-/*div#logo_golden_maker {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-div#logo_golden_maker img {
-    width: 250px;
-    height: 250px;
-    filter: drop-shadow(-5px 5px 0 var(--black));
-}
-
-@media(max-width: 2000px) {
-    div#img_fundo {
-        width: 214vh;
-    }
-}
-
-@media(max-width: 800px) {
-    div#img_fundo {
-        height: 200px;
-    }
-}*/
-
 /*~~~~~~~ apresentacao ~~~~~~~~~~*/
 section#apresentacao {
     display: flex;
@@ -133,23 +108,6 @@ section#apresentacao img {
 .texto_apresentacao {
     line-height: 1.6;
     text-align: start;
-}
-
-@media(max-width: 800px) {
-    section#apresentacao {
-        flex-direction: column;
-        font-size: 15px;
-    }
-
-    section#apresentacao img {
-        height: 300px;
-        width: 300px;
-    }
-
-    .texto_apresentacao {
-        line-height: 1.6;
-        padding: 0px 50px;
-    }
 }
 
 /*~~~~~~~ pesqisa por jogos ~~~~~~~*/
@@ -184,24 +142,23 @@ div#procura {
 
 /*~~~~~~~~~*/
 #apresentacao_jogos {
+    width: 100%;
+    max-width: 50rem; /* limite em telas grandes */
+    margin: 0 auto;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    margin-left: auto;
-    margin-right: auto;
+    align-items: center;
     text-align: center;
     gap: 10px;
-    max-width: 50rem;
 }
+
 
 .carrosel_jogos {
     position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    width: 82rem;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 82rem;
     overflow: hidden;
-    /* corta as laterais */
 }
 
 .slides {
@@ -214,16 +171,21 @@ div#procura {
 }
 
 .jogo {
-    flex: 0 0 250px;
-    /* largura fixa para controlar o corte */
+    flex: 0 0 250px; /* largura mínima */
+    max-width: 100%;
     height: 20rem;
-    width: 30rem;
+    width: 35rem;
     background-color: var(--black);
     border-radius: 5px;
     box-shadow: 0 4px 10px var(--cor0);
-    /*background-image: url(../imgs/controle_fundo.jpg);
-  background-position: center center;
-  background-size: cover; (exemplo de como ficaria com a foto do jogo)*/
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.jogo:hover {
+  transform: scale(1.05); /* zoom suave */
+  box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.4), 
+              -3px 5px 0px rgba(0, 255, 21, 0.3); /* brilho externo */
 }
 
 /* botões */
@@ -274,6 +236,62 @@ h5 {
     font-family: 'Press Start 2P';
     color: var(--cor5);
 }
+
+/*~~~~~~ area de dinamismo ~~~~~~~~*/
+@media (max-width: 1200px) {
+    section#apresentacao {
+        flex-direction: column;
+    }
+
+    .carrosel_jogos {
+        max-width: 60rem;
+    }
+}
+
+@media (max-width: 992px) {
+    section#apresentacao img {
+        width: 250px;
+        height: 220px;
+        margin: 5px;
+    }
+
+    .carrosel_jogos {
+        max-width: 50rem;
+    }
+
+    .slides {
+        padding: 10px;
+        gap: 25px;
+    }
+
+    .jogo {
+        flex: 0 0 200px;
+        height: 15rem;
+        width: 25rem;
+    }
+
+}
+
+@media (max-width: 768px) {
+    section#apresentacao {
+        font-size: 20px;
+    }
+
+    .texto_apresentacao {
+        padding: 0px 20px;
+    }
+
+    .carrosel_jogos {
+        max-width: 30rem;
+    }
+
+    footer img{
+        width: 45px;
+        height: 45px;
+    }
+}
+
+@media (max-width: 480px) {}
 
 /*~~~~~~~~~~~~~~~~~~~~~~ perfil.html ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 #icon {
@@ -437,6 +455,34 @@ form input {
     background-color: var(--cor0);
 }
 
+/*~~~~~~ area de dinamismo ~~~~~~~~*/
+@media (max-width: 1200px) {}
+
+@media (max-width: 992px) {
+    #icon img {
+        height: 150px;
+        width: 150px;
+    }
+
+    #configuracao_perfil {
+        width: 450px;
+    }
+}
+
+@media (max-width: 768px) {
+    #icon img {
+        border-left: 5px solid var(--cor0);
+        border-right: 3px solid var(--cor2);
+    }
+
+    #configuracao_perfil {
+        width: 380px;
+        padding: 25px;
+    }
+}
+
+@media (max-width: 480px) {}
+
 /*~~~~~~~~~~~~~~~~~~~~~~ jogo.html ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 h3 {
     font-family: 'Press Start 2P', monospace, Arial, sans-serif;
@@ -479,11 +525,12 @@ div#cabecalho_jogue img {
     margin-right: auto;
 }
 
-/* corresel das imgs do jogo para dinamismo */
+/* carrosel de imgs do jogo */
 #galeria_jogo {
     position: relative;
     margin: 0 auto;
-    width: 65rem;
+    width: 100%;
+    max-width: 80rem;
     overflow: hidden;
     /* corta as laterais */
     display: flex;
@@ -503,6 +550,8 @@ div.img_jogo {
     height: 15rem;
     background-color: var(--black);
     border-radius: 5px;
+    max-width: 100%;
+    width: 30rem;
 }
 
 .ctrl {
@@ -535,7 +584,8 @@ div.img_jogo {
 #jogue {
     /* quadro onde o jogo vai rodar */
     background-color: var(--black);
-    width: 75rem;
+    width: 100%;
+    max-width: 80rem;
     height: 40rem;
     margin-left: auto;
     margin-right: auto;
@@ -577,6 +627,56 @@ div.img_jogo {
     color: var(--withe);
 }*/
 
+/*~~~~~~ area de dinamismo ~~~~~~~~*/
+@media (max-width: 1200px) {}
+
+@media (max-width: 992px) {
+    div#cabecalho_jogue img {
+        width: 250px;
+        height: 150px;
+    }
+
+    #descricao {
+        width: 40rem;
+    }
+
+    .integrante img {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    #descricao {
+        width: 25rem;
+        padding: 20px;
+    }
+
+    section#grupo_desenvolvedor {
+        display: grid;
+        margin: 15px;
+        gap: 35px;
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas iguais */
+        grid-template-rows: repeat(2, 200px);  /* 2 linhas de 200px */
+    }
+
+    .integrante img {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    #descricao {
+        width: 22rem;
+    }
+
+    .integrante img {
+        width: 150px;
+        height: 150px;
+    }
+}
+
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ publicacao_jogo.html ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 h2,
 h4 {
@@ -593,9 +693,9 @@ h4 {
 #publique_jogo {
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 50px;
     padding: 50px 10px;
-    width: 45rem;
+    width: 100%;
+    max-width: 45rem;
     background-color: var(--black);
     border: 5px solid var(--withe);
     outline: 5px solid var(--black);
@@ -679,9 +779,9 @@ div#publicar_j {
 #publique_midia {
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 50px;
     padding: 50px 10px;
-    width: 35rem;
+    width: 100%;
+    max-width: 35rem;
     background-color: var(--black);
     border: 5px solid var(--withe);
     outline: 5px solid var(--black);
@@ -733,3 +833,28 @@ div#publicar_m {
     background-color: var(--cor1);
     outline: 1px solid var(--withe);
 }
+
+/*~~~~~~ area de dinamismo ~~~~~~~~*/
+@media (max-width: 1200px) {}
+
+@media (max-width: 992px) {}
+
+@media (max-width: 768px) {
+    #publique_jogo, #publique_midia {
+        padding: 10px;
+        font-size: 15px;
+        width: 25rem;
+    }
+
+    .upload-area {
+        height: 100px;
+        width: 300px;
+    }
+
+    #publique_jogo input {
+        width: 350px;
+        height: 25px;
+    }
+}
+
+@media (max-width: 480px) {}
