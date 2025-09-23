@@ -747,6 +747,28 @@ textarea#descricao_j {
     border-color: var(--cor0);
 }
 
+/*~~~~~~ area do arquivo ~~~~~~~~*/
+.btn-arquivo {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #a681c7;
+    color: white;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-arquivo:hover {
+    background: #8b5bb3;
+}
+
+#nomeArquivo {
+    margin-left: 10px;
+    font-style: italic;
+    color: #555;
+}
+
 /*~~~~~ area dos integrantes ~~~~~~*/
 div#informacoes_grupo {
     margin-left: auto;
