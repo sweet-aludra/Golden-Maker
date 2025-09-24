@@ -747,11 +747,11 @@ textarea#descricao_j {
     border-color: var(--cor0);
 }
 
-/*~~~~~~ area do arquivo ~~~~~~~~*/
+/*~~~~~~ area do arquivo(principal) ~~~~~~~~*/
 .btn-arquivo {
     display: inline-block;
     padding: 10px 20px;
-    background: #a681c7;
+    background: var(--cor0);
     color: white;
     font-weight: bold;
     border-radius: 6px;
@@ -760,13 +760,13 @@ textarea#descricao_j {
 }
 
 .btn-arquivo:hover {
-    background: #8b5bb3;
+    background: var(--cor1);
 }
 
 #nomeArquivo {
     margin-left: 10px;
     font-style: italic;
-    color: #555;
+    color: var(--withe);
 }
 
 /*~~~~~ area dos integrantes ~~~~~~*/
