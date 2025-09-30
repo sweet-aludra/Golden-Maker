@@ -1,14 +1,10 @@
-So adicionando para se quiser testar o Back-end no momento
+So adicionando para se quiser testar o Back-End 
 
-    baixa o node.js se na sua maquina não tiver
+    Baixa o node.js se na sua maquina não tiver
 
-    abre a pasta no VisualStudiocode e abre o terminal de command prompt
+    Abre a pasta no VisualStudiocode e abre o terminal de command prompt
     digita: npm install
-    e pra rodar coloca: node server.js
-
-    por enquanto fiz esse arquivo para teste dps eu vou ver como implementar isso no projeto 
-        tst_temporario.html
-
-    ainda ta desorganizado os arquivo dps eu vejo
+    e pra rodar coloca: node src/server.js
+    e clica no localhost:3000 pra abrir
 
     ainda to vendo 0^0...

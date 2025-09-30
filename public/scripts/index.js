@@ -1,8 +1,17 @@
-//função de ver se ta logado
-
 const url = 'http://localhost:3000'
 
+// função que ativa quando a pagina abrir
 document.addEventListener('DOMContentLoaded', async () => {
+
+
+    const fotoJogoCarrosel = document.getElementById('mostrarTela') //pega o id do elemento imagem do index.html
+
+    const anoProjeto = '2025' //isso vai vir do filtro da tela inicial
+    const nomeProjeto = 'JogoKatana' //nome da pasta, isso vai vim do banco
+    const arquivosnoProjeto = 'katanaZeroImagem.jpg' // não sera so 1 arquivo
+    fotoJogoCarrosel.src = `/pasta_projeto/${anoProjeto}/${nomeProjeto}/${arquivosnoProjeto}`
+    // e dai isso forma o caminho da imagem
+
     try {
         const resposta = await fetch(`${url}/logininfo`,{
             credentials: 'include'
@@ -22,7 +31,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             nomemostrar.textContent = usuariodados.nome
         }
         if (fotomostrar && usuariodados.foto) {
-            fotomostrar.src = ``
             fotomostrar.src = `/upload/${usuariodados.foto}`
         }
         

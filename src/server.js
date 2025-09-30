@@ -15,6 +15,7 @@ app.use(cors())//permite a comunicação do backend pro frontend
 app.use(express.static(path.join(__dirname, '..', 'public')))
 
 app.use('/upload', express.static(path.join(__dirname, '..', 'fotoperfil')))
+app.use('/pasta_projeto', express.static(path.join(__dirname, '..', 'Projetos')))
 
 //esse é o padrão de cookie para guarda fato de estar logado 
 app.use(session({
