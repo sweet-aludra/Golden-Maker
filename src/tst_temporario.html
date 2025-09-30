@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de cadastro</title><!--nota: isso é temporario para eu poder testar o cadastro-->
+</head>
+<body>
+    <form id="cadastro_form">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" required>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="senha" required>
+        <!-- <label for="Arquivo">Selecione uma foto de perfil:</label>
+        <input type="file" id="file" name="foto_perfil" accept="image/*"></label> -->
+
+        <button type="submit">Cadastrar</button>
+    </form>
+    <button id="atualizar">mostrar cadastro</button>
+    <h1 id="banco_info"></h1>
+
+    <hr>
+
+    <form id="login_form">
+        <label for="email">Email</label>
+        <input type="email" id="email2" name="email" required>
+        <label for="senha">Senha</label>
+        <input type="password" id="senha2" name="senha" required>
+
+        <button type="submit">Logar</button>
+    </form>
+    <p>Ola:<span id="nomeusuario"></span></p>
+    <img id="fotoperfil" src="">
+
+    <button id="logout">logout</button>
+    <button id="mostrarimg">mostrar imagem</button>
+
+    <script>
+        const url = 'http://localhost:3000'//o caminho do server 
+
+        //teste de cadastro
+        const formCadastro = document.getElementById('cadastro_form')
+        formCadastro.addEventListener('submit', async (event) => {
+            event.preventDefault()//não deixa que o navegador recarrega quando clicar no botão
+
+            const cadastroForm = new FormData(formCadastro)
+            const cadastroData = Object.fromEntries(cadastroForm.entries())//transforma o forms em um object
+
+            try{
+                const resposta = await fetch(`${url}/items`, {
+                    method:'POST',
+                    headers: {'content-type': 'application/json'},
+                    body: JSON.stringify(cadastroData)
+                })
+                if (!resposta.ok) {
+                    const erroTexto = await resposta.text();
+                    throw new Error(`Erro no servidor:${erroTexto}`);
+                }
+                const mensagemSucesso = await resposta.text();
+                console.log(mensagemSucesso);
+                alert('Cadastro Salvo');
+                formCadastro.reset();
+            }
+            catch(error) {console.log(error)}
+        })
+        //tela de login sera usado
+        const formLogin = document.getElementById('login_form')
+        formLogin.addEventListener('submit', async (event) => {
+            event.preventDefault()//não deixa que o navegador recarrega quando clicar no botão
+
+            const loginForm = new FormData(formLogin)
+            const loginData = Object.fromEntries(loginForm.entries())//transforma o forms em um object
+
+            try{
+                const resposta = await fetch(`${url}/login`, {
+                    method:'POST',
+                    headers: {'content-type': 'application/json'},
+                    body: JSON.stringify(loginData),
+                    credentials: 'include'
+                })
+                if (!resposta.ok) {
+                    const erroTexto = await resposta.text();
+                    throw new Error(`Erro no servidor:${erroTexto}`);
+                }
+                console.log(await resposta.text());
+                //window.location.href = '/dashboard.html' pra tu ir pra pagina inicial mas perai
+                alert('Login Verificado');
+                formLogin.reset();
+            }
+            catch(error) {console.log(error)}
+        })
+        //função de ver se ta logado
+        const bntimage = document.getElementById('mostrarimg')
+        bntimage.addEventListener('click', async () => {
+            try {
+                const resposta = await fetch(`${url}/logininfo`,{
+                    credentials: 'include'
+                }) 
+
+                if (!resposta.ok) {
+                    console.log('usuario não esta logado')
+                    return
+                }
+                const dados = await resposta.json()
+                const usuariodados = dados.usuario
+
+                const nomemostrar = document.getElementById('nomeusuario')
+                const fotomostrar = document.getElementById('fotoperfil')
+
+                if (nomemostrar) {
+                    nomemostrar.textContent = usuariodados.nome
+                }
+                if (fotomostrar && usuariodados.foto) {
+                    fotomostrar.src = `/upload/${usuariodados.foto}`
+                }
+                
+            }
+            catch (err) {
+                console.log('error ao verificar status login', err)
+            }
+        })
+
+
+        //botão de mostrar o banco na tela n sera usado em teoria
+        const atualizarMostrar = document.getElementById('atualizar')
+        atualizarMostrar.addEventListener('click', async (event) => {
+            try{
+                const resposta = await fetch(`${url}/items`, {
+                    method:'GET',
+                    credentials: 'include'
+                })
+                if (!resposta.ok) {
+                    const erroTexto = await resposta.text();
+                    throw new Error(`Erro no servidor:${erroTexto}`);
+                }
+
+                const dados = await resposta.json()
+
+                const botaoMostrar = document.getElementById('banco_info')
+                botaoMostrar.innerHTML = JSON.stringify(dados)
+            }
+            catch(error) {console.log(error)}  
+        })
+
+        //botão de sair
+        const botaoLogout = document.getElementById('logout');
+        if (botaoLogout) {
+            botaoLogout.addEventListener('click', async () => {
+                try {
+                    await fetch(`${url}/logout`, { method: 'POST', credentials: 'include'});
+                    alert('Você saiu com sucesso!');
+                } catch (error) {
+                    console.error('Erro ao fazer logout:', error);
+                }
+            });
+        }
+    </script> 
+</body>
+</html>

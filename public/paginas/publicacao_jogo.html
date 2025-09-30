@@ -57,9 +57,21 @@
                 </div><br>
                 <hr><br>
 
-                <h2>Arquivo</h2><br>
-                <div><!-- arquivos do jogo que serão publicado -->
+                <!--<h2>Arquivo</h2><br>
+                <div>  arquivos do jogo que serão publicado 
                     <input type="file" name="arquivo_jogo" id="arquivo_jogo" accept="arquivo" required>
+                </div><br>
+                <hr><br>-->
+                <h2>Arquivo</h2><br>
+                <div>
+                    <!-- Input real (invisível) -->
+                    <input type="file" name="arquivo_jogo" id="arquivo_jogo" required hidden>
+
+                    <!-- Botão estilizado -->
+                    <label for="arquivo_jogo" class="btn-arquivo">Selecionar Arquivo</label>
+
+                    <!-- Onde aparece o nome do arquivo escolhido -->
+                    <span id="nomeArquivo">Nenhum arquivo selecionado</span>
                 </div><br>
                 <hr><br>
 
@@ -138,7 +150,7 @@
     <footer id="roda_pe">
         <h2>ARCANE <img src="../imgs/flor1.png" alt="flor de lis"> BOOT</h2>
         <h5>adventure starts here</h5><br>
-        <p>Acompanhe nossa <a href="#"><span style="color: #a681c7; cursor: pointer;">empresa</span></a>!</p>
+        <p>Acompanhe nossa <a href="https://sweet-aludra.github.io/TCC_empresa/index.html"><span style="color: #a681c7; cursor: pointer;">empresa</span></a>!</p>
     </footer>
 
     <script>
@@ -164,6 +176,17 @@
             });
         });
 
+        //area do arquivo executavel do jogo
+        const inputArquivo = document.getElementById("arquivo_jogo");
+        const nomeArquivo = document.getElementById("nomeArquivo");
+
+        inputArquivo.addEventListener("change", () => {
+            if (inputArquivo.files.length > 0) {
+            nomeArquivo.textContent = inputArquivo.files[0].name;
+            } else {
+            nomeArquivo.textContent = "Nenhum arquivo selecionado";
+            }
+        });
     </script>
 </body>
 

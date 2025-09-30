@@ -16,7 +16,7 @@
         <form id="formulario_login">
             <h4>Login!</h4>
             <p>Email:
-                <input type="text" id="email" placeholder="goldenmaker@gmail.com" required>
+                <input type="text" id="email" placeholder="goldenmaker@gmail.com" name="email" required>
             </p>
             <div class="senha">
                 <p>Senha:
@@ -38,7 +38,7 @@
         <form id="formulario_cadastro">
             <h4>Cadastre-se!</h4>
             <p>Email:<br>
-                <input type="text" id="email" placeholder="goldenmaker@gmail.com" required>
+                <input type="text" id="email" name="email" placeholder="goldenmaker@gmail.com" required>
             </p>
             <div class="senha">
                 <p>Senha:<br>
@@ -48,7 +48,7 @@
             </div>
             <div class="senha">
                 <p>Confirma senha:<br>
-                    <input type="password" name="nova_senha" id="confirmar" onclick="alternarSenha(this)"
+                    <input type="password" id="confirmar" onclick="alternarSenha(this)"
                         data-visivel="false" required>
                 </p>
             </div>
@@ -56,7 +56,7 @@
                 <input type="text" name="nick" id="nick" placeholder="nick" required>
             </p>
             <div>
-                <input type="checkbox" id="aceito" name="termos" required>
+                <input type="checkbox" id="aceito" required>
                 <label for="aceito">Aceito os <b><a href="#">termos de uso</a></b></label>
             </div><br>
 
@@ -108,6 +108,7 @@
             });
         }
     </script>
+    <script src="../scripts/login.js"></script>
 </body>
 
 </html>

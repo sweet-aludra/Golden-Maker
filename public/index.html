@@ -11,8 +11,12 @@
 
 <body>
     <header>
-        <a href="paginas/perfil.html"><img src="imgs/download.jpeg" alt="perfil"></a>
+        <a href="paginas/perfil.html"><img src="imgs/download.jpeg" alt="perfil" id="imagemPerfil"></a>
+        <h1 id="mostrarNome" style="color: white;"></h1><!--po muda dai e so usar o msm id que vai funcionar-->
         <div id="menu">
+            <ul>
+                <li><a href="tipo_cadastro.html">Login/Cadastro</a></li>
+            </ul>
             <img src="imgs/Penelope.png" alt="logo_golden_maker" class="penelope_img_header">
         </div>
     </header>
@@ -127,8 +131,9 @@
     <footer id="roda_pe">
         <h2>ARCANE <img src="imgs/flor1.png" alt="flor de lis"> BOOT</h2>
         <h5>adventure starts here</h5><br>
-        <p>Acompanhe nossa <a href="#"><span style="color: #a681c7; cursor: pointer;">empresa</span></a>!</p>
+        <p>Acompanhe nossa <a href="https://sweet-aludra.github.io/TCC_empresa/index.html"><span style="color: #a681c7; cursor: pointer;">empresa</span></a>!</p>
     </footer>
+
     <script>
         document.querySelectorAll(".carrosel_jogos").forEach(carrosel => {
             const slides = carrosel.querySelector(".slides");
@@ -161,6 +166,7 @@
         });
 
     </script>
+    <script src="./scripts/index.js"></script>
 </body>
 
 </html>
