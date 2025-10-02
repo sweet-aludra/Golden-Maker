@@ -36,15 +36,14 @@ let db = new sqlite3.Database('BancoSqlite3.db', (err) => {
         )
         db.run(`CREATE TABLE IF NOT EXISTS projeto (
                 id_projeto INTEGER PRIMARY KEY AUTOINCREMENT,
-                nome_projeto TEXT,
+                nome_proj TEXT,
                 desc_proj TEXT,
                 data_proj REAL,
                 ano_proj INTEGER,
                 turma TEXT,
-                caminho_pasta TEXT,
-                id_criador INTERGER,
-                FOREIGN KEY (id_criador) REFERENCES criador(id_criador)
-                )`,         
+                caminho_pasta TEXT
+                )`,
+
             (err) =>{
                 if(err){console.error(err.message)}
                 else{console.log("Tabela projeto Criada ou Já Existe")}
@@ -52,7 +51,6 @@ let db = new sqlite3.Database('BancoSqlite3.db', (err) => {
         )
     })
 })
-
 
 
 module.exports = db

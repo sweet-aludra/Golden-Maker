@@ -12,9 +12,9 @@ formCadastro.addEventListener('submit', async (event) => {
     const confirmarSenhaInput = document.getElementById('confirmar')
 
     if (cadastroData.nova_senha !== confirmarSenhaInput.value) { 
-    alert('As senhas não coincidem!');
-    return;
-}
+        alert('As senhas não coincidem!')
+        return
+    }
 
     try{
         const resposta = await fetch(`${url}/items`, {

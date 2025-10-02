@@ -19,6 +19,7 @@ const criarItem = (nome, email, senha, callback) => {
 
 //função para trocar a foto de perfil
 const trocarfoto = (foto, email, callback) => {
+    
     const sql = `UPDATE usuario SET foto_perfil = ? WHERE email = ?`
     db.run(sql, [foto, email], (err) => {
         callback (err)
@@ -50,5 +51,8 @@ const verificarLogin = (email, senha, callback) => {
     })
 }
 
+// const adicionarProjeto = (nomeP, descP, dataP, caminhoP, (err, callback) => {
+//     sql = `INSERT INTO projeto (nome_proje, desc_proj, data_proj, ano_proj)`
+// })
 
 module.exports = {criarItem, verificarLogin, trocarfoto}

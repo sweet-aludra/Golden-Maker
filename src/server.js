@@ -6,6 +6,7 @@ const fs = require('fs')
 const path = require('path')
 
 const {criarItem, verificarLogin, trocarfoto} = require('./funcao') //busca do arquivo função do server
+const { callbackify } = require('util')
 
 const app = express()
 app.use(express.json())
@@ -80,17 +81,46 @@ app.get('/logininfo', (req, res) => {
         res.status(200).json({ usuario: req.session.usuario})
     }
 })
+//new rota para mudar foto
 
-app.post('/trocarfoto', (req, res) => {
-    const {foto_perfil, email} = req.body
-
-    if (!foto_perfil || !email) {
-        console.log('faltou arquivo da foto ou email')
+const upload = multer({ dest: '../fotoperfil/' })
+app.post('/mudarfoto', upload.single('newfoto'), function (req, res) {
+    if (!req.file) {
+        res.status(401).json({ erro: 'falta o arquivo' })
     }
-    trocarfoto(foto_perfil, email, (err) => {
-        
-    })
+    const foto = req.file
+    const email = req.body
+    trocarfoto(foto, email), (err, callback) => {
+        if (err) {
+            res.status(401).json({ error: err.message })
+        }
+        else {
+        res.status(200).json({ message: 'mudou a foto se pa' })
+        }
+    }
+  // req.file is the `avatar` file
+  // req.body will hold the text fields, if there were any
 })
+
+
+
+// //rota para mudar foto NÂO FOI TESTADA
+// app.post('/trocarfoto', (req, res) => {
+//     const {foto_perfil, email} = req.body
+
+//     if (!foto_perfil || !email) {
+//         res.status(401).json({ erro: 'Faltou Informação' })
+//     }
+
+//     trocarfoto(foto_perfil, email, (err) => {
+//         if (err) {
+//             console.error(err.message)
+//         }
+//         else {
+//             res.status(200).json({ message: 'foto mudada com sucesso'})
+//         }
+//     })
+// })
 
 //rota para logout 
 app.post('/logout', (req, res) => {
@@ -102,6 +132,10 @@ app.post('/logout', (req, res) => {
         res.status(200).json({ message: 'logout feito com sucesso' })
     })
 })
+
+// app.post('/addprojeto', (req, res) => {
+//     const {}
+// })
 
 
 //rota limpa para levar para o index.html
