@@ -18,8 +18,11 @@ const criarItem = (nome, email, senha, callback) => {
 }
 
 //função para trocar a foto de perfil
-const trocarfoto = (foto, nome, callback) => {
-    const sql = `UPDATE usuario SET foto_perfil = ? WHERE nome = ?`
+const trocarfoto = (foto, email, callback) => {
+    const sql = `UPDATE usuario SET foto_perfil = ? WHERE email = ?`
+    db.run(sql, [foto, email], (err) => {
+        callback (err)
+    })
 }
 
 const verificarLogin = (email, senha, callback) => {
@@ -48,4 +51,4 @@ const verificarLogin = (email, senha, callback) => {
 }
 
 
-module.exports = {criarItem, verificarLogin}
+module.exports = {criarItem, verificarLogin, trocarfoto}

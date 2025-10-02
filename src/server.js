@@ -5,7 +5,7 @@ const multer = require('multer')
 const fs = require('fs') 
 const path = require('path')
 
-const {criarItem, verificarLogin} = require('./funcao') //busca do arquivo função do server
+const {criarItem, verificarLogin, trocarfoto} = require('./funcao') //busca do arquivo função do server
 
 const app = express()
 app.use(express.json())
@@ -81,6 +81,17 @@ app.get('/logininfo', (req, res) => {
     }
 })
 
+app.post('/trocarfoto', (req, res) => {
+    const {foto_perfil, email} = req.body
+
+    if (!foto_perfil || !email) {
+        console.log('faltou arquivo da foto ou email')
+    }
+    trocarfoto(foto_perfil, email, (err) => {
+        
+    })
+})
+
 //rota para logout 
 app.post('/logout', (req, res) => {
     req.session.destroy(err =>{
@@ -103,18 +114,3 @@ app.get('/', (req, res) => {
 app.listen(3000, () =>{
   console.log("O servidor Rodando Acesse http://localhost:3000")
 })
-
-
-//antiga rota guardando caso queira usar dps, dps tirar
-
-// //rota pra pegar a info do banco
-// app.get('/items', (req, res) => {
-//     verItem((err, linhas) => {
-//         if(err){
-//         res.status(500).send(err.message)
-//         }
-//         else{
-//         res.status(200).json(linhas)
-//         }
-//     })
-// })
