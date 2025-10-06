@@ -86,27 +86,21 @@ div#img_fundo {
 /*~~~~~~~ apresentacao ~~~~~~~~~~*/
 section#apresentacao {
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    justify-content: center;
     text-align: center;
     background-color: var(--black);
     color: var(--withe);
-    margin: 20px 50px;
     font-size: 20px;
     border: 5px groove var(--cor3);
+    margin: 20px 15rem;
+    padding: 30px 10rem;
+    gap: 30px;
 }
 
 section#apresentacao img {
     width: 350px;
     height: 300px;
-    margin: 35px;
-}
-
-#txt {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding: 50px 25px;
 }
 
 .texto_apresentacao {
@@ -298,6 +292,8 @@ h5 {
 @media (max-width: 1200px) {
     section#apresentacao {
         flex-direction: column;
+        margin: 20px 50px;
+        padding: 25px 5rem;
     }
 
     .carrosel_jogos {
@@ -309,7 +305,6 @@ h5 {
     section#apresentacao img {
         width: 250px;
         height: 220px;
-        margin: 5px;
     }
 
     .carrosel_jogos {
@@ -335,11 +330,8 @@ h5 {
 
 @media (max-width: 768px) {
     section#apresentacao {
-        font-size: 20px;
-    }
-
-    .texto_apresentacao {
-        padding: 0px 20px;
+        margin: 20px;
+        padding: 25px 5rem;
     }
 
     #secao_jogos h3 {
