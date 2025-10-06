@@ -116,11 +116,25 @@ section#apresentacao img {
 
 /*~~~~~~~ pesqisa por jogos ~~~~~~~*/
 section#secao_jogos {
-    margin: 20px;
-    text-align: center;
+  padding: 20px;
+  text-align: center;
+  position: relative;       
+  overflow: hidden;         
 }
 
-div#procura {
+/* garante que todo o conteúdo fique acima da onda */
+section#secao_jogos > :not(.waves) {
+  position: relative;
+  z-index: 1;
+}
+
+#secao_jogos h3 {
+    font-family: 'Press Start 2P', monospace, Arial, sans-serif;
+    font-size: 30px;
+    color: var(--cor1);
+}
+
+div#procurar {
     display: flex;
     justify-content: center;
 }
@@ -142,7 +156,7 @@ div#procura {
 
 #txt_pesquisa:focus {
     outline: 0px;
-    border: 3px solid var(--cor1);
+    border: 2px solid var(--cor1);
 }
 
 /*~~~~~~~~~*/
@@ -224,6 +238,31 @@ div#procura {
     right: 10px;
 }
 
+/* SVG das ondas (ajustável) */
+.waves {
+  position: absolute;
+  bottom: 0;
+  left: -10%;       /* começo levemente à esquerda para dar "margem" ao deslize */
+  width: 130%;      /* maior que 100% para permitir animação sem expor vazio */
+  height: 35rem;    /* altura visível da onda (mude para mais/menos) */
+  display: block;
+  z-index: -1;      
+}
+
+.waves svg,
+.waves { display: block; }
+
+.wave {
+  will-change: transform;
+  transform-origin: center bottom;
+  animation: moveWave 6s ease-in-out infinite alternate;
+}
+
+@keyframes moveWave {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-10%); } 
+}
+
 /*~~~~~~~~~~~ roda pe ~~~~~~~~~~~~~~~~*/
 footer {
     background-color: var(--black);
@@ -238,6 +277,16 @@ footer img {
     width: 55px;
     height: 55px;
     align-items: end;
+}
+footer p{
+    font-size: 20px;
+}
+.link_empresa{
+    color: #a681c7;
+    cursor: pointer;
+}
+.link_empresa:hover{
+    color: var(--cor4);
 }
 
 h5 {
@@ -277,6 +326,10 @@ h5 {
         height: 15rem;
         width: 25rem;
     }
+    div.jogo img{
+        height: 15rem;
+        width: 25rem;
+    }
 
 }
 
@@ -287,6 +340,10 @@ h5 {
 
     .texto_apresentacao {
         padding: 0px 20px;
+    }
+
+    #secao_jogos h3 {
+        font-size: 20px;
     }
 
     .carrosel_jogos {
