@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style_login.css">
     <link rel="shortcut icon" href="../imgs/Penelope.png" type="image/x-icon">
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <title>Golden Maker&reg</title>
 </head>
 
@@ -72,22 +71,6 @@
             <input type="submit" value="Starts" class="starts_cadastro_criador">
         </form><br>
 
-        <div id="g_id_onload"
-     data-client_id="155146805331-1qqmqlqvlo6je0lj18he47ag7ph1mb7m.apps.googleusercontent.com"
-     data-callback="handleCredentialResponse"
-     data-auto_prompt="false">
-</div>
-
-<div class="g_id_signin"
-     data-type="standard"
-     data-size="large"
-     data-theme="outline"
-     data-text="sign_in_with"
-     data-shape="rectangular"
-     data-logo_alignment="left">
-</div>
-
-
         <div class="faca_login">
             <p>Já possui uma conta?</p>
             <button id="btnLogin_criador">Login</button>
@@ -133,32 +116,6 @@
                 input.setSelectionRange(start, end);
             });
         }
-
-        window.handleCredentialResponse = (response) => {
-    const data = parseJwt(response.credential);
-
-    // Salvar dados do usuário no localStorage
-    localStorage.setItem("goldenmaker-user", JSON.stringify(data));
-
-    // Mensagem de boas-vindas
-    alert(`Bem-vindo(a), ${data.given_name}!`);
-
-    // Redirecionar para a página principal (ajuste o caminho se necessário)
-    window.location.href = "../pages/dashboard.html";
-};
-
-
-
-function parseJwt(token) {
-    let base64Url = token.split('.')[1];
-    let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-    let jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
-        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-    }).join(''));
-
-    return JSON.parse(jsonPayload);
-}
-
     </script>
 </body>
 
