@@ -110,16 +110,16 @@ section#apresentacao img {
 
 /*~~~~~~~ pesqisa por jogos ~~~~~~~*/
 section#secao_jogos {
-  padding: 20px;
-  text-align: center;
-  position: relative;       
-  overflow: hidden;         
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
 /* garante que todo o conteúdo fique acima da onda */
-section#secao_jogos > :not(.waves) {
-  position: relative;
-  z-index: 1;
+section#secao_jogos> :not(.waves) {
+    position: relative;
+    z-index: 1;
 }
 
 #secao_jogos h3 {
@@ -177,7 +177,7 @@ div#procurar {
 .slides {
     /*valido para o carrosel de imgs do jogo*/
     display: flex;
-    gap: 20px;
+    gap: 25px;
     transition: transform 0.5s ease-in-out;
     padding: 20px 40px;
     /* espaço interno pra mostrar o corte */
@@ -200,7 +200,7 @@ div#procurar {
     transform: scale(1.05);
     /* zoom suave */
     box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.4),
-        -3px 5px 0px rgba(0, 255, 21, 0.3);
+        -3px 5px 10px rgba(0, 255, 21, 0.3);
     /* brilho externo */
 }
 
@@ -234,27 +234,37 @@ div#procurar {
 
 /* SVG das ondas (ajustável) */
 .waves {
-  position: absolute;
-  bottom: 0;
-  left: -10%;       /* começo levemente à esquerda para dar "margem" ao deslize */
-  width: 130%;      /* maior que 100% para permitir animação sem expor vazio */
-  height: 35rem;    /* altura visível da onda (mude para mais/menos) */
-  display: block;
-  z-index: -1;      
+    position: absolute;
+    bottom: 0;
+    left: -10%;
+    /* começo levemente à esquerda para dar "margem" ao deslize */
+    width: 130%;
+    /* maior que 100% para permitir animação sem expor vazio */
+    height: 35rem;
+    /* altura visível da onda (mude para mais/menos) */
+    display: block;
+    z-index: -1;
 }
 
 .waves svg,
-.waves { display: block; }
+.waves {
+    display: block;
+}
 
 .wave {
-  will-change: transform;
-  transform-origin: center bottom;
-  animation: moveWave 6s ease-in-out infinite alternate;
+    will-change: transform;
+    transform-origin: center bottom;
+    animation: moveWave 4s ease-in-out infinite alternate;
 }
 
 @keyframes moveWave {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-10%); } 
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-10%);
+    }
 }
 
 /*~~~~~~~~~~~ roda pe ~~~~~~~~~~~~~~~~*/
@@ -272,14 +282,17 @@ footer img {
     height: 55px;
     align-items: end;
 }
-footer p{
+
+footer p {
     font-size: 20px;
 }
-.link_empresa{
+
+.link_empresa {
     color: #a681c7;
     cursor: pointer;
 }
-.link_empresa:hover{
+
+.link_empresa:hover {
     color: var(--cor4);
 }
 
@@ -321,7 +334,8 @@ h5 {
         height: 15rem;
         width: 25rem;
     }
-    div.jogo img{
+
+    div.jogo img {
         height: 15rem;
         width: 25rem;
     }
