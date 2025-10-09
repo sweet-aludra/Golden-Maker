@@ -125,7 +125,7 @@ section#secao_jogos> :not(.waves) {
 #secao_jogos h3 {
     font-family: 'Press Start 2P', monospace, Arial, sans-serif;
     font-size: 30px;
-    color: var(--cor1);
+    color: var(--cor2);
 }
 
 div#procurar {
