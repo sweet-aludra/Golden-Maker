@@ -10,20 +10,19 @@
     --black: #353535;
 
 }
+
 * {
     margin: 0px;
 }
 
-body main{
+body main {
     background-image: linear-gradient(to right, black, #191919ea, rgba(0, 0, 0, 0)), url("../imgs/capa.jpg");
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
-    justify-content: flex-start; 
-    align-items: center; 
-    width: 100%; 
-    height: 100%;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 a {
@@ -56,16 +55,15 @@ main {
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~ login ~~~~~~~~~~~~~~~~~~~~~~~*/
-main#login {
+.login {
+    display: flex;
+    justify-content: center;
     flex-direction: column;
-    text-align: center;
     font-size: 20px;
-    padding: 15px;
     gap: 25px;
     font-weight: bold;
-    position: fixed; 
-    width: 100%; 
-    height: 100%;
+    margin-left: 155px;
+    height: 100vh;
 }
 
 #login img {
@@ -88,7 +86,7 @@ main#login {
     border: none;
     background-color: var(--cor5);
     outline: none;
-    color: var(--black);
+    color: black;
     height: 30px;
     width: 20rem;
     border-radius: 3px 5px;
@@ -98,15 +96,15 @@ main#login {
 /*~~ Botao para trocar para area de cadastro ~~*/
 #cadastre-se {
     display: flex;
+    justify-content: center;
     align-items: center;
+    padding: 5px;
     gap: 10px;
-    padding: 0 10px;
     font-size: 15px;
     color: var(--withe);
     background-color: var(--cor1);
     border-radius: 5px;
-    border: 3px solid var(--black);
-    outline: 2px solid var(--cor1);
+    border: 2px solid var(--cor1);
 }
 
 #cadastre-se button {
@@ -120,32 +118,34 @@ main#login {
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~ Cadastro ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-main#cadastro {
-    flex-direction: column;
+.cadastro {
+    display: flex;
     justify-content: center;
-    text-align: center;
+    flex-direction: column;
     font-size: 20px;
-    padding: 15px;
     gap: 25px;
     font-weight: bold;
-    position: fixed; 
-    width: 100%; 
-    height: 100%;
+    margin: 55px;
+    margin-left: 155px;
+    height: 100vh;
 }
 
 #cadastro img {
     width: 100px;
     height: 100px;
-    filter: drop-shadow(-5px 2px 0 var(--cor5));
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #aceito_termos_aluno,
 #aceito_p {
     cursor: pointer;
 }
+
 label a {
     color: var(--cor1);
 }
+
 label a:hover {
     color: var(--cor3);
 }
@@ -153,15 +153,15 @@ label a:hover {
 /*~~ Botao para trocar para area de login ~~*/
 .faca_login {
     display: flex;
+    justify-content: center;
     align-items: center;
+    padding: 5px;
     gap: 10px;
-    padding: 0 10px;
     font-size: 15px;
     color: var(--withe);
     background-color: var(--cor1);
     border-radius: 5px;
-    border: 3px solid var(--black);
-    outline: 2px solid var(--cor1);
+    border: 2px solid var(--cor1);
 }
 
 .faca_login button {
@@ -199,18 +199,20 @@ label a:hover {
 }
 
 /* Ícone de olho fechado quando visível */
-#senha_aluno[data-visivel="true"], #confirmar_senha_aluno[data-visivel="true"] {
+#senha_aluno[data-visivel="true"],
+#confirmar_senha_aluno[data-visivel="true"] {
     background-image: url('../imgs/nao_visivel.png');
 }
 
-#senha_criador[data-visivel="true"], #confirmar_senha_criador[data-visivel="true"] {
+#senha_criador[data-visivel="true"],
+#confirmar_senha_criador[data-visivel="true"] {
     background-image: url('../imgs/nao_visivel.png');
 }
 
 /*~~~~~~~~~ configuracoes ~~~~~~~~~~~*/
 #formulario_cadastro_aluno,
 #formulario_cadastro_criador {
-    color: var(--cor2);
+    color: var(--withe);
     flex-direction: column;
     display: flex;
     justify-content: center;
@@ -225,7 +227,7 @@ label a:hover {
     border: none;
     background-color: var(--cor5);
     outline: none;
-    color: var(--black);
+    color: black;
     height: 30px;
     width: 20rem;
     border-radius: 3px 5px;
@@ -276,19 +278,19 @@ label a:hover {
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ tipo de conta ~~~~~~~~~~~~~~~~~~~~~*/
 #escolha {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     flex-direction: column;
     text-align: center;
     font-size: 20px;
     gap: 25px;
     font-weight: bold;
     height: 100vh;
-    margin: 200px 100px;
+    margin-left: 155px;
 }
 
 #tipo_conta img {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -302,4 +304,8 @@ label a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.entrada:hover {
+    transform: scale(1.08);
 }
