@@ -5,110 +5,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style_login.css">
+    <link rel="stylesheet" href="../css/menusAdicionados.css">
     <link rel="shortcut icon" href="../imgs/Penelope.png" type="image/x-icon">
-    <title>Golden Maker&reg_Login</title>
+    <title>Golden Maker&reg</title>
 </head>
 
 <body>
 
+    <!--Formulario para login de aluno-->
     <main id="login" class="mostrar">
         <img src="../imgs/Penelope.png" alt="logo">
-        <form id="formulario_login">
-            <h4>Login!</h4>
-            <p>Email:
-                <input type="text" id="email" placeholder="goldenmaker@gmail.com" name="email" required>
+        <form id="formulario_login_aluno"><br>
+            <h4>Login!Aluno</h4>
+            <p>Email:<br>
+                <input type="email" id="email_aluno" placeholder="goldenmaker@gmail.com" required name="email">
             </p>
             <div class="senha">
-                <p>Senha:
-                    <input type="password" name="nova_senha" id="senha" onclick="alternarSenha(this)"
+                <p>Senha:<br>
+                    <input type="password" name="senha" id="senha_aluno"
                         data-visivel="false" required>
                 </p>
-            </div>
-            <input type="submit" value="Starts" class="starts">
+            </div><br>
+            <input type="submit" value="Starts" class="starts_login_aluno">
         </form><br>
 
         <div id="cadastre-se">
             <p>Ainda não tem conta?</p>
-            <button id="btnCadastro">Cadastre-se</button>
+            <button id="btnCadastro_aluno">Cadastre-se</button>
         </div>
     </main>
 
+    <!--Formulario para cadastro de aluno-->
     <main id="cadastro" class="hidden">
         <img src="../imgs/Penelope.png" alt="logo">
-        <form id="formulario_cadastro">
+        <form id="formulario_cadastro_aluno">
             <h4>Cadastre-se!</h4>
             <p>Email:<br>
-                <input type="text" id="email" name="email" placeholder="goldenmaker@gmail.com" required>
+                <input type="email" id="email_aluno" placeholder="goldenmaker@gmail.com" required name="email">
             </p>
             <div class="senha">
                 <p>Senha:<br>
-                    <input type="password" name="nova_senha" id="senha" onclick="alternarSenha(this)"
+                    <input type="password" name="nova_senha" id="senha_aluno"
                         data-visivel="false" required>
                 </p>
             </div>
             <div class="senha">
                 <p>Confirma senha:<br>
-                    <input type="password" id="confirmar" onclick="alternarSenha(this)"
+                    <input type="password" id="confirmar_senha_aluno"
                         data-visivel="false" required>
                 </p>
             </div>
             <p>Nick name(apelido):<br>
-                <input type="text" name="nick" id="nick" placeholder="nick" required>
+                <input type="text" name="nick" id="nick_aluno" placeholder="nick" required>
             </p>
             <div>
-                <input type="checkbox" id="aceito" required>
-                <label for="aceito">Aceito os <b><a href="#">termos de uso</a></b></label>
+                <input type="checkbox" id="aceito_termos_aluno" name="termos" required>
+                <label for="aceito_termos_aluno">Aceito os <b><a href="#">termos de uso</a></b></label>
             </div><br>
 
-            <input type="submit" value="Starts" class="starts_c">
+            <input type="submit" value="Starts" class="starts_cadastro_aluno">
         </form><br>
 
         <div class="faca_login">
             <p>Já possui uma conta?</p>
-            <button id="btnLogin">Login</button>
+            <button id="btnLogin_aluno">Login</button>
         </div>
     </main>
 
-    <script>
+    <div id="toast-notification" class="toast"></div>
+
+    <script type="module">
+
+        import { mudarParaCadastro, mudarParaLogin, alternarSenha } from '/js/tela/ui_Funcoes.js'
+
         const login = document.getElementById("login");
         const cadastro = document.getElementById("cadastro");
-        const btnCadastro = document.getElementById("btnCadastro");
-        const btnLogin = document.getElementById("btnLogin");
+        const btnCadastro = document.getElementById("btnCadastro_aluno");
+        const btnLogin = document.getElementById("btnLogin_aluno");
 
-        btnCadastro.addEventListener("click", () => {
-            login.classList.remove("mostrar");
-            login.classList.add("hidden");
-            cadastro.classList.remove("hidden");
-            cadastro.classList.add("mostrar");
+        btnCadastro.addEventListener("click", () => { //mudar para cadastror
+            mudarParaCadastro(login, cadastro) // chama a function do arquivo ui_funções
         });
 
-        btnLogin.addEventListener("click", () => {
-            cadastro.classList.remove("mostrar");
-            cadastro.classList.add("hidden");
-            login.classList.remove("hidden");
-            login.classList.add("mostrar");
+        btnLogin.addEventListener("click", () => { // mudar para login
+            mudarParaLogin(login, cadastro) // chama a function do arquivo ui_funções
         });
 
-        //funçao para alterar input de senha
-        function alternarSenha(input) {
-            // Pega a posição atual do cursor
-            const start = input.selectionStart;
-            const end = input.selectionEnd;
+            const camposSenha = document.querySelectorAll('#senha_aluno, #confirmar_senha_aluno, #senha_login');
 
-            // Verifica se está visível
-            const visivel = input.getAttribute("data-visivel") === "true";
+    // Adiciona o evento de clique para CADA um deles
+    camposSenha.forEach(campo => {
+        campo.addEventListener('click', () => {
+            // Chama a função importada, passando o campo clicado
+            alternarSenha(campo);
+        });
+    });
 
-            // Alterna o tipo
-            input.type = visivel ? "password" : "text";
-            input.setAttribute("data-visivel", !visivel);
-
-            // Restaura a posição do cursor
-            requestAnimationFrame(() => {
-                input.setSelectionRange(start, end);
-            });
-        }
     </script>
-    <script src="../scripts/login.js"></script>
+    <script src="../js/logica/login_aluno.js" type="module"></script>
 </body>
 
 </html>

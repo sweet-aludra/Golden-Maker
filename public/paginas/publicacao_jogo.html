@@ -11,23 +11,27 @@
 
 <body>
     <header>
-        <a href="perfil.html"><img src="../imgs/download.jpeg" alt="perfil"></a>
+        <!--<a href="perfil.html"><img src="../imgs/download.jpeg" alt="perfil"></a>-->
         <div id="menu">
             <a href="../index.html"><img src="../imgs/Penelope.png" alt="logo_golden_maker"
                     class="penelope_img_header"></a>
+            <ul>
+                <li><a href="../paginas/perfil.html">Perfil</a></li>
+                <li><a href="#">Galeria</a></li>
+            </ul>
         </div>
-    </header>
-    <br>
+    </header><br>
+
     <main id="publicacoes">
         <section id="publique_jogo">
             <h1>Publique seu jogo!</h1><br>
             <form>
                 <div id="descricao_jogo"> <!--campo de nome e descrição do jogo-->
                     <p>Nome do jogo:<br>
-                        <input type="text" name="txt_nome_jogo" id="nome_jogo" placeholder="add nome" required>
+                        <input type="text" name="txt_nome_jogo" id="nome_jogo" placeholder="Adicione nome" required>
                     </p><br>
                     <label for="descricao_j">Descrição do jogo:</label><br>
-                    <textarea id="descricao_j" name="descricao_j" rows="6" cols="40" required></textarea>
+                    <textarea id="descricao_j" name="descricao_j" rows="6" cols="40" required></textarea><br>
                 </div><br>
                 <hr><br>
 
@@ -43,17 +47,10 @@
                 <div>
                     <h4>Fotos do jogo</h4><br>
                     <div class="upload-area">
-                        <input type="file" class="fileUpload" accept="image/*" hidden>
+                        <input type="file" class="fileUpload" accept="image/*" hidden multiple>
                         <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
                     </div>
-                    <div class="upload-area">
-                        <input type="file" class="fileUpload" accept="image/*" hidden>
-                        <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
-                    </div>
-                    <div class="upload-area">
-                        <input type="file" class="fileUpload" accept="image/*" hidden>
-                        <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
-                    </div>
+
                 </div><br>
                 <hr><br>
 
@@ -62,16 +59,16 @@
                     <input type="file" name="arquivo_jogo" id="arquivo_jogo" accept="arquivo" required>
                 </div><br>
                 <hr><br>-->
-                <h2>Arquivo</h2><br>
+                <h2>Pasta do Jogo</h2><br>
                 <div>
                     <!-- Input real (invisível) -->
-                    <input type="file" name="arquivo_jogo" id="arquivo_jogo" required hidden>
+                    <input type="file" webkitdirectory name="arquivo_jogo" id="arquivo_jogo" required hidden>
 
                     <!-- Botão estilizado -->
-                    <label for="arquivo_jogo" class="btn-arquivo">Selecionar Arquivo</label>
+                    <label for="arquivo_jogo" class="btn-arquivo">Selecionar Pasta</label>
 
                     <!-- Onde aparece o nome do arquivo escolhido -->
-                    <span id="nomeArquivo">Nenhum arquivo selecionado</span>
+                    <span id="nomeArquivo">Nenhuma pasta selecionada</span>
                 </div><br>
                 <hr><br>
 
@@ -84,7 +81,7 @@
                             <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
                         </div>
                         <p>Nome(completo):<br>
-                            <input type="text" class="txt_nome_integrante" placeholder="Santiago de santana">
+                            <input type="text" class="txt_nome_integrante" placeholder="Nome e sobrenome">
                         </p>
                     </div><br><br>
                     <div>
@@ -93,7 +90,7 @@
                             <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
                         </div>
                         <p>Nome(completo):<br>
-                            <input type="text" class="txt_nome_integrante" placeholder="Santiago de santana">
+                            <input type="text" class="txt_nome_integrante" placeholder="Nome e sobrenome">
                         </p>
                     </div><br><br>
                     <div>
@@ -102,7 +99,7 @@
                             <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
                         </div>
                         <p>Nome(completo):<br>
-                            <input type="text" class="txt_nome_integrante" placeholder="Santiago de santana">
+                            <input type="text" class="txt_nome_integrante" placeholder="Nome e sobrenome">
                         </p>
                     </div><br><br>
                     <div>
@@ -111,7 +108,7 @@
                             <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
                         </div>
                         <p>Nome(completo):<br>
-                            <input type="text" class="txt_nome_integrante" placeholder="Santiago de santana">
+                            <input type="text" class="txt_nome_integrante" placeholder="Nome e sobrenome">
                         </p>
                     </div>
                 </div><br>
@@ -123,34 +120,12 @@
             </form>
         </section><br><br>
 
-        <section id="publique_midia">
-            <br>
-            <h1>Publique Video/Foto!</h1><br>
-            <form>
-                <h2>Arquivo</h2><br>
-                <div id="midia">
-                    <div class="upload-area">
-                        <!-- foto/video que vai ser publicado (!input so aceitando foto por enquanto)-->
-                        <input type="file" class="fileUpload" accept="image/*" hidden required>
-                        <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
-                    </div><br>
-                    <div id="descricao_midia"> <!--campo de descrição da midia-->
-                        <label for="descricao_m">Descrição da img/video:</label><br>
-                        <textarea id="descricao_m" name="descricao_m" rows="6" cols="40"></textarea>
-                    </div><br>
-                </div>
-                <!--input para publicar-->
-                <div id="publicar_m">
-                    <input type="submit" value="Publicar">
-                </div><br><!--publicar midia(video/foto)-->
-            </form>
-        </section>
     </main><br>
 
     <footer id="roda_pe">
         <h2>ARCANE <img src="../imgs/flor1.png" alt="flor de lis"> BOOT</h2>
         <h5>adventure starts here</h5><br>
-        <p>Acompanhe nossa <a href="https://sweet-aludra.github.io/TCC_empresa/index.html"><span style="color: #a681c7; cursor: pointer;">empresa</span></a>!</p>
+        <p>Acompanhe nossa <a href="https://sweet-aludra.github.io/TCC_empresa/index.html" class="link_empresa">empresa</a>!</p>
     </footer>
 
     <script>
@@ -182,9 +157,9 @@
 
         inputArquivo.addEventListener("change", () => {
             if (inputArquivo.files.length > 0) {
-            nomeArquivo.textContent = inputArquivo.files[0].name;
+                nomeArquivo.textContent = inputArquivo.files[0].name;
             } else {
-            nomeArquivo.textContent = "Nenhum arquivo selecionado";
+                nomeArquivo.textContent = "Nenhum arquivo selecionado";
             }
         });
     </script>

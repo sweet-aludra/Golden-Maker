@@ -5,19 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/menusAdicionados.css"><!--para o toast-->
     <link rel="shortcut icon" href="imgs/Penelope.png" type="image/x-icon">
-    <title>Golden Maker&reg2025</title>
+    <title>Golden Maker&reg</title>
 </head>
 
 <body>
     <header>
-        <a href="paginas/perfil.html"><img src="imgs/download.jpeg" alt="perfil" id="imagemPerfil"></a>
-        <h1 id="mostrarNome" style="color: white;"></h1><!--po muda dai e so usar o msm id que vai funcionar-->
+        <!--<a href="paginas/perfil.html"><img src="imgs/download.jpeg" alt="perfil"></a>-->
         <div id="menu">
-            <ul>
-                <li><a href="tipo_cadastro.html">Login/Cadastro</a></li>
-            </ul>
             <img src="imgs/Penelope.png" alt="logo_golden_maker" class="penelope_img_header">
+            <ul>
+                <li><a href="paginas/tipo_cadastro.html">Login/Cadastro</a></li>
+                <li><a href="paginas/perfil.html">Perfil</a></li>
+                <li><a href="paginas/galeria.html">Galeria</a></li>
+            </ul>
         </div>
     </header>
 
@@ -27,16 +29,8 @@
             <div id="txt">
                 <h1 id="titulo1">Hello Gamer!</h1><br>
                 <div class="texto_apresentacao">
-                    <p>Este site é inteiramente dedicado a produtores independentes, para que você possa mostrar todo o
-                        seu
-                        talento sem amarras e com total liberdade criativa. Aqui, você encontra espaço de sobra para
-                        ganhar
-                        visibilidade, se conectar com pessoas que valorizam o seu trabalho, trocar experiências,
-                        aprender
-                        coisas novas e colaborar com outros criadores. É o cenário perfeito para compartilhar criações
-                        inovadoras e divertidas.</p>
-                    <p>Nosso objetivo é proporcionar um ambiente que incentive a originalidade, fortaleça a presença dos
-                        produtores independentes no mercado e valorize o impacto cultural de suas obras.</p>
+                    <p>Este site oferece um espaço livre e criativo para produtores independentes mostrarem seu talento, conquistarem visibilidade, trocarem experiências e colaborarem com outros criadores.</p><br>
+                    <p>Nosso objetivo é incentivar a originalidade, fortalecer a presença dos produtores independentes no mercado e valorizar o impacto cultural de suas obras.</p>
                 </div>
             </div>
             <img src="imgs/Logo_gm.png" alt="Logo Golden Maker"><br>
@@ -45,8 +39,9 @@
     </div><br>
 
     <section id="secao_jogos">
-        <div id="procura">
-            <input type="text" id="txt_pesquisa" name="pesquisa" placeholder=" " />
+        <h3>Golden Maker</h3><br>
+        <div id="procurar">
+            <input type="text" id="txt_pesquisa" name="pesquisa" placeholder="Busque jogos..." />
         </div>
         <!--<div id="busca_jogos">
             <h3>Busque por Generos</h3>
@@ -57,54 +52,13 @@
 
         <article id="apresentacao_jogos">
             <div>
-                <h3>1°Ano</h3>
                 <div class="carrosel_jogos">
                     <button class="btn prev">&#10094;</button>
                     <div class="slides">
                         <a href="paginas/jogo.html">
-                            <div class="jogo"><img src="imgs/capa_modelo.jpg" class="capa_jogo" alt="capa do jogo"></div>
+                            <div class="jogo"><img src="imgs/capa_modelo.jpg" class="capa_jogo" alt="capa do jogo">
+                            </div>
                         </a>
-                        <a href="paginas/jogo.html">
-                            <div class="jogo"><img id="mostrarTela"></div>
-                        </a>
-                        <a href="paginas/jogo.html">
-                            <div class="jogo"></div>
-                        </a>
-                        <a href="paginas/jogo.html">
-                            <div class="jogo"></div>
-                        </a>
-                    </div>
-                    <button class="btn next">&#10095;</button>
-                </div>
-            </div>
-
-            <div>
-                <h3>2°Ano</h3>
-                <div class="carrosel_jogos">
-                    <button class="btn prev">&#10094;</button>
-                    <div class="slides">
-                        <a href="paginas/jogo.html">
-                            <div class="jogo"></div>
-                        </a>
-                        <a href="paginas/jogo.html">
-                            <div class="jogo"></div>
-                        </a>
-                        <a href="paginas/jogo.html">
-                            <div class="jogo"></div>
-                        </a>
-                        <a href="paginas/jogo.html">
-                            <div class="jogo"></div>
-                        </a>
-                    </div>
-                    <button class="btn next">&#10095;</button>
-                </div>
-            </div>
-
-            <div>
-                <h3>3°Ano</h3>
-                <div class="carrosel_jogos">
-                    <button class="btn prev">&#10094;</button>
-                    <div class="slides">
                         <a href="paginas/jogo.html">
                             <div class="jogo"></div>
                         </a>
@@ -120,19 +74,21 @@
             </div>
         </article>
 
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="xMidYMax meet">
+            <path class="wave" fill="#bd6c7d" fill-opacity="1"
+                d="M0,288L48,266.7C96,245,192,203,288,186.7C384,171,480,181,576,197.3C672,213,768,235,864,250.7C960,267,1056,277,1152,272C1248,267,1344,245,1392,234.7L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+            </path>
+        </svg>
 
-    </section><br>
-
-    <section>
-        <!--<h1>Galeria</h1><br>-->
     </section>
-
 
     <footer id="roda_pe">
         <h2>ARCANE <img src="imgs/flor1.png" alt="flor de lis"> BOOT</h2>
         <h5>adventure starts here</h5><br>
-        <p>Acompanhe nossa <a href="https://sweet-aludra.github.io/TCC_empresa/index.html"><span style="color: #a681c7; cursor: pointer;">empresa</span></a>!</p>
+        <p>Acompanhe nossa <a href="https://sweet-aludra.github.io/TCC_empresa/index.html" class="link_empresa">empresa</a>!</p>
     </footer>
+
+    <div id="toast-notification" class="toast"></div>
 
     <script>
         document.querySelectorAll(".carrosel_jogos").forEach(carrosel => {
@@ -166,7 +122,7 @@
         });
 
     </script>
-    <script src="./scripts/index.js"></script>
+    <script src="./js/tela/fetch.js" type="module"></script>
 </body>
 
 </html>

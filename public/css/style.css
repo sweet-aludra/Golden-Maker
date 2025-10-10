@@ -32,8 +32,6 @@ h1 {
 }
 
 header {
-    display: flex;
-    justify-content: space-between;
     padding: 15px 50px;
     background-color: var(--black);
     border-bottom: 10px double var(--cor4);
@@ -47,10 +45,12 @@ header img {
 
 #menu {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     gap: 55px;
 }
 
-#menu ul{
+#menu ul {
     list-style: none;
     display: flex;
     gap: 20px;
@@ -59,6 +59,7 @@ header img {
     align-items: center;
     color: var(--withe);
 }
+
 #menu a:hover {
     color: var(--cor5);
 }
@@ -81,30 +82,25 @@ div#img_fundo {
     background-position: center bottom;
     border-bottom: 10px double var(--cor4);
 }
+
 /*~~~~~~~ apresentacao ~~~~~~~~~~*/
 section#apresentacao {
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    justify-content: center;
     text-align: center;
     background-color: var(--black);
     color: var(--withe);
-    margin: 20px 50px;
     font-size: 20px;
     border: 5px groove var(--cor3);
+    margin: 20px 15rem;
+    padding: 30px 10rem;
+    gap: 30px;
 }
 
 section#apresentacao img {
     width: 350px;
     height: 300px;
-    margin: 35px;
-}
-
-#txt {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding: 50px 25px;
 }
 
 .texto_apresentacao {
@@ -114,10 +110,25 @@ section#apresentacao img {
 
 /*~~~~~~~ pesqisa por jogos ~~~~~~~*/
 section#secao_jogos {
-    margin: 20px;
+  padding: 20px;
+  text-align: center;
+  position: relative;       
+  overflow: hidden;         
 }
 
-div#procura {
+/* garante que todo o conteúdo fique acima da onda */
+section#secao_jogos > :not(.waves) {
+  position: relative;
+  z-index: 1;
+}
+
+#secao_jogos h3 {
+    font-family: 'Press Start 2P', monospace, Arial, sans-serif;
+    font-size: 30px;
+    color: var(--cor1);
+}
+
+div#procurar {
     display: flex;
     justify-content: center;
 }
@@ -128,7 +139,7 @@ div#procura {
     border-radius: 10px;
     font-size: 15px;
     width: 300px;
-    height: 25px;
+    height: 30px;
 
     background-image: url('../imgs/lupa.png');
     background-repeat: no-repeat;
@@ -139,18 +150,18 @@ div#procura {
 
 #txt_pesquisa:focus {
     outline: 0px;
-    border: 3px solid var(--cor1);
+    border: 2px solid var(--cor1);
 }
 
 /*~~~~~~~~~*/
 #apresentacao_jogos {
     width: 100%;
-    max-width: 50rem; /* limite em telas grandes */
+    max-width: 50rem;
+    /* limite em telas grandes */
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
     gap: 10px;
 }
 
@@ -173,7 +184,8 @@ div#procura {
 }
 
 .jogo {
-    flex: 0 0 250px; /* largura mínima */
+    flex: 0 0 250px;
+    /* largura mínima */
     max-width: 100%;
     height: 20rem;
     width: 35rem;
@@ -185,9 +197,11 @@ div#procura {
 }
 
 .jogo:hover {
-  transform: scale(1.05); /* zoom suave */
-  box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.4), 
-              -3px 5px 0px rgba(0, 255, 21, 0.3); /* brilho externo */
+    transform: scale(1.05);
+    /* zoom suave */
+    box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.4),
+        -3px 5px 0px rgba(0, 255, 21, 0.3);
+    /* brilho externo */
 }
 
 /* botões */
@@ -218,6 +232,31 @@ div#procura {
     right: 10px;
 }
 
+/* SVG das ondas (ajustável) */
+.waves {
+  position: absolute;
+  bottom: 0;
+  left: -10%;       /* começo levemente à esquerda para dar "margem" ao deslize */
+  width: 130%;      /* maior que 100% para permitir animação sem expor vazio */
+  height: 35rem;    /* altura visível da onda (mude para mais/menos) */
+  display: block;
+  z-index: -1;      
+}
+
+.waves svg,
+.waves { display: block; }
+
+.wave {
+  will-change: transform;
+  transform-origin: center bottom;
+  animation: moveWave 6s ease-in-out infinite alternate;
+}
+
+@keyframes moveWave {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-10%); } 
+}
+
 /*~~~~~~~~~~~ roda pe ~~~~~~~~~~~~~~~~*/
 footer {
     background-color: var(--black);
@@ -233,6 +272,16 @@ footer img {
     height: 55px;
     align-items: end;
 }
+footer p{
+    font-size: 20px;
+}
+.link_empresa{
+    color: #a681c7;
+    cursor: pointer;
+}
+.link_empresa:hover{
+    color: var(--cor4);
+}
 
 h5 {
     font-family: 'Press Start 2P';
@@ -243,6 +292,8 @@ h5 {
 @media (max-width: 1200px) {
     section#apresentacao {
         flex-direction: column;
+        margin: 20px 50px;
+        padding: 25px 5rem;
     }
 
     .carrosel_jogos {
@@ -254,7 +305,6 @@ h5 {
     section#apresentacao img {
         width: 250px;
         height: 220px;
-        margin: 5px;
     }
 
     .carrosel_jogos {
@@ -271,23 +321,28 @@ h5 {
         height: 15rem;
         width: 25rem;
     }
+    div.jogo img{
+        height: 15rem;
+        width: 25rem;
+    }
 
 }
 
 @media (max-width: 768px) {
     section#apresentacao {
-        font-size: 20px;
+        margin: 20px;
+        padding: 25px 5rem;
     }
 
-    .texto_apresentacao {
-        padding: 0px 20px;
+    #secao_jogos h3 {
+        font-size: 20px;
     }
 
     .carrosel_jogos {
         max-width: 30rem;
     }
 
-    footer img{
+    footer img {
         width: 45px;
         height: 45px;
     }
@@ -660,8 +715,10 @@ div.img_jogo {
         display: grid;
         margin: 15px;
         gap: 35px;
-        grid-template-columns: repeat(2, 1fr); /* 2 colunas iguais */
-        grid-template-rows: repeat(2, 200px);  /* 2 linhas de 200px */
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 colunas iguais */
+        grid-template-rows: repeat(2, 200px);
+        /* 2 linhas de 200px */
     }
 
     .integrante img {
@@ -690,7 +747,6 @@ h4 {
 
 #publicacoes {
     display: flex;
-    flex-direction: column;
 }
 
 /*~~~~~~~~~~ publique jogo ~~~~~~~*/
@@ -699,7 +755,7 @@ h4 {
     margin-right: auto;
     padding: 50px 10px;
     width: 100%;
-    max-width: 45rem;
+    max-width: 35rem;
     background-color: var(--black);
     border: 5px solid var(--withe);
     outline: 5px solid var(--black);
@@ -712,13 +768,16 @@ h4 {
 }
 
 #publique_jogo input {
-    width: 400px;
-    height: 20px;
+    width: 100%;
+    height: 30px;
+    align-items: center;
 }
 
 textarea#descricao_j {
     max-width: 400px;
     max-height: 100px;
+    min-width: 200px;
+    min-height: 50px;
     font-size: 15px;
     background-color: var(--withe);
     outline: none;
@@ -726,11 +785,15 @@ textarea#descricao_j {
     border-radius: 3px 20px 3px 3px;
 }
 
+#selecao_ano ul {
+    list-style: none;
+}
+
 /* area das imgs */
 .upload-area {
     border: 2px dotted var(--withe);
     border-radius: 12px;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -808,6 +871,7 @@ div#publicar_j {
     padding: 50px 10px;
     width: 100%;
     max-width: 35rem;
+    max-height: 32rem;
     background-color: var(--black);
     border: 5px solid var(--withe);
     outline: 5px solid var(--black);
@@ -826,13 +890,15 @@ div#publicar_j {
 #midia input {
     border: none;
     outline: none;
-    width: 300px;
+    width: 100%;
     height: 30px;
 }
 
 textarea#descricao_m {
     max-width: 400px;
     max-height: 100px;
+    min-width: 200px;
+    min-height: 50px;
     font-size: 15px;
     background-color: var(--withe);
     outline: none;
@@ -861,13 +927,23 @@ div#publicar_m {
 }
 
 /*~~~~~~ area de dinamismo ~~~~~~~~*/
-@media (max-width: 1200px) {}
+@media (max-width: 1200px) {
+    #publicacoes {
+        flex-direction: column;
+    }
+}
 
 @media (max-width: 992px) {}
 
 @media (max-width: 768px) {
-    #publique_jogo, #publique_midia {
-        padding: 10px;
+
+    #publicacoes h1 {
+        font-size: 15px;
+    }
+
+    #publique_jogo,
+    #publique_midia {
+        padding: 15px;
         font-size: 15px;
         width: 25rem;
     }
@@ -877,10 +953,6 @@ div#publicar_m {
         width: 300px;
     }
 
-    #publique_jogo input {
-        width: 350px;
-        height: 25px;
-    }
 }
 
 @media (max-width: 480px) {}

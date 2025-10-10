@@ -10,15 +10,20 @@
     --black: #353535;
 
 }
+* {
+    margin: 0px;
+}
 
-body {
-    /*background-image: url(../imgs/funddd.jpeg);
-    background-repeat: no-repeat;
+body main{
+    background-image: linear-gradient(to right, black, #191919ea, rgba(0, 0, 0, 0)), url("../imgs/capa.jpg");
+    background-position: center center;
     background-size: cover;
-    background-position: left top;*/
-    background-color: var(--black);
+    background-repeat: no-repeat;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start; 
+    align-items: center; 
+    width: 100%; 
+    height: 100%;
 }
 
 a {
@@ -28,184 +33,12 @@ a {
 h4 {
     font-family: 'Press Start 2P';
     font-size: 15px;
-}
-
-#cadastro {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
     text-align: center;
-    width: 35rem;
-    height: 48rem;
-    font-size: 20px;
-    margin: 55px;
-    font-weight: bold;
-    background-color: var(--withe);
-    border-radius: 10px;
-    border: 10px solid var(--black);
-    outline: 10px solid var(--cor1);
-}
-
-#cadastro img {
-    width: 100px;
-    height: 100px;
-    filter: drop-shadow(-5px 2px 0 var(--cor5));
-}
-
-#formulario_cadastro {
-    color: var(--cor2);
-    flex-direction: column;
-    display: flex;
-    justify-content: center;
-    text-align: start;
-}
-
-h4 {
-    text-align: center;
-    color: var(--cor2);
-}
-
-#email,
-#nick,
-#senha,
-#confirmar {
-    border: none;
-    background-color: var(--cor5);
-    outline: none;
-    color: var(--black);
-    height: 30px;
-    width: 20rem;
-    border-radius: 3px 5px;
-    font-size: 15px;
-}
-
-#aceito,
-#aceito_p {
-    cursor: pointer;
-}
-
-label a {
-    color: var(--cor1);
-}
-
-label a:hover {
-    color: var(--cor3);
-}
-
-/*~~~~~~~~~ configuracao olho ~~~~~~~~~*/
-.senha {
-    position: relative;
-}
-
-.senha input {
-    padding: 0 40px 0 10px;
-    background-color: transparent;
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-size: 20px;
-    cursor: pointer;
-    border: none;
-    outline: none;
-    border-bottom: 2px solid var(--cor1);
-}
-
-/* Ícone de olho aberto padrão */
-#senha,
-#senha_p {
-    background-image: url('../imgs/visivel.png');
-}
-
-#confirmar,
-#confirmar_p {
-    background-image: url('../imgs/visivel.png');
-}
-
-/* Ícone de olho fechado quando visível */
-#senha[data-visivel="true"] {
-    background-image: url('../imgs/nao_visivel.png');
-}
-
-#confirmar[data-visivel="true"] {
-    background-image: url('../imgs/nao_visivel.png');
-}
-
-/*~~~~**/
-#senha_p[data-visivel="true"] {
-    background-image: url('../imgs/nao_visivel.png');
-}
-
-#confirmar_p[data-visivel="true"] {
-    background-image: url('../imgs/nao_visivel.png');
-}
-
-/*~~~~~~*/
-.starts {
-    margin-left: auto;
-    margin-right: auto;
-    outline: none;
-    border: none;
-    background-color: var(--cor1);
-    color: var(--withe);
-    border-radius: 10px;
-    width: 16rem;
-    height: 40px;
-    font-size: 15px;
-}
-
-.starts:hover {
-    background-color: var(--black);
     color: var(--withe);
 }
 
-.starts_c {
-    margin-left: auto;
-    margin-right: auto;
-    outline: none;
-    border: none;
-    background-color: var(--cor1);
-    color: var(--withe);
-    border-radius: 10px;
-    width: 14rem;
-    height: 40px;
-    font-size: 15px;
-}
-
-.starts_c:hover {
-    background-color: var(--black);
-    color: var(--withe);
-}
-
-/*~~~~~~~*/
-.faca_login {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 0 10px;
-    font-size: 15px;
-    color: var(--withe);
-    background-color: var(--cor1);
-    border-radius: 5px;
-    border: 3px solid var(--black);
-    outline: 2px solid var(--cor1);
-}
-
-.faca_login button {
-    outline: none;
-    border: none;
-    background-color: var(--withe);
-    padding: 5px;
-    border-radius: 5px;
-    border-bottom: 2px solid var(--cor3);
-    color: var(--cor2);
-}
-
-/*~~~~~~~~~~~~~~~*/
+/* mudança de telas Login / Cadastro */
 main {
-    display: flex;
-    /* mantém o layout */
-    flex-direction: column;
-    align-items: center;
     transition: opacity 0.5s ease, visibility 0.5s;
 }
 
@@ -222,45 +55,36 @@ main {
     position: static;
 }
 
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~ cadastro publi ~~~~~~~~~~~~~~~~~~~~~~~~*/
-#cadastro_publicador {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/*~~~~~~~~~~~~~~~~~~~~~~~ login ~~~~~~~~~~~~~~~~~~~~~~~*/
+main#login {
     flex-direction: column;
     text-align: center;
-    width: 35rem;
-    height: 50rem;
     font-size: 20px;
-    margin: 55px;
+    padding: 15px;
+    gap: 25px;
     font-weight: bold;
-    background-color: var(--withe);
-    border-radius: 10px;
-    border: 10px solid var(--black);
-    outline: 10px solid var(--cor1);
+    position: fixed; 
+    width: 100%; 
+    height: 100%;
 }
 
-#cadastro_publicador img {
+#login img {
     width: 100px;
     height: 100px;
     margin-left: auto;
     margin-right: auto;
-    filter: drop-shadow(-5px 2px 0 var(--cor5));
 }
 
-#formulario_cadastro_publicador {
-    color: var(--cor2);
-    flex-direction: column;
-    display: flex;
-    justify-content: center;
-    text-align: start;
+/*~~~~~~~~~~ configuraçoes ~~~~~~~~~~~*/
+#formulario_login_aluno,
+#formulario_login_criador {
+    color: var(--withe);
 }
 
-#email_p,
-#nick_p,
-#senha_p,
-#confirmar_p,
-#nome {
+#email_aluno,
+#senha_aluno,
+#confirmar_senha_aluno,
+#nick_aluno {
     border: none;
     background-color: var(--cor5);
     outline: none;
@@ -271,44 +95,7 @@ main {
     font-size: 15px;
 }
 
-/*~~~~~~~~~~~~~~~~~~~~~~~ login ~~~~~~~~~~~~~~~~~~~~~~~*/
-#login {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    width: 35rem;
-    height: 35rem;
-    font-size: 20px;
-    font-weight: bold;
-    background-color: var(--withe);
-    border-radius: 10px;
-    border: 10px solid var(--black);
-    outline: 10px solid var(--cor1);
-    margin-top: 50px;
-
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#login img {
-    width: 100px;
-    height: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    filter: drop-shadow(-5px 2px 0 var(--cor5));
-}
-
-#formulario_login {
-    color: var(--cor2);
-    flex-direction: column;
-    display: flex;
-    justify-content: center;
-    text-align: start;
-}
-
-/*~~~~*/
+/*~~ Botao para trocar para area de cadastro ~~*/
 #cadastre-se {
     display: flex;
     align-items: center;
@@ -332,34 +119,178 @@ main {
     color: var(--cor2);
 }
 
+/*~~~~~~~~~~~~~~~~~~~~~~ Cadastro ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+main#cadastro {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-size: 20px;
+    padding: 15px;
+    gap: 25px;
+    font-weight: bold;
+    position: fixed; 
+    width: 100%; 
+    height: 100%;
+}
 
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ tipo conta ~~~~~~~~~~~~~~~~~~~~~*/
-#tipo_conta {
+#cadastro img {
+    width: 100px;
+    height: 100px;
+    filter: drop-shadow(-5px 2px 0 var(--cor5));
+}
+
+#aceito_termos_aluno,
+#aceito_p {
+    cursor: pointer;
+}
+label a {
+    color: var(--cor1);
+}
+label a:hover {
+    color: var(--cor3);
+}
+
+/*~~ Botao para trocar para area de login ~~*/
+.faca_login {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 10px;
+    font-size: 15px;
+    color: var(--withe);
+    background-color: var(--cor1);
+    border-radius: 5px;
+    border: 3px solid var(--black);
+    outline: 2px solid var(--cor1);
+}
+
+.faca_login button {
+    outline: none;
+    border: none;
+    background-color: var(--withe);
+    padding: 5px;
+    border-radius: 5px;
+    border-bottom: 2px solid var(--cor3);
+    color: var(--cor2);
+}
+
+/*~~ configuracao de ocultacao de senha ~~*/
+.senha {
+    position: relative;
+}
+
+.senha input {
+    padding: 0 40px 0 10px;
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 20px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid var(--cor1);
+}
+
+/* Ícone de olho aberto padrão */
+#senha_aluno,
+#senha_criador,
+#confirmar_senha_aluno,
+#confirmar_senha_criador {
+    background-image: url('../imgs/visivel.png');
+}
+
+/* Ícone de olho fechado quando visível */
+#senha_aluno[data-visivel="true"], #confirmar_senha_aluno[data-visivel="true"] {
+    background-image: url('../imgs/nao_visivel.png');
+}
+
+#senha_criador[data-visivel="true"], #confirmar_senha_criador[data-visivel="true"] {
+    background-image: url('../imgs/nao_visivel.png');
+}
+
+/*~~~~~~~~~ configuracoes ~~~~~~~~~~~*/
+#formulario_cadastro_aluno,
+#formulario_cadastro_criador {
+    color: var(--cor2);
+    flex-direction: column;
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: row;
+    text-align: start;
+}
+
+#email_criador,
+#senha_criador,
+#confirmar_senha_criador,
+#nome_criador,
+#nick_criador {
+    border: none;
+    background-color: var(--cor5);
+    outline: none;
+    color: var(--black);
+    height: 30px;
+    width: 20rem;
+    border-radius: 3px 5px;
+    font-size: 15px;
+}
+
+/*~~~ enviar formularios ~~~*/
+.starts_login_aluno,
+.starts_login_criador {
+    margin-left: auto;
+    margin-right: auto;
+    outline: none;
+    border: none;
+    background-color: var(--cor1);
+    color: var(--withe);
+    border-radius: 10px;
+    width: 16rem;
+    height: 40px;
+    font-size: 15px;
+}
+
+.starts_login_aluno:hover,
+.starts_login_criador:hover {
+    background-color: var(--black);
+    color: var(--withe);
+}
+
+.starts_cadastro_aluno,
+.starts_cadastro_criador {
+    margin-left: auto;
+    margin-right: auto;
+    outline: none;
+    border: none;
+    background-color: var(--cor1);
+    color: var(--withe);
+    border-radius: 10px;
+    width: 14rem;
+    height: 40px;
+    font-size: 15px;
+}
+
+.starts_cadastro_aluno:hover,
+.starts_cadastro_criador:hover {
+    background-color: var(--black);
+    color: var(--withe);
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ tipo de conta ~~~~~~~~~~~~~~~~~~~~~*/
+#escolha {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
     text-align: center;
-    width: 35rem;
-    height: 15rem;
     font-size: 20px;
     gap: 25px;
     font-weight: bold;
-    background-color: var(--withe);
-    border-radius: 10px;
-    border: 10px solid var(--black);
-    outline: 10px solid var(--cor1);
-
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    height: 100vh;
+    margin: 200px 100px;
 }
 
 #tipo_conta img {
     width: 100px;
     height: 100px;
-    filter: drop-shadow(-5px 2px 0 var(--cor5));
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .entrada {
