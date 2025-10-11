@@ -407,8 +407,6 @@ h5 {
     width: 500px;
     border-radius: 10px;
     background-color: var(--black);
-    border-left: 10px double var(--cor3);
-    border-bottom: 10px double var(--cor5);
     display: flex;
     align-items: center;
     flex-direction: column;
