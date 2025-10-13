@@ -71,6 +71,7 @@ main {
     height: 100px;
     margin-left: auto;
     margin-right: auto;
+    filter: drop-shadow(-5px 5px 0 var(--withe));
 }
 
 /*~~~~~~~~~~ configuraçoes ~~~~~~~~~~~*/
@@ -135,6 +136,7 @@ main {
     height: 100px;
     margin-left: auto;
     margin-right: auto;
+    filter: drop-shadow(-5px 5px 0 var(--withe));
 }
 
 #aceito_termos_aluno,
@@ -293,6 +295,7 @@ label a:hover {
     height: 120px;
     margin-left: auto;
     margin-right: auto;
+    filter: drop-shadow(-5px 5px 0 var(--withe));
 }
 
 .entrada {

@@ -131,15 +131,32 @@ section#secao_jogos> :not(.waves) {
 div#procurar {
     display: flex;
     justify-content: center;
+    gap: 40px;
+}
+div#procurar img{
+    width: 75px;
+    height: 50px;
+}
+select {
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid var(--black);
+  background-color: transparent;
+  font-size: 15px;
+  cursor: pointer;
+}
+select:focus {
+    outline: 0px;
+    border: 2px solid var(--cor1);
 }
 
 #txt_pesquisa {
     border: 2px solid var(--black);
-    background-color: var(--withe);
+    background-color: transparent;
     border-radius: 10px;
     font-size: 15px;
-    width: 300px;
-    height: 30px;
+    width: 440px;
+    height: 40px;
 
     background-image: url('../imgs/lupa.png');
     background-repeat: no-repeat;
@@ -200,7 +217,7 @@ div#procurar {
     transform: scale(1.05);
     /* zoom suave */
     box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.4),
-        -3px 5px 10px rgba(0, 255, 21, 0.3);
+        -3px 5px 10px #38a8bcd0;
     /* brilho externo */
 }
 
