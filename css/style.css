@@ -133,10 +133,7 @@ div#procurar {
     justify-content: center;
     gap: 40px;
 }
-div#procurar img{
-    width: 75px;
-    height: 50px;
-}
+
 select {
   padding: 10px;
   border-radius: 10px;
@@ -802,6 +799,11 @@ h4 {
     align-items: center;
 }
 
+#descricao_jogo {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+}
 textarea#descricao_j {
     max-width: 400px;
     max-height: 100px;
@@ -814,8 +816,8 @@ textarea#descricao_j {
     border-radius: 3px 20px 3px 3px;
 }
 
-#selecao_ano ul {
-    list-style: none;
+#selecione-filtro-ano {
+    background-color: var(--withe);
 }
 
 /* area das imgs */
