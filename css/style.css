@@ -179,13 +179,20 @@ select:focus {
     gap: 10px;
 }
 
-
 .carrosel_jogos {
     position: relative;
     margin: 0 auto;
     width: 100%;
     max-width: 82rem;
     overflow: hidden;
+}
+
+img.capa_jogo {
+    /* capa do jogo */
+    height: 20rem;
+    width: 35rem;
+    background-color: var(--black);
+    border-radius: 5px;
 }
 
 .slides {
@@ -374,270 +381,95 @@ h5 {
         width: 45px;
         height: 45px;
     }
+    footer p {
+        font-size: 15px;
+    }
 }
 
 @media (max-width: 480px) {}
 
-/*~~~~~~~~~~~~~~~~~~~~~~ perfil.html ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-#icon {
-    /* div da parte de cima */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ galeria ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#galeria {
+    height: 100vh;
+}
+
+.waves-1 { /* config das ondas ao fundo */
+    position: absolute;
+    display: block;
+    z-index: -1;
+}
+
+div#procurar-galeria {
     display: flex;
     justify-content: center;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
-    gap: 10px;
+    gap: 40px;
+    padding: 25px 0;
 }
 
-#icon img {
-    height: 200px;
-    width: 200px;
-    background-color: var(--black);
-    border-radius: 50%;
-    border-left: 10px solid var(--cor0);
-    border-right: 5px solid var(--cor2);
+#filtro-ano-galeria, #filtro-turma {
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid var(--black);
+  background-color: var(--withe);
+  font-size: 15px;
+  cursor: pointer;
+}
+#filtro-ano-galeria:focus, #filtro-turma:focus {
+    outline: 0px;
+    border: 2px solid var(--cor3);
 }
 
-#icon button {
-    border: none;
+#txt_pesquisa_galeria {
+    border: 2px solid var(--black);
     background-color: var(--withe);
-    color: var(--cor1);
-    cursor: pointer;
-}
-
-#icon button:hover {
-    border-radius: 5px;
-    background-color: var(--cor0);
-    color: var(--withe);
-}
-
-#configuracao_perfil {
-    /* conteudo principal (main) */
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 50px;
-    padding: 20px;
-    font-size: 20px;
-    width: 500px;
     border-radius: 10px;
-    background-color: var(--black);
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    color: var(--withe);
-}
-
-#botao_publicar {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    width: 100px;
-    padding: 5px;
-    border-radius: 5px;
-    background-color: var(--cor0);
-}
-
-#botao_publicar:hover {
-    background-color: var(--cor1);
-}
-
-hr {
-    width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-    border: 1px solid var(--cor2);
-}
-
-form input {
-    border: none;
-    outline: none;
-    border-radius: 2px;
-    background-color: var(--withe);
-}
-
-/*~~~~~~~~~~ novo nome ~~~~~~~*/
-.nome input {
-    width: 100%;
-    padding: 5px 40px 5px 10px;
-    font-size: 16px;
-    border-radius: 4px;
-}
-
-#nick {
-    width: 200px;
-    height: 25px;
-}
-
-/*~~~~atualiza nome~~~~~*/
-#atualizar_nome {
-    width: 90px;
-    align-items: center;
-    background-color: var(--black);
-    border: 3px solid var(--cor5);
-    color: var(--withe);
-    cursor: pointer;
-}
-
-#atualizar_nome:hover {
-    background-color: var(--cor0);
-}
-
-/*~~~~~~~~~~~nova senha~~~~~~~*/
-#nova_senha {
-    /* titulo2 h2 */
-    text-align: center;
-}
-
-.senha {
-    /* compo div das senhas*/
-    position: relative;
-    width: 300px;
-    margin-bottom: 20px;
-}
-
-.senha input {
-    width: 100%;
-    padding: 5px 40px 5px 10px;
-    font-size: 16px;
-    border-radius: 4px;
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-size: 20px;
-    cursor: pointer;
-}
-
-/* Ícone de olho aberto padrão */
-#senha {
-    background-image: url('../imgs/visivel.png');
-}
-
-#confirmar {
-    background-image: url('../imgs/visivel.png');
-}
-
-/* Ícone de olho fechado quando visível */
-#senha[data-visivel="true"] {
-    background-image: url('../imgs/nao_visivel.png');
-}
-
-#confirmar[data-visivel="true"] {
-    background-image: url('../imgs/nao_visivel.png');
-}
-
-/*~~~~atualiza senha~~~*/
-
-#atualizar {
-    width: 90px;
-    background-color: var(--black);
-    color: var(--withe);
-    border: 3px solid var(--black);
-    outline: 3px solid var(--cor5);
-}
-
-#atualizar:hover {
-    background-color: var(--cor0);
-}
-
-/*~~~~~~ area de dinamismo ~~~~~~~~*/
-@media (max-width: 1200px) {}
-
-@media (max-width: 992px) {
-    #icon img {
-        height: 150px;
-        width: 150px;
-    }
-
-    #configuracao_perfil {
-        width: 450px;
-    }
-}
-
-@media (max-width: 768px) {
-    #icon img {
-        border-left: 5px solid var(--cor0);
-        border-right: 3px solid var(--cor2);
-    }
-
-    #configuracao_perfil {
-        width: 380px;
-        padding: 25px;
-    }
-}
-
-@media (max-width: 480px) {}
-
-/*~~~~~~~~~~~~~~~~~~~~~~ jogo.html ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-h3 {
-    font-family: 'Press Start 2P', monospace, Arial, sans-serif;
     font-size: 15px;
+    width: 440px;
+    height: 40px;
+
+    background-image: url('../imgs/lupa.png');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 20px 20px;
+    padding-left: 40px;
 }
 
-section#apresentacao_jogue {
-    /* cabeçalho */
-    display: flex;
-    justify-content: center;
+#txt_pesquisa_galeria:focus {
+    outline: 0px;
+    border: 2px solid var(--cor3);
 }
 
-#cabecalho_jogue {
-    /* parte do topo (icone + nome do jogo*/
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    color: var(--black);
-    padding: 10px;
-}
-
-img.capa_jogo {
-    /* capa do jogo */
-    height: 20rem;
-    width: 35rem;
-    background-color: var(--black);
-    border-radius: 5px;
-}
-
-#descricao {
-    /* caixa de descriçao do jogo */
-    background-color: var(--black);
-    color: var(--withe);
-    font-size: 20px;
-    border-radius: 3px;
-    border-bottom: 5px double var(--cor5);
-    width: 50rem;
-    padding: 15px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* carrosel de imgs do jogo */
-#galeria_jogo {
+/*~~~~~~~~~*/
+.carrosel-galeria-videos {
     position: relative;
     margin: 0 auto;
     width: 100%;
-    max-width: 80rem;
+    max-width: 60rem;
     overflow: hidden;
-    /* corta as laterais */
-    display: flex;
-    align-items: center;
 }
 
-.faixa_slides {
+.slides {
     display: flex;
-    gap: 20px;
+    margin-left: 5px;
     transition: transform 0.5s ease-in-out;
-    padding: 20px 40px;
+    /* espaço interno pra mostrar o corte */
 }
 
-div.img_jogo {
-    flex: 0 0 400px;
-    /* largura fixa */
-    height: 15rem;
-    background-color: var(--black);
-    border-radius: 5px;
+.video {
+    flex: 0 0 54rem;
+    /* largura mínima */
     max-width: 100%;
-    width: 30rem;
+    border-radius: 2px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+video {
+    height: 25rem;
+    width: 54rem;
 }
 
-.ctrl {
+/* botões */
+.btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -645,345 +477,43 @@ div.img_jogo {
     color: var(--withe);
     border: none;
     font-size: 2rem;
-    padding: 5px 10px;
+    padding: 5px;
     cursor: pointer;
     border-radius: 50%;
     z-index: 5;
 }
 
-.ctrl:hover {
-    background: var(--cor1);
+.btn:hover {
+    background: rgba(0, 0, 0, 0.359);
 }
 
-.ctrl.prev {
+.prev {
     left: 10px;
 }
 
-.ctrl.next {
+.next {
     right: 10px;
 }
-
-/* parte principal(onde o jogo vai rodar) */
-#jogue {
-    /* quadro onde o jogo vai rodar */
-    background-color: var(--black);
-    width: 100%;
-    max-width: 80rem;
-    height: 40rem;
-    border: none;
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* area do grupo que desenvolveu o jogo */
-#grupo_desenvolvedor {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    gap: 20px;
-}
-
-.integrante img {
-    width: 200px;
-    height: 200px;
-    border-radius: 5px;
-}
-
-/* area de enviar comentarios */
-/*div#comentar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    width: 100%;
-}
-.comentar input{
-    width: 100%;
-    padding: 5px 40px 5px 10px;
-    font-size: 16px;
-    border-radius: 4px;
-    border: 2px solid var(--cor0);
-}
-/*envia comentario 
-#enviar_comentario {
-    width: 90px;
-    background-color: var(--cor1);
-    color: var(--withe);
-}*/
 
 /*~~~~~~ area de dinamismo ~~~~~~~~*/
 @media (max-width: 1200px) {}
 
 @media (max-width: 992px) {
-    div#cabecalho_jogue img {
-        width: 250px;
-        height: 150px;
-    }
-
-    #descricao {
-        width: 40rem;
-    }
-
-    .integrante img {
-        width: 150px;
-        height: 150px;
-    }
-}
-
-@media (max-width: 768px) {
-    #descricao {
-        width: 25rem;
+    div#procurar-galeria {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 35px;
         padding: 20px;
     }
-
-    section#grupo_desenvolvedor {
-        display: grid;
-        margin: 15px;
-        gap: 35px;
-        grid-template-columns: repeat(2, 1fr);
-        /* 2 colunas iguais */
-        grid-template-rows: repeat(2, 200px);
-        /* 2 linhas de 200px */
-    }
-
-    .integrante img {
-        width: 200px;
-        height: 200px;
+    #txt_pesquisa_galeria {
+        width: 400px;
+        height: 35px;
+        margin: 0 auto;
+        grid-column: 1 / 3; /* ocupa da coluna 1 até a 3 */
+        grid-row: 2;        /* primeira linha */
     }
 }
 
-@media (max-width: 480px) {
-    #descricao {
-        width: 22rem;
-    }
-
-    .integrante img {
-        width: 150px;
-        height: 150px;
-    }
-}
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ publicacao_jogo.html ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-h2,
-h4 {
-    font-size: 20px;
-    text-align: center;
-}
-
-#publicacoes {
-    display: flex;
-}
-
-/*~~~~~~~~~~ publique jogo ~~~~~~~*/
-#publique_jogo {
-    margin-left: auto;
-    margin-right: auto;
-    padding: 50px 10px;
-    width: 100%;
-    max-width: 35rem;
-    background-color: var(--black);
-    border: 5px solid var(--withe);
-    outline: 5px solid var(--black);
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    color: var(--withe);
-    font-size: 20px;
-}
-
-#publique_jogo input {
-    width: 100%;
-    height: 30px;
-    align-items: center;
-}
-
-#descricao_jogo {
-    display: flex;
-    align-content: center;
-    flex-direction: column;
-}
-textarea#descricao_j {
-    max-width: 400px;
-    max-height: 100px;
-    min-width: 200px;
-    min-height: 50px;
-    font-size: 15px;
-    background-color: var(--withe);
-    outline: none;
-    border: 3px solid var(--cor1);
-    border-radius: 3px 20px 3px 3px;
-}
-
-#selecione-filtro-ano {
-    background-color: var(--withe);
-}
-
-/* area das imgs */
-.upload-area {
-    border: 2px dotted var(--withe);
-    border-radius: 12px;
-    padding: 10px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    cursor: pointer;
-    transition: 0.3s;
-    margin-bottom: 20px;
-    height: 100px;
-    width: 350px;
-    max-height: 200px;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.upload-area:hover {
-    border-color: var(--cor0);
-}
-
-/*~~~~~~ area do arquivo(principal) ~~~~~~~~*/
-.btn-arquivo {
-    display: inline-block;
-    padding: 10px 20px;
-    background: var(--cor0);
-    color: white;
-    font-weight: bold;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.btn-arquivo:hover {
-    background: var(--cor1);
-}
-
-#nomeArquivo {
-    margin-left: 10px;
-    font-style: italic;
-    color: var(--withe);
-}
-
-/*~~~~~ area dos integrantes ~~~~~~*/
-div#informacoes_grupo {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#informacoes_grupo input {
-    height: 40px;
-}
-
-/*~~~~~~~~ botao publica jogo ~~~~~~~*/
-div#publicar_j {
-    display: flex;
-    justify-content: center;
-}
-
-#publicar_j input {
-    background-color: var(--cor0);
-    color: var(--withe);
-    width: 250px;
-    height: 50px;
-    border-radius: 5px;
-    font-size: 20px;
-}
-
-#publicar_j input:hover {
-    background-color: var(--cor1);
-    outline: 1px solid var(--withe);
-}
-
-/*~~~~~~~~~~ publique midia ~~~~~~~~~~*/
-#publique_midia {
-    margin-left: auto;
-    margin-right: auto;
-    padding: 50px 10px;
-    width: 100%;
-    max-width: 35rem;
-    max-height: 32rem;
-    background-color: var(--black);
-    border: 5px solid var(--withe);
-    outline: 5px solid var(--black);
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    color: var(--withe);
-    font-size: 20px;
-}
-
-#midia {
-    gap: 10px;
-}
-
-#midia input {
-    border: none;
-    outline: none;
-    width: 100%;
-    height: 30px;
-}
-
-textarea#descricao_m {
-    max-width: 400px;
-    max-height: 100px;
-    min-width: 200px;
-    min-height: 50px;
-    font-size: 15px;
-    background-color: var(--withe);
-    outline: none;
-    border: 3px solid var(--cor1);
-    border-radius: 3px 20px 3px 3px;
-}
-
-/*~~~~~~~~ botao publica midia ~~~~~~~*/
-div#publicar_m {
-    display: flex;
-    justify-content: center;
-}
-
-#publicar_m input {
-    background-color: var(--cor0);
-    color: var(--withe);
-    width: 250px;
-    height: 50px;
-    border-radius: 5px;
-    font-size: 20px;
-}
-
-#publicar_m input:hover {
-    background-color: var(--cor1);
-    outline: 1px solid var(--withe);
-}
-
-/*~~~~~~ area de dinamismo ~~~~~~~~*/
-@media (max-width: 1200px) {
-    #publicacoes {
-        flex-direction: column;
-    }
-}
-
-@media (max-width: 992px) {}
-
-@media (max-width: 768px) {
-
-    #publicacoes h1 {
-        font-size: 15px;
-    }
-
-    #publique_jogo,
-    #publique_midia {
-        padding: 15px;
-        font-size: 15px;
-        width: 25rem;
-    }
-
-    .upload-area {
-        height: 100px;
-        width: 300px;
-    }
-
-}
+@media (max-width: 768px) {}
 
 @media (max-width: 480px) {}
