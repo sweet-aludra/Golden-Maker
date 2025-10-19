@@ -403,7 +403,7 @@ div#procurar-galeria {
     display: flex;
     justify-content: center;
     gap: 40px;
-    padding: 25px 0;
+    padding: 55px 0;
 }
 
 #filtro-ano-galeria, #filtro-turma {

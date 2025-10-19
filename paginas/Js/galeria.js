@@ -90,9 +90,4 @@ document.querySelectorAll(".carrosel-galeria-videos").forEach(carrosel => {
     calcItemWidth();
     updateCarousel(false);
   }
-
-  // opção: se quiser autoplay do carrossel (descomente)
-  // let autoplay = setInterval(() => { next && next.click(); }, 5000);
-  // carrosel.addEventListener("mouseenter", () => clearInterval(autoplay));
-  // carrosel.addEventListener("mouseleave", () => { autoplay = setInterval(() => { next && next.click(); }, 5000); });
 });
