@@ -212,17 +212,13 @@ img.capa_jogo {
     width: 35rem;
     background-color: var(--black);
     border-radius: 5px;
-    box-shadow: 0 4px 10px var(--cor0);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
 }
 
 .jogo:hover {
-    transform: scale(1.05);
-    /* zoom suave */
-    box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.4),
-        -3px 5px 10px #38a8bcd0;
-    /* brilho externo */
+    transform: scale(1.02);
+    /* zoom suave */  
 }
 
 /* botões */
@@ -393,11 +389,11 @@ h5 {
     height: 100vh;
 }
 
-.waves-1 { /* config das ondas ao fundo */
+/*.waves-1 {  config das ondas ao fundo 
     position: absolute;
     display: block;
     z-index: -1;
-}
+}*/
 
 div#procurar-galeria {
     display: flex;

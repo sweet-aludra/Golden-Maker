@@ -31,7 +31,7 @@
                     <p>Nome do jogo:<br>
                         <input type="text" name="txt_nome_jogo" id="nome_jogo" placeholder="Adicione nome" required>
                     </p><br>
-                    <label for="descricao_j">Descrição do jogo:</label><br>
+                    <label for="descricao_j">Descrição do jogo:</label>
                     <textarea id="descricao_j" name="descricao_j" rows="6" cols="40" required></textarea><br>
                     <select id="selecione-filtro-ano">
                         <option value="">Selecionar Ano</option>
@@ -42,25 +42,24 @@
                 </div><br>
                 <hr><br>
 
-                <h2>Imagens</h2>
+                <h2>Imagens</h2><br>
                 <div>
-                    <h4>Imagens do cabeçalho</h4><br>
-                    <p style="text-align: center;">Capa:</p><br>
+                    <h4>Capa do jogo</h4>
                     <div class="upload-area">
                         <input type="file" class="fileUpload" id="img_capa" accept="image/*" hidden required>
                         <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
                     </div>
-                </div>
+                </div><br>
                 <div>
-                    <h4>Fotos do jogo</h4><br>
+                    <h4>Fotos do jogo</h4>
                     <div class="upload-area">
                         <input type="file" class="fileUpload" accept="image/*" hidden>
                         <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
-                    </div>
+                    </div><br>
                     <div class="upload-area">
                         <input type="file" class="fileUpload" accept="image/*" hidden>
                         <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
-                    </div>
+                    </div><br>
                     <div class="upload-area">
                         <input type="file" class="fileUpload" accept="image/*" hidden>
                         <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
@@ -83,7 +82,7 @@
 
                 <h2>Informações do grupo</h2><br>
                 <div id="informacoes_grupo">
-                    <h4>Fotos</h4><br>
+                    <h4>Fotos</h4>
                     <div>
                         <div class="upload-area">
                             <input type="file" class="fileUpload" accept="image/*" hidden>
@@ -133,13 +132,19 @@
             <br>
             <h1>Publique Video/Foto!</h1><br>
             <form>
-                <h2>Arquivo</h2><br>
+                <h2>Arquivo</h2>
                 <div id="midia">
                     <div class="upload-area">
                         <!-- foto/video que vai ser publicado (!input so aceitando foto por enquanto)-->
                         <input type="file" class="fileUpload" accept="image/*" hidden required>
                         <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
                     </div><br>
+                    <select id="selecione-filtro-ano">
+                        <option value="">Selecionar Ano</option>
+                        <option value="2025">2025</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                    </select><br><br>
                     <div id="descricao_midia"> <!--campo de descrição da midia-->
                         <label for="descricao_m">Descrição da img/video:</label><br>
                         <textarea id="descricao_m" name="descricao_m" rows="6" cols="40"></textarea>
