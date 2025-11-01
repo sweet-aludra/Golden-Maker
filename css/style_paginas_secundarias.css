@@ -689,10 +689,10 @@ div#publicar_j {
 #publique_midia {
     margin-left: auto;
     margin-right: auto;
-    padding: 50px 10px;
+    padding: 20px 10px;
     width: 100%;
     max-width: 35rem;
-    max-height: 32rem;
+    max-height: 36rem;
     background-color: var(--black);
     border: 5px solid var(--withe);
     outline: 5px solid var(--black);
