@@ -11,7 +11,6 @@
 
 <body>
     <header>
-        <!--<a href="perfil.html"><img src="../imgs/download.jpeg" alt="perfil"></a>-->
         <div id="menu">
             <a href="../index.html"><img src="../imgs/Penelope.png" alt="logo_golden_maker"
                     class="penelope_img_header"></a>
@@ -24,12 +23,13 @@
     </header><br>
 <!--Dois forms, um para publicaçao do jogo e suas informaçoes e outro para a publicação dos projetos dos 1 e 2 ano-->
     <main id="publicacoes">
+        <!--Area de publicação para os jogos-->
         <section id="publique_jogo">
             <h1>Publique seu jogo!</h1><br>
             <form>
                 <div id="descricao_jogo"> <!--campo de nome e descrição do jogo-->
                     <p>Nome do jogo:<br>
-                        <input type="text" name="txt_nome_jogo" id="nome_jogo" placeholder="Adicione nome" required>
+                        <input type="text" name="txt_nome_jogo" id="nome_jogo" placeholder="Nome Jogo..." required>
                     </p><br>
                     <label for="descricao_j">Descrição do jogo:</label>
                     <textarea id="descricao_j" name="descricao_j" rows="6" cols="40" required></textarea><br>
@@ -124,10 +124,10 @@
                 <div id="publicar_j">
                     <input type="submit" value="Publicar">
                 </div>
-
             </form>
         </section><br><br>
 
+        <!--Area de publicações de projetos(video/foto) de outras turmas-->
         <section id="publique_midia">
             <br>
             <h1>Publique Video/Foto!</h1><br>
@@ -139,6 +139,12 @@
                         <input type="file" class="fileUpload" accept="image/*" hidden required>
                         <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
                     </div><br>
+                    <div id="descricao_midia"> <!--campo de descrição da midia-->
+                        <label for="descricao_m">Descrição da img/video:</label><br>
+                        <textarea id="descricao_m" name="descricao_m" rows="6" cols="40"></textarea>
+                    </div><br>
+                    <p>Nome do projeto:<br>
+                        <input type="text" name="txt-nome-projeto" id="nome-projeto-midia" placeholder="Nome projeto..."></p><br>
                     <select id="selecione-filtro-ano">
                         <option value="">Selecionar Ano</option>
                         <option value="2025">2025</option>
@@ -150,10 +156,7 @@
                         <option value="1">1°Ano</option>
                         <option value="2">2°Ano</option>
                     </select><br><br>
-                    <div id="descricao_midia"> <!--campo de descrição da midia-->
-                        <label for="descricao_m">Descrição da img/video:</label><br>
-                        <textarea id="descricao_m" name="descricao_m" rows="6" cols="40"></textarea>
-                    </div><br>
+                    
                 </div>
                 <!--input para publicar-->
                 <div id="publicar_m">

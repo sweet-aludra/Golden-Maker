@@ -691,8 +691,8 @@ div#publicar_j {
     margin-right: auto;
     padding: 20px 10px;
     width: 100%;
+    height: 100%;
     max-width: 35rem;
-    max-height: 36rem;
     background-color: var(--black);
     border: 5px solid var(--withe);
     outline: 5px solid var(--black);
