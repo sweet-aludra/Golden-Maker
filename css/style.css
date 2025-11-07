@@ -386,20 +386,14 @@ h5 {
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ galeria ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 #galeria {
-    height: 100vh;
+    height: 100%;
+    padding: 30px 0;
 }
-
-/*.waves-1 {  config das ondas ao fundo 
-    position: absolute;
-    display: block;
-    z-index: -1;
-}*/
 
 div#procurar-galeria {
     display: flex;
     justify-content: center;
     gap: 40px;
-    padding: 55px 0;
 }
 
 #filtro-ano-galeria, #filtro-turma {
@@ -476,7 +470,7 @@ video {
     padding: 5px;
     cursor: pointer;
     border-radius: 50%;
-    z-index: 5;
+    z-index: 1;
 }
 
 .btn:hover {
@@ -489,6 +483,27 @@ video {
 
 .next {
     right: 10px;
+}
+
+/*~~~~~~~~~~~*/
+#Galeria {
+    column-count: 3; 
+    column-gap: 20px;
+    padding: 0 110px;
+}
+
+.imagem {
+    break-inside: avoid;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.imagem img {
+    width: 100%;
+    border-radius: 10px 5px;
+    display: block;
+    background-color: var(--black);
 }
 
 /*~~~~~~ area de dinamismo ~~~~~~~~*/

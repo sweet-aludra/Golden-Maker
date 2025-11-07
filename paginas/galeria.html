@@ -11,7 +11,6 @@
 
 <body>
     <header>
-        <!--<a href="paginas/perfil.html"><img src="imgs/download.jpeg" alt="perfil"></a>-->
         <div id="menu">
             <img src="../imgs/Penelope.png" alt="logo_golden_maker" class="penelope_img_header">
             <ul>
@@ -22,22 +21,27 @@
     </header>
 
     <main id="galeria">
+        <!--Filtro de busca-->
         <div id="procurar-galeria">
+            <!--Busca por ano-->
             <select id="filtro-ano-galeria">
                 <option value="">Selecionar Ano</option>
                 <option value="2025">2025</option>
                 <option value="2024">2024</option>
                 <option value="2023">2023</option>
             </select>
+            <!--Busca por serie-->
             <select id="filtro-turma">
                 <option value="">Selecione Turma</option>
                 <option value="2ano">2° Ano</option>
                 <option value="1ano">1° Ano</option>
             </select>
+            <!--Busca por nome de projeto-->
             <input type="text" id="txt_pesquisa_galeria" name="pesquisa" placeholder="Busque projetos..." />
         </div>
 
         <section>
+            <!--Videos dos projetos-->
             <div class="carrosel-galeria-videos">
                 <button class="btn prev">&#10094;</button>
                 <div class="slides">
@@ -47,6 +51,22 @@
                 </div>
                 <button class="btn next">&#10095;</button>
             </div><br>
+
+            <!--Imagens do projeto-->
+            <div id="Galeria">
+                <div class="imagem">
+                    <img src="../imgs/capa.jpg" alt=""><br>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga reprehenderit incidunt, ex blanditiis rerum reiciendis.</p>
+                </div>
+                <div class="imagem">
+                    <img src="../imgs/capa.jpg" alt=""><br>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga reprehenderit incidunt, ex blanditiis rerum reiciendis.</p>
+                </div>
+                <div class="imagem">
+                    <img src="../imgs/capa.jpg" alt=""><br>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga reprehenderit incidunt, ex blanditiis rerum reiciendis.</p>
+                </div>
+            </div>
         </section>
     </main>
 
