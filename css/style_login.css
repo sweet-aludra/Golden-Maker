@@ -55,22 +55,28 @@ main {
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~ login ~~~~~~~~~~~~~~~~~~~~~~~*/
-.login {
+#login {
     display: flex;
     justify-content: center;
     flex-direction: column;
     font-size: 20px;
     gap: 25px;
     font-weight: bold;
-    margin-left: 155px;
     height: 100vh;
+}
+.login {
+    padding: 45px;
+    border-radius: 15px;
+    background-color: var(--black);
+    border-left: 5px solid var(--cor3);
+    border-bottom: 5px solid var(--cor3);
 }
 
 #login img {
     width: 100px;
     height: 100px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
+    display: block;
     filter: drop-shadow(-5px 5px 0 var(--withe));
 }
 
@@ -104,7 +110,7 @@ main {
     font-size: 15px;
     color: var(--withe);
     background-color: var(--cor1);
-    border-radius: 5px;
+    border-radius: 10px;
     border: 2px solid var(--cor1);
 }
 
@@ -119,23 +125,29 @@ main {
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~ Cadastro ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.cadastro {
+#cadastro {
     display: flex;
     justify-content: center;
     flex-direction: column;
     font-size: 20px;
     gap: 25px;
     font-weight: bold;
-    margin: 55px;
-    margin-left: 155px;
-    height: 100vh;
+    height: 110vh;
+}
+
+.cadastro {
+    padding: 45px;
+    border-radius: 15px;
+    background-color: var(--black);
+    border-left: 5px solid var(--cor3);
+    border-bottom: 5px solid var(--cor3);
 }
 
 #cadastro img {
     width: 100px;
     height: 100px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
+    display: block;
     filter: drop-shadow(-5px 5px 0 var(--withe));
 }
 
@@ -162,7 +174,7 @@ label a:hover {
     font-size: 15px;
     color: var(--withe);
     background-color: var(--cor1);
-    border-radius: 5px;
+    border-radius: 10px;
     border: 2px solid var(--cor1);
 }
 
@@ -239,46 +251,45 @@ label a:hover {
 /*~~~ enviar formularios ~~~*/
 .starts_login_aluno,
 .starts_login_criador {
-    margin-left: auto;
-    margin-right: auto;
     outline: none;
     border: none;
     background-color: var(--cor1);
     color: var(--withe);
     border-radius: 10px;
-    width: 16rem;
+    width: 100%;
     height: 40px;
     font-size: 15px;
+    transition: background-color 0.3s ease, transform 0.9s ease;
 }
 
 .starts_login_aluno:hover,
 .starts_login_criador:hover {
-    background-color: var(--black);
+    background-color: var(--cor3);
     color: var(--withe);
 }
 
 .starts_cadastro_aluno,
 .starts_cadastro_criador {
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     outline: none;
     border: none;
     background-color: var(--cor1);
     color: var(--withe);
     border-radius: 10px;
-    width: 14rem;
+    width: 100%;
     height: 40px;
     font-size: 15px;
+    transition: background-color 0.3s ease, transform 0.9s ease;
 }
 
 .starts_cadastro_aluno:hover,
 .starts_cadastro_criador:hover {
-    background-color: var(--black);
+    background-color: var(--cor3);
     color: var(--withe);
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ tipo de conta ~~~~~~~~~~~~~~~~~~~~~*/
-#escolha {
+#tipo_conta {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -287,7 +298,13 @@ label a:hover {
     gap: 25px;
     font-weight: bold;
     height: 100vh;
-    margin-left: 155px;
+}
+#escolha {
+    padding: 45px;
+    border-radius: 15px;
+    background-color: var(--black);
+    border-left: 5px solid var(--cor3);
+    border-bottom: 5px solid var(--cor3);
 }
 
 #tipo_conta img {
@@ -307,8 +324,10 @@ label a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: background-color 0.5s ease, transform 0.3s ease;
 }
 
 .entrada:hover {
     transform: scale(1.08);
+    background-color: var(--cor3);
 }
