@@ -11,14 +11,21 @@
 
 <body>
     <header>
-        <!--<a href="perfil.html"><img src="../imgs/download.jpeg" alt="perfil"></a>-->
         <div id="menu">
-            <a href="../index.html"><img src="../imgs/Penelope.png" alt="logo_golden_maker"
-                    class="penelope_img_header"></a>
-            <ul>
+            <a href="../index.html"><img src="../imgs/Penelope.png" alt="logo_golden_maker" class="penelope_img_header"></a>
+
+            <!-- Botão hambúrguer -->
+            <div id="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <!-- Menu -->
+            <ul id="navLinks">
                 <li><a href="../index.html">Inicio</a></li>
-                <li><a href="perfil.html">Perfil</a></li>
                 <li><a href="galeria.html">Galeria</a></li>
+                <li><a href="perfil.html">Perfil</a></li>
             </ul>
         </div>
     </header>
@@ -87,6 +94,11 @@
     </footer>
 
     <script>
+        // configuraçao do menu(nav)
+        function toggleMenu() {
+            document.getElementById("navLinks").classList.toggle("active");
+        }
+        
         //carrosel de imagens
         document.querySelectorAll("#galeria_jogo").forEach(galeria => {
             const faixa = galeria.querySelector(".faixa_slides");

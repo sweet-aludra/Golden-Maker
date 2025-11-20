@@ -1,3 +1,7 @@
+function toggleMenu() {
+  document.getElementById("navLinks").classList.toggle("active");
+}
+
 document.querySelectorAll(".carrosel-galeria-videos").forEach(carrosel => {
   const slides = carrosel.querySelector(".slides");
   if (!slides) return;
