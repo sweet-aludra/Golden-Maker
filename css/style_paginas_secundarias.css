@@ -143,6 +143,10 @@ div.img_jogo {
     flex: 0 0 400px;
     /* largura fixa */
     height: 15rem;
+    background-image: url(../imgs/quarto-img.jpeg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
     background-color: var(--black);
     border-radius: 5px;
     max-width: 100%;
@@ -206,13 +210,18 @@ div.img_jogo {
 @media (max-width: 1200px) {}
 
 @media (max-width: 992px) {
-    div#cabecalho_jogue img {
-        width: 250px;
-        height: 150px;
+    section#apresentacao_jogue {
+        align-items: center;
+        flex-direction: column;
     }
-
+    div#cabecalho_jogue img {
+        width: 20rem;
+        height: 12rem;
+    }
     #descricao {
-        width: 40rem;
+        width: 35rem;
+        padding: 20px;
+        margin: 5px 0;
     }
 
     .integrante img {
@@ -224,7 +233,6 @@ div.img_jogo {
 @media (max-width: 768px) {
     #descricao {
         width: 25rem;
-        padding: 20px;
     }
 
     section#grupo_desenvolvedor {
