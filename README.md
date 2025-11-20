@@ -3,19 +3,22 @@ Instruções para rodar o back-end
     Baixa o node.js se na sua maquina não tiver
     acesse https://nodejs.org/ e instale a versão 'LTS' se for o caso.
 
-    Abre a pasta no VisualStudiocode 
+    Rode o Arquivo dependencias.bat para instalar as dependencias
 
-    abre um novo terminal la em cima no vs code
-    e dps indo no  v  do terminal seleciona o command promtp
+    Para iniciar o servidor back-end:
+    Rode o Arquivo modo_admin.bat para abilitar publicação e edição de projetos
+    ou
+    Rode o Arquivo modo_normal.bat para desabilitar publicação e edição de projetos
+    e depois entre na url:http://localhost:3000 
 
-    ai digita: npm install
-     
-    de novo pra ter certeza: npm install
-    
-    e pra rodar digita: node src/server.js
-    e clica no localhost:3000 segurando ctrl pra abrir
+    pra para de rodar so fechar a janela
 
-    pra para de rodar so fazer ctrl + c no terminal
+    ou 
 
-    deixei um png para se vc quiser testar a mudança de foto 
-    dentro da pasta: fotoperfil
+    npm install no terminal
+
+    depois 
+
+    node src/server.js
+
+    Ctrl + C no terminal para para de Rodar
