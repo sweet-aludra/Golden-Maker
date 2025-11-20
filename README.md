@@ -1,6 +1,7 @@
-So adicionando para se quiser testar o Back-End 
+Instruções para rodar o back-end
 
     Baixa o node.js se na sua maquina não tiver
+    acesse https://nodejs.org/ e instale a versão 'LTS' se for o caso.
 
     Abre a pasta no VisualStudiocode 
 

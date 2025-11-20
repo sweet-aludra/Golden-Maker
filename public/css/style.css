@@ -651,8 +651,9 @@ div.img_jogo {
 }
 
 /* area do grupo que desenvolveu o jogo */
-#grupo_desenvolvedor {
-    display: flex;
+.grupo_desenvolvedor {
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
     justify-content: center;
     text-align: center;
     gap: 20px;
@@ -711,7 +712,7 @@ div.img_jogo {
         padding: 20px;
     }
 
-    section#grupo_desenvolvedor {
+    section > .grupo_desenvolvedor {
         display: grid;
         margin: 15px;
         gap: 35px;

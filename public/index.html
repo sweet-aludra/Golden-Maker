@@ -14,7 +14,7 @@
     <header>
         <!--<a href="paginas/perfil.html"><img src="imgs/download.jpeg" alt="perfil"></a>-->
         <div id="menu">
-            <img src="imgs/Penelope.png" alt="logo_golden_maker" class="penelope_img_header">
+            <img src="imgs/Penelope.png" alt="logo_golden_maker" class="penelope_img_header" >
             <ul>
                 <li><a href="paginas/tipo_cadastro.html">Login/Cadastro</a></li>
                 <li><a href="paginas/perfil.html">Perfil</a></li>
@@ -40,7 +40,9 @@
 
     <section id="secao_jogos">
         <h3>Golden Maker</h3><br>
-        <div id="procurar">
+        <div id="procurar" style="display: flexbox; gap: 20px;">
+            <select id="select_ano" style="height: 34px; border-radius: 10px; border: 2px solid var(--black); background-color: var(--withe); font-size: 15px; padding: 0 5px; min-width: 150px;">
+            </select>
             <input type="text" id="txt_pesquisa" name="pesquisa" placeholder="Busque jogos..." />
         </div>
         <!--<div id="busca_jogos">
@@ -54,7 +56,7 @@
             <div>
                 <div class="carrosel_jogos">
                     <button class="btn prev">&#10094;</button>
-                    <div class="slides">
+                    <div class="slides" id="slides-jogos">
                         <a href="paginas/jogo.html">
                             <div class="jogo"><img src="imgs/capa_modelo.jpg" class="capa_jogo" alt="capa do jogo">
                             </div>
@@ -92,12 +94,12 @@
 
     <script>
         document.querySelectorAll(".carrosel_jogos").forEach(carrosel => {
-            const slides = carrosel.querySelector(".slides");
-            const itens = slides.querySelectorAll("a"); // pega os <a>, não só os divs
-            const prev = carrosel.querySelector(".prev");
-            const next = carrosel.querySelector(".next");
+            const slides = carrosel.querySelector(".slides")
+            const itens = slides.querySelectorAll("a") // pega os <a>, não só os divs
+            const prev = carrosel.querySelector(".prev")
+            const next = carrosel.querySelector(".next")
 
-            let index = 0;
+            let index = 0
 
             function updateCarousel() {
                 const itemWidth = itens[0].offsetWidth + 20; // largura + gap
@@ -123,6 +125,7 @@
 
     </script>
     <script src="./js/tela/fetch.js" type="module"></script>
+    <script src="./js/tela/mostrar_index.js" type="module"></script>
 </body>
 
 </html>

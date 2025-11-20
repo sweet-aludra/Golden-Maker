@@ -1,5 +1,3 @@
-const url = 'http://localhost:3000'//o caminho do server 
-
 import { showToast, mudarParaLogin } from "../tela/ui_Funcoes.js" 
 
 
@@ -7,51 +5,50 @@ const formCadastro = document.getElementById('formulario_cadastro_aluno')
 
 //da um post com a informações do cadastro
 formCadastro.addEventListener('submit', async (event) => {
-    event.preventDefault() // não deixa que o navegador recarrega quando clicar no botão
+    event.preventDefault(); // não deixa que o navegador recarregue quando clicar no botão
 
-    const confirmaSenha = document.getElementById('confirmar_senha_aluno')
-    const login = document.getElementById("login");
-    const cadastro = document.getElementById("cadastro");
-
-    const cadastroForm = new FormData(formCadastro)
-    const cadastroData = Object.fromEntries(cadastroForm.entries())//transforma o forms em um object
+    const confirmaSenha = document.getElementById('confirmar_senha_aluno');
+    const cadastroForm = new FormData(formCadastro);
+    const cadastroData = Object.fromEntries(cadastroForm.entries());//transforma o forms em um object
 
     // verifica requisitos para senha
-    const validador = validadorDeSenha(cadastroData.nova_senha)
+    const validador = validadorDeSenha(cadastroData.nova_senha);
 
     if (!validador.isValid) {
-        alert("A senha não contem todos os requisitos:\n- " + validador.messages.join("\n- "))
-        //tentativa de colocar no toast
-        //showToast("A senha não contem todos os requisitos:\n- " + validador.messages.join("\n- "), 'error', )
-        return 
+        alert("A senha não contem todos os requisitos:\n- " + validador.messages.join("\n- "));
+        return;
     }
-    if (cadastroData.nova_senha !== confirmaSenha.value) { 
+    if (cadastroData.nova_senha !== confirmaSenha.value) {
         showToast('As senhas não estão iguais!', 'error');
-        return
+        return;
     }
 
-    try{
-        const resposta = await fetch(`${url}/cadastraAluno`, {
-            method:'POST',
-            headers: {'content-type': 'application/json'},
+    try {
+        const resposta = await fetch(`/cadastraAluno`, {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
             body: JSON.stringify(cadastroData)
-        })
-        if (!resposta.ok) {
-            const erroObjeto = await resposta.json();
-            const mensagemDeErro = erroObjeto.erro
+        });
 
-            showToast(mensagemDeErro, 'error')
-            throw new Error(`Erro no servidor:${erroTexto}`)
-        }else{
-            const mensagemSucesso = await resposta.text()
-            console.log(mensagemSucesso)
-            mudarParaLogin(login, cadastro) // muda a tela para aparecer o login
-            showToast('Cadastro realizado com sucesso!', 'success');
-            formCadastro.reset()
+        const resultado = await resposta.json(); // Sempre tente ler a resposta como JSON
+
+        if (!resposta.ok) {
+            // Se a resposta não for OK, lança um erro com a mensagem do servidor
+            throw new Error(resultado.erro || "Falha no cadastro");
         }
 
+        // Se a resposta for OK, o cadastro e login foram bem-sucedidos
+        sessionStorage.setItem('toastMessage', 'Bem-vindo! Cadastro realizado com sucesso!');
+        sessionStorage.setItem('toastType', 'success');
+
+        // Redireciona para a página principal, agora logado
+        window.location.href = '../../index.html';
+
+    } catch (error) {
+        // Mostra a mensagem de erro capturada (seja do throw ou de outra falha)
+        showToast(error.message, 'error');
+        console.error(error); // Mantém o log do erro no console para depuração
     }
-    catch(error) {console.log(error)}
 })
 
 
@@ -64,7 +61,7 @@ formLogin.addEventListener('submit', async (event) => {
     const loginData = Object.fromEntries(loginForm.entries()) // transforma o forms em um object
 
     try{
-        const resposta = await fetch(`${url}/login`, {
+        const resposta = await fetch(`/login`, {
             method:'POST',
             headers: {'content-type': 'application/json'},
             body: JSON.stringify(loginData),
@@ -82,25 +79,6 @@ formLogin.addEventListener('submit', async (event) => {
     }
     catch(error) {console.log(error)}
 })
-
-
-
-// tirar esse botão dessa tela
-
-// botão de sair ainda não implementado
-const botaoLogout = document.getElementById('logout');
-if (botaoLogout) {
-    botaoLogout.addEventListener('click', async () => {
-        try {
-            await fetch(`${url}/logout`, { method: 'POST', credentials: 'include'});
-            alert('Você saiu com sucesso!');
-        } catch (error) {
-            console.error('Erro ao fazer logout:', error);
-        }
-    });
-}
-
-
 
 function validadorDeSenha(senha) {
     const requirements = []
@@ -131,25 +109,3 @@ function validadorDeSenha(senha) {
         return { isValid: false, messages: requirements };
     }
 }
-
-// function validadorDeNick(nick) {
-//     const requirements = []
-//     if (nick === "123") { // nick mestre
-//         return { isValid: true, messages: [] };
-//     }
-
-//     // verifica comprimento
-//     if (nick.length < 3 || nick.length > 64)  { 
-//         requirements.push("Nick não pode menos de 3 caracteres ou maximo de 64");
-//     }
-//     // verifica se a primeira letra e
-//     if (nick.length < 6 || nick.length > 64)  { 
-//         requirements.push("Nick não pode menos de 3 caracteres ou maximo de 64");
-//     }
-//     // retorna verdadeiro caso tenha todos na senha, caso n ele volta falso com oq faltou
-//     if (requirements.length === 0) {
-//         return { isValid: true, messages: [] };
-//     } else {
-//         return { isValid: false, messages: requirements };
-//     }
-// }

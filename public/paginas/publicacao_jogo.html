@@ -25,13 +25,16 @@
     <main id="publicacoes">
         <section id="publique_jogo">
             <h1>Publique seu jogo!</h1><br>
-            <form>
+            <form id="form-projeto">
                 <div id="descricao_jogo"> <!--campo de nome e descrição do jogo-->
                     <p>Nome do jogo:<br>
-                        <input type="text" name="txt_nome_jogo" id="nome_jogo" placeholder="Adicione nome" required>
+                        <input type="text" name="nome" id="nome_jogo" placeholder="Adicione nome" required>
                     </p><br>
                     <label for="descricao_j">Descrição do jogo:</label><br>
-                    <textarea id="descricao_j" name="descricao_j" rows="6" cols="40" required></textarea><br>
+                    <textarea id="descricao_j" name="descricao" rows="6" cols="40" required></textarea><br>
+                    <p>Ano de Criação:<br>
+                        <input type="number" name="ano" id="ano_jogo" placeholder="Ex: 2025" min="2000" max="2099">
+                    </p><br>
                 </div><br>
                 <hr><br>
 
@@ -40,78 +43,94 @@
                     <h4>Imagens do cabeçalho</h4><br>
                     <p style="text-align: center;">Capa:</p><br>
                     <div class="upload-area">
-                        <input type="file" class="fileUpload" id="img_capa" accept="image/*" hidden required>
+                        <input type="file" name="imagem_capa" class="fileUpload" id="img_capa" accept="image/*" hidden required>
                         <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
+                        <span>Clique para adicionar uma capa</span>
                     </div>
                 </div>
-                <div>
-                    <h4>Fotos do jogo</h4><br>
+                <div>              
+                    <h4>Fotos do jogo</h4>         
+                    <label for="numero_fotos">Numero de Fotos: </label>            
+                    <select id="numero_fotos">
+                        <option value="2">3 fotos</option>
+                        <option value="3">4 fotos</option>
+                        <option value="4">5 fotos</option>
+                        <option value="5">6 fotos</option>
+                    </select><br>
+                    <div id="container_dinamico2"></div>
+
                     <div class="upload-area">
-                        <input type="file" class="fileUpload" accept="image/*" hidden multiple>
+                        <input type="file" name="fotos_jogo" class="fileUpload" accept="image/*" hidden>
                         <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
+                        <span>Clique para adicionar uma foto</span> <!-- so adiconando pra ver como fica-->
+                    </div>
+                    <div class="upload-area">
+                        <input type="file" name="fotos_jogo" class="fileUpload" accept="image/*" hidden>
+                        <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
+                        <span>Clique para adicionar uma foto</span> <!-- so adiconando pra ver como fica-->
+                    </div>
+                    <div class="upload-area">
+                        <input type="file" name="fotos_jogo" class="fileUpload" accept="image/*" hidden>
+                        <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
+                        <span>Clique para adicionar uma foto</span> <!-- so adiconando pra ver como fica-->
                     </div>
 
                 </div><br>
-                <hr><br>
 
                 <!--<h2>Arquivo</h2><br>
                 <div>  arquivos do jogo que serão publicado 
                     <input type="file" name="arquivo_jogo" id="arquivo_jogo" accept="arquivo" required>
                 </div><br>
                 <hr><br>-->
-                <h2>Pasta do Jogo</h2><br>
-                <div>
-                    <!-- Input real (invisível) -->
-                    <input type="file" webkitdirectory name="arquivo_jogo" id="arquivo_jogo" required hidden>
+                <h2>Arquivo do Jogo (Compactado)</h2><br>
+                <!-- <label for="tipo_arquivo">Tipo de Arquivo: </label>
+                <select id="tipo_arquivo">
+                    <option value="0">Arquivo .zip</option>
+                    <option value="1">Arquivo .exe</option>
+                </select> -->
+                <div><br>
+                    <!-- Input real (invisível)  webkitdirectory para mudar para pasta -->
+                    <input type="file" name="arquivo_jogo" id="arquivo_jogo" required hidden>
 
                     <!-- Botão estilizado -->
-                    <label for="arquivo_jogo" class="btn-arquivo">Selecionar Pasta</label>
+                    <label for="arquivo_jogo" class="btn-arquivo">Selecionar Arquivo</label>
 
                     <!-- Onde aparece o nome do arquivo escolhido -->
-                    <span id="nomeArquivo">Nenhuma pasta selecionada</span>
+                    <span id="nomeArquivo">Nenhum Arquivo selecionado</span>
                 </div><br>
+                <div>
+                    <label for="nome_executavel">Nome do Executável (dentro do .zip)</label>
+                    <input type="text" name="nome_executavel" id="nome_executavel" placeholder="ex: MeuJogo.exe" required>
+                </div>
                 <hr><br>
 
                 <h2>Informações do grupo</h2><br>
                 <div id="informacoes_grupo">
-                    <h4>Fotos</h4><br>
-                    <div>
-                        <div class="upload-area">
-                            <input type="file" class="fileUpload" accept="image/*" hidden>
-                            <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
-                        </div>
-                        <p>Nome(completo):<br>
-                            <input type="text" class="txt_nome_integrante" placeholder="Nome e sobrenome">
-                        </p>
-                    </div><br><br>
-                    <div>
-                        <div class="upload-area">
-                            <input type="file" class="fileUpload" accept="image/*" hidden>
-                            <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
-                        </div>
-                        <p>Nome(completo):<br>
-                            <input type="text" class="txt_nome_integrante" placeholder="Nome e sobrenome">
-                        </p>
-                    </div><br><br>
-                    <div>
-                        <div class="upload-area">
-                            <input type="file" class="fileUpload" accept="image/*" hidden>
-                            <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
-                        </div>
-                        <p>Nome(completo):<br>
-                            <input type="text" class="txt_nome_integrante" placeholder="Nome e sobrenome">
-                        </p>
-                    </div><br><br>
-                    <div>
-                        <div class="upload-area">
-                            <input type="file" class="fileUpload" accept="image/*" hidden>
-                            <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
-                        </div>
-                        <p>Nome(completo):<br>
-                            <input type="text" class="txt_nome_integrante" placeholder="Nome e sobrenome">
-                        </p>
+
+                    <label for="numero_integrantes">Numero de Integrantes: </label>
+                    <select id="numero_integrantes">
+                        <option value="0">1 Integrante</option>
+                        <option value="1">2 Integrantes</option>
+                        <option value="2">3 Integrantes</option>
+                        <option value="3">4 Integrantes</option>
+                        <option value="4">5 Integrantes</option>
+                        <option value="5">6 Integrantes</option>
+                    </select>
+                    <h4>Foto</h4><br>
+                    <div class="upload-area">
+                        <input type="file" name="integrante_foto" class="fileUpload" accept="image/*" hidden>
+                        <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
+                        <span>Clique para adicionar uma foto</span>
                     </div>
+                    <p>Nome(completo):<br>
+                        <input type="text" name="integrante_nome" class="txt_nome_integrante" placeholder="Nome e sobrenome">
+                    </p><br>
+                    <div id="container_dinamico">
+                    </div><br>
+                    <div>
+
                 </div><br>
+                <hr><br>
                 <!--publicar Jogo-->
                 <div id="publicar_j">
                     <input type="submit" value="Publicar">
@@ -128,41 +147,9 @@
         <p>Acompanhe nossa <a href="https://sweet-aludra.github.io/TCC_empresa/index.html" class="link_empresa">empresa</a>!</p>
     </footer>
 
-    <script>
-        // Seleciona todas as áreas de upload
-        document.querySelectorAll(".upload-area").forEach(area => {
-            const fileInput = area.querySelector(".fileUpload");
-            const preview = area.querySelector(".preview");
+    <div id="toast-notification" class="toast"></div>
 
-            // Clique na área abre o seletor de arquivo
-            area.addEventListener("click", () => fileInput.click());
-
-            // Preview da imagem escolhida
-            fileInput.addEventListener("change", () => {
-                const file = fileInput.files[0];
-                if (file && file.type.startsWith("image/")) {
-                    const reader = new FileReader();
-                    reader.onload = e => {
-                        preview.src = e.target.result;
-                        preview.style.display = "block";
-                    };
-                    reader.readAsDataURL(file);
-                }
-            });
-        });
-
-        //area do arquivo executavel do jogo
-        const inputArquivo = document.getElementById("arquivo_jogo");
-        const nomeArquivo = document.getElementById("nomeArquivo");
-
-        inputArquivo.addEventListener("change", () => {
-            if (inputArquivo.files.length > 0) {
-                nomeArquivo.textContent = inputArquivo.files[0].name;
-            } else {
-                nomeArquivo.textContent = "Nenhum arquivo selecionado";
-            }
-        });
-    </script>
+    <script src="../js/logica/publicacao_jogo.js" type="module"></script>
 </body>
 
 </html>

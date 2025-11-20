@@ -22,11 +22,19 @@ const criarItem = (nome, email, senha, callback) => {
             if (err) {
                 return callback(err)
             }
-            const fotopadraoDir = 'foto_padrão.png' 
+            const fotopadraoDir = '/fotoperfil/foto_padrão.png' 
 
             const sql = `INSERT INTO usuario (nome, email, senha, foto_perfil) VALUES (?, ?, ?, ?)`
             db.run(sql, [nome, email, senhaHash, fotopadraoDir], function(err) {
-                callback (err)
+                if (err) { return callback (err) }
+
+                const newUserSql = `SELECT id_usuario, nome, email, foto_perfil FROM usuario WHERE id_usuario = ?`;
+                db.get(newUserSql, [this.lastID], (err, newUser) => {
+                    if (newUser) {
+                        newUser.tipo = 'aluno'; // Adiciona o tipo para consistência
+                    }
+                    callback(err, newUser); // Retorna o objeto do novo usuário
+                });
             })
         })
     })
@@ -61,54 +69,103 @@ const verificarLogin = (email, senha, callback) => {
 
 //função para trocar a foto de perfil
 const trocarfoto = (req, res) => {
+    // verifica se ele ta logado
     if (!req.session.usuario) {
-        return res.status(401).json({ erro: 'Usuário não está autenticado.' });
+        return res.status(401).json({ erro: 'Usuário não está autenticado.' })
     }
-    const usuarioEmail = req.session.usuario.email;
-
+    // verifica se o arquivo foi enviado
     if (!req.file) {
-        return res.status(400).json({ erro: 'Nenhum arquivo de imagem foi enviado.' });
+        return res.status(400).json({ erro: 'Nenhum arquivo de imagem foi enviado.' })
     }
-    const novaFoto = req.file.filename;
 
-    const sql = `UPDATE usuario SET foto_perfil = ? WHERE email = ?`;
-    db.run(sql, [novaFoto, usuarioEmail], function(err) {
+    const { email, tipo } = req.session.usuario
+    const novaFoto = 'fotoperfil/' + req.file.filename
+
+    const tabela = tipo === 'criador' ? 'criador' : 'usuario' // determina se é um usuario ou criador
+    const emailColumn = tipo === 'criador' ? 'email_etec' : 'email' 
+
+    const sql = `UPDATE ${tabela} SET foto_perfil = ? WHERE ${emailColumn} = ?`
+    db.run(sql, [novaFoto, email], function(err) {
         if (err) {
-            console.error(err.message);
-            return res.status(500).json({ erro: 'Erro ao atualizar a foto no banco de dados.' });
+            console.error(err.message)
+            return res.status(500).json({ erro: 'Erro ao atualizar a foto no banco de dados.' })
         }
-
-        req.session.usuario.foto = novaFoto;
-        res.status(200).json({ message: 'Foto de perfil atualizada com sucesso!', novaFoto: novaFoto });
+        // Verifica se alguma linha foi realmente alterada
+        if (this.changes > 0) {
+            req.session.usuario.foto = novaFoto;
+            res.status(200).json({ message: 'Foto de perfil atualizada com sucesso!', novaFoto: novaFoto })
+        } else {
+            res.status(404).json({ erro: 'Usuário não encontrado para atualização.' })
+        }
     })
 }
 
-// função para trocar nome do usuario
+//função para trocar nome do usuario
 const trocarNome = (req, res) => {
     const { novoNome } = req.body;
 
-    if (!novoNome) {
-        return res.status(400).json({ erro: 'Nome não foi mandado' });
+    if (!novoNome || novoNome.trim() === '') { // Adicionado trim() para evitar nomes vazios ou só com espaços
+        return res.status(400).json({ erro: 'Nome não foi mandado ou é inválido.' });
     }
 
-    // Pega o email do usuário logado a partir da sessão (seguro!)
-    if (!req.session.usuario || !req.session.usuario.email) {
+    // Pega o email e tipo do usuário logado a partir da sessão (seguro!)
+    if (!req.session.usuario || !req.session.usuario.email || !req.session.usuario.tipo) {
         return res.status(401).json({ erro: 'Usuário não autenticado.' });
     }
-    const usuarioEmail = req.session.usuario.email;
+    const { email, tipo } = req.session.usuario;
+    const userId = req.session.usuario.id; // Pega o ID também, importante para a verificação
 
-    const sql = `UPDATE usuario SET nome = ? WHERE email = ?`;
-    db.run(sql, [novoNome, usuarioEmail], function(err) {
+    const tabela = tipo === 'criador' ? 'criador' : 'usuario';
+    const nameColumn = tipo === 'criador' ? 'nick' : 'nome';
+    const emailColumn = tipo === 'criador' ? 'email_etec' : 'email';
+    const idColumn = tipo === 'criador' ? 'id_criador' : 'id_usuario'; // Coluna de ID
+
+    // 1. Verificar se o novoNome já existe para OUTRO usuário
+    const checkSql = `SELECT ${idColumn} FROM ${tabela} WHERE ${nameColumn} = ? AND ${idColumn} != ?`;
+    db.get(checkSql, [novoNome, userId], (err, row) => {
         if (err) {
-            console.error(err.message);
-            return res.status(500).json({ erro: 'Erro ao atualizar o nome no banco de dados.' })
+            console.error("Erro ao verificar nome existente:", err.message);
+            return res.status(500).json({ erro: 'Erro interno ao verificar o nome.' });
         }
 
-        // Atualiza o nome na sessão também, para que a página reflita a mudança
-        req.session.usuario.nome = novoNome
+        if (row) {
+            // Se encontrou uma linha, significa que o nome/nick já está em uso por outro usuário
+            const nomeTipo = tipo === 'criador' ? 'Nick' : 'Nome';
+            return res.status(409).json({ erro: `Este ${nomeTipo} já está em uso por outro usuário.` }); // 409 Conflict
+        }
 
-        res.status(200).json({ message: 'Nome atualizado com sucesso!', novoNome: novoNome })
+        // 2. Se o nome não existe para outro usuário, prosseguir com a atualização
+        const updateSql = `UPDATE ${tabela} SET ${nameColumn} = ? WHERE ${emailColumn} = ?`;
+        db.run(updateSql, [novoNome, email], function (err) {
+            if (err) {
+                console.error("Erro ao atualizar nome:", err.message);
+                // Verifica se o erro é de violação de unicidade (embora a verificação acima deva pegar isso)
+                if (err.code === 'SQLITE_CONSTRAINT') {
+                     const nomeTipo = tipo === 'criador' ? 'Nick' : 'Nome';
+                     return res.status(409).json({ erro: `Este ${nomeTipo} já está em uso.` });
+                }
+                return res.status(500).json({ erro: 'Erro ao atualizar o nome no banco de dados.' });
+            }
+
+            // Atualiza o nome na sessão também
+            if (this.changes > 0) {
+                req.session.usuario.nome = novoNome; // Atualiza o nome na sessão
+                // Salva a sessão explicitamente se necessário (geralmente não é preciso com express-session padrão)
+                req.session.save(saveErr => {
+                    if (saveErr) {
+                         console.error("Erro ao salvar sessão:", saveErr);
+                         // Decide se envia erro ou sucesso parcial
+                         return res.status(500).json({ erro: 'Nome atualizado, mas erro ao salvar sessão.' });
+                    }
+                    res.status(200).json({ message: 'Nome atualizado com sucesso!', novoNome: novoNome });
+                });
+
+            } else {
+                res.status(404).json({ erro: 'Usuário não encontrado para atualização.' });
+            }
+        });
     });
 };
+
 
 module.exports = {criarItem, verificarLogin, trocarfoto, trocarNome}

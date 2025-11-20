@@ -50,8 +50,8 @@ btnConfirmar.addEventListener('click', async () => {
         return;
     }
 
-    const formData = new FormData();
-    formData.append('fotoPerfil', arquivoSelecionado); // 'fotoPerfil' é o nome que o backend espera
+    const formData = new FormData()
+    formData.append('fotoPerfil', arquivoSelecionado) // 'fotoPerfil' é o nome que o backend espera
 
     try {
         const resposta = await fetch('/trocarfoto', {
@@ -74,8 +74,8 @@ btnConfirmar.addEventListener('click', async () => {
         arquivoSelecionado = null; // Limpa a seleção
 
     } catch (error) {
-        console.error('Erro ao trocar foto:', error);
-        alert(error.message);
+        console.error('Erro ao trocar foto:', error)
+        showToast('Error ao trocar a foto', 'error')
     }
 });
 
@@ -122,7 +122,38 @@ formNovoNome.addEventListener('submit', async (event) => {
         inputNovoNome.value = ''; // Limpa o campo do input
 
     } catch (error) {
-        console.error("Erro ao trocar nome:", error);
-        alert(error.message);
+        console.error("Erro ao trocar nome:", error)
+        showToast(error.message, 'error')
     }
-});
+})
+
+
+
+// botão logout
+const botaoLogout = document.getElementById('botao_logout');
+
+if (botaoLogout) {
+    botaoLogout.addEventListener('click', async () => {
+        try {
+            const resposta = await fetch('/logout', {
+                method: 'POST',
+                credentials: 'include' // Essencial para enviar o cookie de sessão
+            });
+
+            if (!resposta.ok) {
+                throw new Error('Falha ao tentar sair.');
+            }
+
+            // Armazena uma mensagem para ser exibida na próxima página
+            sessionStorage.setItem('toastMessage', 'Você saiu com sucesso!');
+            sessionStorage.setItem('toastType', 'success');
+
+            // Redireciona o usuário para a página inicial
+            window.location.href = '/index.html';
+
+        } catch (error) {
+            console.error('Erro ao fazer logout:', error);
+            showToast(error.message, 'error');
+        }
+    });
+}

@@ -1,25 +1,34 @@
-const url = 'http://localhost:3000'
-
 // função que ativa quando a pagina abrir
 document.addEventListener('DOMContentLoaded', async () => {
 
     const nomeMostrar = document.querySelector('[data-action="trocarNome"]')
     const fotoMostrar = document.querySelector('[data-action="trocarFoto"]')
+    const botaoPublicar = document.getElementById('botao_publicar')
 
     try {
-        const resposta = await fetch(`${url}/logininfo`,{
+        const resposta = await fetch(`/logininfo`,{
             credentials: 'include' // adiciona os dados do cookie na requisição
         }) 
         if (!resposta.ok) {
-            console.log('usuario não está logado')
+            if (botaoPublicar) botaoPublicar.style.display = 'none'
             return
         }
         else {        
             const dados = await resposta.json()
             const usuarioDados = dados.usuario
 
-            nomeMostrar.textContent = usuarioDados.nome
-            fotoMostrar.src = `/upload/${usuarioDados.foto}`
+            if (nomeMostrar) nomeMostrar.textContent = usuarioDados.nome
+            if (fotoMostrar) fotoMostrar.src = `/${usuarioDados.foto}`
+
+            // Lógica para mostrar/esconder o botão
+            if (botaoPublicar) {
+                if (usuarioDados.tipo === 'criador') {
+                    botaoPublicar.style.display = 'block' // Mostra para criadores
+                } else {
+                    botaoPublicar.style.display = 'none' // Esconde para outros
+                }
+            }
+
         }
     }catch (err) {
         console.log('error ao tentar verificar status de login', err)
@@ -43,4 +52,4 @@ document.addEventListener('DOMContentLoaded', () => {
         sessionStorage.removeItem('toastMessage');
         sessionStorage.removeItem('toastType');
     }
-});
+})

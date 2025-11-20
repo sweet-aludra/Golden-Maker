@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/menusAdicionados.css">
     <link rel="shortcut icon" href="../imgs/Penelope.png" type="image/x-icon">
     <title>Golden Maker&reg_Jogo</title>
 </head>
@@ -13,8 +14,8 @@
     <header>
         <!--<a href="perfil.html"><img src="../imgs/download.jpeg" alt="perfil"></a>-->
         <div id="menu">
-            <a href="../index.html"><img src="../imgs/Penelope.png" alt="logo_golden_maker"
-                    class="penelope_img_header"></a>
+            <a href="../index.html" style="display: grid;"><img src="../imgs/Penelope.png" alt="logo_golden_maker"
+                    class="penelope_img_header"><span style="text-align: center;">Menu</span></a>
             <ul>
                 <li><a href="../paginas/perfil.html">Perfil</a></li>
                 <li><a href="#">Galeria</a></li>
@@ -25,56 +26,35 @@
     <main id="secao_jogue">
         <section id="apresentacao_jogue">
             <div id="cabecalho_jogue">
-                <img src="../imgs/capa_modelo.jpg" class="capa_jogo"
+                <img src="../imgs/capa_modelo.jpg" class="capa_jogo" id="jogo_capa"
                     alt="capa do jogo"><!--capa que vai aparecer no carrosel do index-->
                 <br><br>
-                <h3>Nome Jogo</h3>
+                <h3 id="jogo_nome">Carregando...</h3>
             </div>
         </section><br>
 
         <section id="descricao"><!--carrosel de img/video do jogo-->
-            <p>descrição do jogo<br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora esse autem odit
-                amet, est
-                enim voluptatum quia sint placeat ratione<br>adipisci voluptate laudantium deleniti, ea fugit eligendi
-                maiores consequatur. Autem.</p>
+            <p id="jogo_descricao">Carregando Descrição...</p>
         </section><br>
 
         <section id="galeria_jogo">
             <button class="ctrl prev">&#10094;</button>
-            <div class="faixa_slides">
-                <div class="img_jogo"></div>
-                <div class="img_jogo"></div>
-                <div class="img_jogo"></div>
-                <div class="img_jogo"></div>
+            <div class="faixa_slides" id="galeria_fotos_container">
+
             </div>
             <button class="ctrl next">&#10095;</button>
         </section>
         <br>
         <hr><br>
 
+        <button id="download_container"></button><!--botão para dowload do zip guardado-->
 
-        <iframe id="jogue"
-            src="https://playminigames.net/pt/game/wing-commander-2-vengeance-of-the-kilrathi-comandante-de-ala-2-vingan%C3%A7a-de-kilratha">
-            <!--onde o jogo vai aparecer-->
-        </iframe><br>
-        <hr><br>
-
-        <section id="grupo_desenvolvedor"><!--area dos integrantes do projeto-->
+        <br><hr><br>
+        <h2>Integrantes</h2>
+        <section id="grupo_integrantes_container" class="grupo_desenvolvedor"><!--area dos integrantes do projeto-->
             <div class="integrante">
                 <img src="../imgs/download.jpeg" alt="foto de desenvolvedor"><br>
-                <p>Nome integrante</p>
-            </div>
-            <div class="integrante">
-                <img src="../imgs/download.jpeg" alt="foto de desenvolvedor"><br>
-                <p>Nome integrante</p>
-            </div>
-            <div class="integrante">
-                <img src="../imgs/download.jpeg" alt="foto de desenvolvedor"><br>
-                <p>Nome integrante</p>
-            </div>
-            <div class="integrante">
-                <img src="../imgs/download.jpeg" alt="foto de desenvolvedor"><br>
-                <p>Nome integrante</p>
+                <p>Carregando...</p>
             </div>
         </section><br>
         <hr><br>
@@ -101,17 +81,22 @@
 
     <script>
         //carrosel de imagens
+        document.addEventListener('DOMContentLoaded', () => {
+            
+        })
         document.querySelectorAll("#galeria_jogo").forEach(galeria => {
-            const faixa = galeria.querySelector(".faixa_slides");
-            const itens = faixa.querySelectorAll(".img_jogo");
-            const prev = galeria.querySelector(".prev");
-            const next = galeria.querySelector(".next");
+            const faixa = galeria.querySelector(".faixa_slides")
+            const itens = faixa.querySelectorAll(".img_jogo")
+            const prev = galeria.querySelector(".prev")
+            const next = galeria.querySelector(".next")
 
             let index = 0;
 
             function atualizarGaleria() {
+                if (itens.length === 0) { return }
+                
                 const itemWidth = itens[0].offsetWidth + 20; // largura + gap
-                faixa.style.transform = `translateX(${-index * itemWidth}px)`;
+                faixa.style.transform = `translateX(${-index * itemWidth}px)`
             }
 
             prev.addEventListener("click", () => {
@@ -132,6 +117,8 @@
         });
 
     </script>
+    <script src="../js/tela/ui_Funcoes.js" type="module"></script>
+    <script src="../js/tela/mostrar_jogo.js" type="module"></script>
 </body>
 
 </html>

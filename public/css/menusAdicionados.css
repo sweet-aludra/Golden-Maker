@@ -104,3 +104,49 @@
     background-color: #bd6c7d; /* Vermelho para erro */
     border-left: 5px solid #f1ffe7;
 }
+
+
+
+/* Estilo para o Botão de Logout */
+.logout-btn {
+    display: block;
+    width: 150px;
+    margin: auto; 
+    padding: 12px;
+    background-color: var(--cor5); 
+    color: var(--withe);
+    border: 20px black;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: var(--cor4); 
+    outline: 2px solid var(--withe);
+}
+
+
+/* dps tirar daqui, isso e pro botão menu ;-; */
+
+span {
+    font-family: 'Press Start 2P';
+}
+
+/* dps tirar daqui, isso e pro botão de baixar o jogo :^ */
+#download_container {
+    padding: 10px 20px;
+    background-color: var(--cor0);
+    color: var(--withe);
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 0 auto;
+    display: block;
+}
+#download_container:hover {
+    background: var(--cor1);
+}
