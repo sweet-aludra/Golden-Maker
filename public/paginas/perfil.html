@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style_paginas_secundarias.css">
     <link rel="stylesheet" href="../css/menusAdicionados.css">
     <link rel="shortcut icon" href="../imgs/Penelope.png" type="image/x-icon">
-    <title>Golden Maker&reg_Perfil</title>
+    <title>Golden Maker&reg</title>
 </head>
+
 <body>
     <header>
         <!--<a href="perfil.html"><img src="../imgs/download.jpeg" alt="perfil"></a>-->
         <div id="menu">
             <a href="../index.html" style="display: grid; "><img src="../imgs/Penelope.png" alt="logo_golden_maker"
-                    class="penelope_img_header"><span style="text-align: center;">Menu</span></a>
+                    class="penelope_img_header"><span style="text-align: center;" class="fonte">Menu</span></a>
             <ul>
-                <li><a href="#">Galeria</a></li>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
             </ul>
         </div>
     </header><br>
@@ -57,26 +59,21 @@
                             data-visivel="false" required>
                     </p><br>
                     <input type="submit" value="Atualizar" id="atualizar">
+
+                    <button id="botao_logout" class="logout-btn">Logout</button>
                 </div>
             </form>
-
-            <hr>
-            <br>
-            <section>
-                <button id="botao_logout" class="logout-btn">Logout</button>
-            </section><br>
-            
         </section>
     </main>
 
     <footer id="roda_pe">
-        <h2>ARCANE <img src="../imgs/flor1.png" alt="flor de lis"> BOOT</h2>
+        <h2>ARCANE <img src="../imgs/flor.png" alt="flor de lis"> BOOT</h2>
         <h5>adventure starts here</h5><br>
-        <p>Acompanhe nossa <a href="https://sweet-aludra.github.io/TCC_empresa/index.html" class="link_empresa">empresa</a>!</p>
+        <p>Acompanhe nossa <a href="https://sweet-aludra.github.io/TCC_empresa/index.html"
+                class="link_empresa">empresa</a>!</p>
     </footer>
 
-
-    <!-- menu de editar nick e foto de perfil-->
+        <!-- menu de editar nick e foto de perfil-->
     <div id="modalEditarFoto" class="modal-overlay" style="display: none;">
         <div class="modal-content">
             <h2>Trocar Foto de Perfil</h2>
@@ -98,23 +95,24 @@
     <script>
         function alternarSenha(input) {
             // Pega a posição atual do cursor
-            const start = input.selectionStart;
-            const end = input.selectionEnd;
+            const start = input.selectionStart
+            const end = input.selectionEnd
 
             // Verifica se está visível
-            const visivel = input.getAttribute("data-visivel") === "true";
+            const visivel = input.getAttribute("data-visivel") === "true"
 
             // Alterna o tipo
-            input.type = visivel ? "password" : "text";
-            input.setAttribute("data-visivel", !visivel);
+            input.type = visivel ? "password" : "text"
+            input.setAttribute("data-visivel", !visivel)
 
             // Restaura a posição do cursor
             requestAnimationFrame(() => {
-                input.setSelectionRange(start, end);
-            });
+                input.setSelectionRange(start, end)
+            })
         }
     </script>
     <script src="../js/tela/fetch.js" type="module"></script>
     <script src="../js/logica/tela_perfil.js" type="module"></script>
 </body>
+
 </html>

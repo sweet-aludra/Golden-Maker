@@ -149,9 +149,9 @@ function resetCarousel() {
 document.addEventListener('DOMContentLoaded', () => {
     
     // *** CORREÇÃO PRINCIPAL: Atribui as variáveis DEPOIS que o DOM carregou ***
-    slidesContainer = document.getElementById("slides-jogos");
-    selectAno = document.getElementById("select_ano");
-    carouselContainer = document.querySelector(".carrosel_jogos");
+    slidesContainer = document.getElementById("slides-jogos")
+    selectAno = document.getElementById("select_ano")
+    carouselContainer = document.querySelector(".carrosel_jogos")
     // *** FIM DA CORREÇÃO ***
 
     // Verifica se os elementos essenciais foram encontrados

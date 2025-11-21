@@ -4,99 +4,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style_paginas_secundarias.css">
+    <link rel="stylesheet" href="../css/menusAdicionados.css">
     <link rel="shortcut icon" href="../imgs/Penelope.png" type="image/x-icon">
-    <title>Golden Maker&reg_Publicando_jogos</title>
+    <title>Golden Maker&reg</title>
 </head>
 
 <body>
     <header>
-        <!--<a href="perfil.html"><img src="../imgs/download.jpeg" alt="perfil"></a>-->
         <div id="menu">
-            <a href="../index.html"><img src="../imgs/Penelope.png" alt="logo_golden_maker"
-                    class="penelope_img_header"></a>
+            <a href="../index.html" style="display: grid; "><img src="../imgs/Penelope.png" alt="logo_golden_maker"
+                    class="penelope_img_header"><span style="text-align: center;" class="fonte">Menu</span></a>
             <ul>
-                <li><a href="../paginas/perfil.html">Perfil</a></li>
-                <li><a href="#">Galeria</a></li>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="perfil.html">Perfil</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
             </ul>
         </div>
     </header><br>
-
+<!--Dois forms, um para publicaçao do jogo e suas informaçoes e outro para a publicação dos projetos dos 1 e 2 ano-->
     <main id="publicacoes">
+        <!--Area de publicação para os jogos-->
         <section id="publique_jogo">
             <h1>Publique seu jogo!</h1><br>
             <form id="form-projeto">
                 <div id="descricao_jogo"> <!--campo de nome e descrição do jogo-->
                     <p>Nome do jogo:<br>
-                        <input type="text" name="nome" id="nome_jogo" placeholder="Adicione nome" required>
+                        <input type="text" name="nome" id="nome_jogo" placeholder="Nome Jogo..." required>
                     </p><br>
-                    <label for="descricao_j">Descrição do jogo:</label><br>
+                    <label for="descricao_j">Descrição do jogo:</label>
                     <textarea id="descricao_j" name="descricao" rows="6" cols="40" required></textarea><br>
                     <p>Ano de Criação:<br>
                         <input type="number" name="ano" id="ano_jogo" placeholder="Ex: 2025" min="2000" max="2099">
-                    </p><br>
+                    </p>
                 </div><br>
                 <hr><br>
 
-                <h2>Imagens</h2>
+                <h2>Imagens</h2><br>
                 <div>
-                    <h4>Imagens do cabeçalho</h4><br>
-                    <p style="text-align: center;">Capa:</p><br>
+                    <h4>Capa do jogo</h4>
                     <div class="upload-area">
                         <input type="file" name="imagem_capa" class="fileUpload" id="img_capa" accept="image/*" hidden required>
                         <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
                         <span>Clique para adicionar uma capa</span>
                     </div>
-                </div>
-                <div>              
-                    <h4>Fotos do jogo</h4>         
+                </div><br>
+                <div>
+                    <h4>Fotos do jogo</h4>
                     <label for="numero_fotos">Numero de Fotos: </label>            
                     <select id="numero_fotos">
                         <option value="2">3 fotos</option>
                         <option value="3">4 fotos</option>
                         <option value="4">5 fotos</option>
                         <option value="5">6 fotos</option>
-                    </select><br>
+                    </select>
                     <div id="container_dinamico2"></div>
-
                     <div class="upload-area">
                         <input type="file" name="fotos_jogo" class="fileUpload" accept="image/*" hidden>
                         <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
-                        <span>Clique para adicionar uma foto</span> <!-- so adiconando pra ver como fica-->
-                    </div>
+                        <span>Clique para adicionar uma foto</span>
+                    </div><br>
                     <div class="upload-area">
                         <input type="file" name="fotos_jogo" class="fileUpload" accept="image/*" hidden>
                         <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
-                        <span>Clique para adicionar uma foto</span> <!-- so adiconando pra ver como fica-->
-                    </div>
+                        <span>Clique para adicionar uma foto</span>
+                    </div><br>
                     <div class="upload-area">
                         <input type="file" name="fotos_jogo" class="fileUpload" accept="image/*" hidden>
                         <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
-                        <span>Clique para adicionar uma foto</span> <!-- so adiconando pra ver como fica-->
+                        <span>Clique para adicionar uma foto</span>
                     </div>
-
                 </div><br>
+                <hr><br>
 
-                <!--<h2>Arquivo</h2><br>
-                <div>  arquivos do jogo que serão publicado 
-                    <input type="file" name="arquivo_jogo" id="arquivo_jogo" accept="arquivo" required>
-                </div><br>
-                <hr><br>-->
                 <h2>Arquivo do Jogo (Compactado)</h2><br>
-                <!-- <label for="tipo_arquivo">Tipo de Arquivo: </label>
-                <select id="tipo_arquivo">
-                    <option value="0">Arquivo .zip</option>
-                    <option value="1">Arquivo .exe</option>
-                </select> -->
-                <div><br>
-                    <!-- Input real (invisível)  webkitdirectory para mudar para pasta -->
+                <div>
+                    <!-- Input real (invisível) -->
                     <input type="file" name="arquivo_jogo" id="arquivo_jogo" required hidden>
 
                     <!-- Botão estilizado -->
                     <label for="arquivo_jogo" class="btn-arquivo">Selecionar Arquivo</label>
 
                     <!-- Onde aparece o nome do arquivo escolhido -->
-                    <span id="nomeArquivo">Nenhum Arquivo selecionado</span>
+                    <span id="nomeArquivo">Nenhum arquivo selecionado</span>
                 </div><br>
                 <div>
                     <label for="nome_executavel">Nome do Executável (dentro do .zip)</label>
@@ -104,9 +94,10 @@
                 </div>
                 <hr><br>
 
+                <hr><br>
+
                 <h2>Informações do grupo</h2><br>
                 <div id="informacoes_grupo">
-
                     <label for="numero_integrantes">Numero de Integrantes: </label>
                     <select id="numero_integrantes">
                         <option value="0">1 Integrante</option>
@@ -116,35 +107,72 @@
                         <option value="4">5 Integrantes</option>
                         <option value="5">6 Integrantes</option>
                     </select>
-                    <h4>Foto</h4><br>
-                    <div class="upload-area">
-                        <input type="file" name="integrante_foto" class="fileUpload" accept="image/*" hidden>
-                        <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
-                        <span>Clique para adicionar uma foto</span>
-                    </div>
-                    <p>Nome(completo):<br>
-                        <input type="text" name="integrante_nome" class="txt_nome_integrante" placeholder="Nome e sobrenome">
-                    </p><br>
-                    <div id="container_dinamico">
-                    </div><br>
+                    <h4>Fotos</h4>
                     <div>
+                        <div class="upload-area">
+                            <input type="file" name="integrante_foto" class="fileUpload" accept="image/*" hidden>
+                            <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
+                            <span>Clique para adicionar uma foto</span>
+                        </div><br>
+                        <p>Nome(completo):<br>
+                            <input type="text" name="integrante_nome" class="txt_nome_integrante" placeholder="Nome e sobrenome">
+                        </p>
+                    </div><br>
+
+                    <div id="container_dinamico"></div>
 
                 </div><br>
-                <hr><br>
                 <!--publicar Jogo-->
                 <div id="publicar_j">
                     <input type="submit" value="Publicar">
                 </div>
-
             </form>
         </section><br><br>
 
+        <!--Area de publicações de projetos(video/foto) de outras turmas-->
+        <section id="publique_midia">
+            <br>
+            <h1>Publique Video/Foto!</h1><br>
+            <form>
+                <h2>Arquivo</h2>
+                <div id="midia">
+                    <div class="upload-area">
+                        <!-- foto/video que vai ser publicado (!input so aceitando fotos por enquanto)-->
+                        <input type="file" class="fileUpload" accept="image/*" hidden required>
+                        <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
+                    </div><br>
+                    <div id="descricao_midia"> <!--campo de descrição da midia-->
+                        <label for="descricao_m">Descrição da img/video:</label><br>
+                        <textarea id="descricao_m" name="descricao_m" rows="6" cols="40"></textarea>
+                    </div><br>
+                    <p>Nome do projeto:<br>
+                        <input type="text" name="txt-nome-projeto" id="nome-projeto-midia" placeholder="Nome projeto..."></p><br>
+                    <select id="selecione-filtro-ano">
+                        <option value="">Selecionar Ano</option>
+                        <option value="2025">2025</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                    </select><br><br>
+                    <select id="selecione-filtro-turma">
+                        <option value="">Selecione a Turma</option>
+                        <option value="1">1°Ano</option>
+                        <option value="2">2°Ano</option>
+                    </select><br><br>
+                    
+                </div>
+                <!--input para publicar-->
+                <div id="publicar_m">
+                    <input type="submit" value="Publicar">
+                </div><!--publicar midia(video/foto)-->
+            </form>
+        </section>
     </main><br>
 
     <footer id="roda_pe">
-        <h2>ARCANE <img src="../imgs/flor1.png" alt="flor de lis"> BOOT</h2>
+        <h2>ARCANE <img src="../imgs/flor.png" alt="flor de lis"> BOOT</h2>
         <h5>adventure starts here</h5><br>
-        <p>Acompanhe nossa <a href="https://sweet-aludra.github.io/TCC_empresa/index.html" class="link_empresa">empresa</a>!</p>
+        <p>Acompanhe nossa <a href="https://sweet-aludra.github.io/TCC_empresa/index.html"
+                class="link_empresa">empresa</a>!</p>
     </footer>
 
     <div id="toast-notification" class="toast"></div>

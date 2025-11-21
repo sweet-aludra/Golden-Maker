@@ -111,7 +111,7 @@
 .logout-btn {
     display: block;
     width: 150px;
-    margin: auto; 
+    margin-left: auto; 
     padding: 12px;
     background-color: var(--cor5); 
     color: var(--withe);
@@ -128,13 +128,6 @@
     outline: 2px solid var(--withe);
 }
 
-
-/* dps tirar daqui, isso e pro botão menu ;-; */
-
-span {
-    font-family: 'Press Start 2P';
-}
-
 /* dps tirar daqui, isso e pro botão de baixar o jogo :^ */
 #download_container {
     padding: 10px 20px;
@@ -149,4 +142,8 @@ span {
 }
 #download_container:hover {
     background: var(--cor1);
+}
+
+.fonte {
+    font-family: 'Press Start 2P';
 }

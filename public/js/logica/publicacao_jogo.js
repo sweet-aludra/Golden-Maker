@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             </div>
                             <p>Nome(completo):<br>
                                 <input type="text" name="integrante_nome" class="txt_nome_integrante" placeholder="Nome e sobrenome">
-                            </p><br>
+                            </p>
                     </div>
                     `
                 containerDinamico.insertAdjacentHTML('beforeend', htmlDoCampo)
@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <input type="file" name="fotos_jogo" class="fileUpload" accept="image/*" hidden>
                                 <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
                                 <span>Clique para adicionar uma foto</span> <!-- so adiconando pra ver como fica-->
-                            </div>
+                            </div><br>
                     `
                 containerDinamico2.insertAdjacentHTML('beforeend', htmlDoCampo2)
 

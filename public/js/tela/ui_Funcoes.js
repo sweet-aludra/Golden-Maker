@@ -1,37 +1,3 @@
-export function mudarParaCadastro (loginElement, cadastroElement) {
-    loginElement.classList.remove("mostrar");
-    loginElement.classList.add("hidden");
-    cadastroElement.classList.remove("hidden");
-    cadastroElement.classList.add("mostrar");
-}
- export function mudarParaLogin (loginElement, cadastroElement) {
-    cadastroElement.classList.remove("mostrar");
-    cadastroElement.classList.add("hidden");
-    loginElement.classList.remove("hidden");
-    loginElement.classList.add("mostrar");
-}
-
-//funçao para alterar input de senha
-export function alternarSenha(input) {
-    // Pega a posição atual do cursor
-    const start = input.selectionStart;
-    const end = input.selectionEnd;
-
-    // Verifica se está visível
-    const visivel = input.getAttribute("data-visivel") === "true";
-
-    // Alterna o tipo
-    input.type = visivel ? "password" : "text";
-    input.setAttribute("data-visivel", !visivel);
-
-    // Restaura a posição do cursor
-    requestAnimationFrame(() => {
-        input.setSelectionRange(start, end);
-    });
-}
-
-
-
 // exemplo de como adicionar
 
 // adicionar isso antes do final do body <div id="toast-notification" class="toast"></div>

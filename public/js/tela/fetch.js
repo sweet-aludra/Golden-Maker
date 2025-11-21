@@ -39,17 +39,12 @@ import { showToast } from "./ui_Funcoes.js"
 
 document.addEventListener('DOMContentLoaded', () => {
     // Pega a mensagem e o tipo do sessionStorage
-    const message = sessionStorage.getItem('toastMessage');
-    const type = sessionStorage.getItem('toastType');
+    const message = sessionStorage.getItem('toastMessage')
+    const type = sessionStorage.getItem('toastType')
 
-    // Se uma mensagem existir...
     if (message) {
-        // ...mostre o toast!
-        showToast(message, type);
-
-        // IMPORTANTE: Limpe os dados para o toast não aparecer de novo
-        // se o usuário recarregar a página.
-        sessionStorage.removeItem('toastMessage');
-        sessionStorage.removeItem('toastType');
+        showToast(message, type)
+        sessionStorage.removeItem('toastMessage')
+        sessionStorage.removeItem('toastType')
     }
 })

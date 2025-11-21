@@ -12,98 +12,112 @@
 
 <body>
 
-    <!--Formulario para login de aluno-->
+    <!--Formulario para login de criador-->
     <main id="login" class="mostrar">
-        <img src="../imgs/Penelope.png" alt="logo">
-        <form id="formulario_login_criador"><br>
-            <h4>Login!Criador</h4>
-            <label for="email_criador">Email:<br>
-                <input type="email" id="email_criador" placeholder="goldenmaker@gmail.com" required name="email_criador">
-            </label>
-            <div class="senha">
-                <label for="senha_criador">Senha:<br>
-                    <input type="password" name="senha" id="senha_criador"
-                        data-visivel="false" required>
-                </label>
-            </div><br>
-            <input type="submit" value="Starts" class="starts_login_aluno">
-        </form><br>
-
-        <div id="cadastre-se">
-            <p>Ainda não tem conta?</p>
-            <button id="btnCadastro_aluno">Cadastre-se</button>
+        <div class="login">
+            <img src="../imgs/Penelope.png" alt="logo"><br>
+            <form id="formulario_login_criador">
+                <h4>Login</h4><br>
+                <p>Email:<br>
+                    <input type="email" id="email_criador" placeholder=" " required name="email_criador">
+                </p><br>
+                <div class="senha">
+                    <p>Senha:<br>
+                        <input type="password" name="senha" id="senha_criador" onclick="alternarSenha(this)"
+                            data-visivel="false" required>
+                    </p>
+                </div><br>
+                <input type="submit" value="Starts" class="starts_login_criador">
+            </form><br>
+            <div id="cadastre-se">
+                <p>Ainda não tem conta?</p>
+                <button id="btnCadastro_criador">Cadastre-se</button>
+            </div>
         </div>
     </main>
 
-    <!--Formulario para cadastro de aluno-->
+    <!--Formulario para cadastro de criador-->
     <main id="cadastro" class="hidden">
-        <img src="../imgs/Penelope.png" alt="logo">
-        <form id="formulario_cadastro_criador">
-            <h4>Cadastre-se!</h4>
-            <label for="email_criador2">Email:<br>
-                <input type="email" id="email_criador2" placeholder="goldenmaker@gmail.com" required name="email_criador">
-            </label>
-            <div class="senha">
-                <label for="senha_criador2">Senha:<br>
-                    <input type="password" name="nova_senha" id="senha_criador2"
-                        data-visivel="false" required>
-                </label>
-            </div>
-            <div class="senha">
-                <label for="confirmar_senha_criador">Confirma senha:<br>
-                    <input type="password" id="confirmar_senha_criador"
-                        data-visivel="false" required>
-                </label>
-            </div>
-            <label for="nome_criador">Nome completo:<br>
-                <input type="text" name="nome_criador" id="nome_criador" placeholder=".." required>
-            </label>
-            <label for="nick_criador">Nick name(apelido):<br>
-                <input type="text" name="nick_criador" id="nick_criador" placeholder="nick" required>
-            </label>
-            <div>
-                <input type="checkbox" id="aceito_termos_aluno" name="termos" required>
-                <label for="aceito_termos_aluno">Aceito os <b><a href="#">termos de uso</a></b></label>
-            </div><br>
+        <div class="cadastro">
+            <img src="../imgs/Penelope.png" alt="logo"><br>
+            <form id="formulario_cadastro_criador">
+                <h4>Cadastre-se</h4><br>
+                <p>Email:<br>
+                    <input type="text" id="email_criador2" placeholder="goldenmaker@gmail.com" required name="email_criador">
+                </p><br>
+                <div class="senha">
+                    <p>Senha:<br>
+                        <input type="password" name="nova_senha" id="senha_criador2" onclick="alternarSenha(this)"
+                            data-visivel="false" required>
+                    </p>
+                </div><br>
+                <div class="senha">
+                    <p>Confirma senha:<br>
+                        <input type="password" id="confirmar_senha_criador"
+                            onclick="alternarSenha(this)" data-visivel="false" required>
+                    </p>
+                </div><br>
+                <p>Nome completo:<br>
+                    <input type="text" name="nick" id="nome_criador" placeholder=".." required>
+                </p><br>
 
-            <input type="submit" value="Starts" class="starts_cadastro_aluno">
-        </form><br>
-
-        <div class="faca_login">
-            <p>Já possui uma conta?</p>
-            <button id="btnLogin_aluno">Login</button>
+                <p>Nick name(apelido):<br>
+                    <input type="text" name="nick" id="nick_criador" placeholder="nick" required>
+                </p><br>
+                <div>
+                    <input type="checkbox" id="aceito_termos_criador" name="termos" required>
+                    <label for="aceito_termos_criador">Aceito os <b><a href="#">termos de uso</a></b></label>
+                </div><br>
+                <input type="submit" value="Starts" class="starts_cadastro_criador">
+            </form><br>
+            <div class="faca_login">
+                <p>Já possui uma conta?</p>
+                <button id="btnLogin_criador">Login</button>
+            </div>
         </div>
     </main>
 
     <div id="toast-notification" class="toast"></div>
 
-    <script type="module">
-
-        import { mudarParaCadastro, mudarParaLogin, alternarSenha } from '../js/tela/ui_Funcoes.js'
-
+    <script>
         const login = document.getElementById("login");
         const cadastro = document.getElementById("cadastro");
-        const btnCadastro = document.getElementById("btnCadastro_aluno");
-        const btnLogin = document.getElementById("btnLogin_aluno");
+        const btnCadastro = document.getElementById("btnCadastro_criador");
+        const btnLogin = document.getElementById("btnLogin_criador");
 
-        btnCadastro.addEventListener("click", () => { //mudar para cadastror
-            mudarParaCadastro(login, cadastro) // chama a function do arquivo ui_funções
+        btnCadastro.addEventListener("click", () => {
+            login.classList.remove("mostrar");
+            login.classList.add("hidden");
+            cadastro.classList.remove("hidden");
+            cadastro.classList.add("mostrar");
         });
 
-        btnLogin.addEventListener("click", () => { // mudar para login
-            mudarParaLogin(login, cadastro) // chama a function do arquivo ui_funções
+        btnLogin.addEventListener("click", () => {
+            cadastro.classList.remove("mostrar");
+            cadastro.classList.add("hidden");
+            login.classList.remove("hidden");
+            login.classList.add("mostrar");
         });
 
-            const camposSenha = document.querySelectorAll('#senha_criador, #senha_criador2, #confirmar_senha_criador');
 
-    // Adiciona o evento de clique para CADA um deles
-    camposSenha.forEach(campo => {
-        campo.addEventListener('click', () => {
-            // Chama a função importada, passando o campo clicado
-            alternarSenha(campo);
-        });
-    });
+        //area para alterer input da senha
+        function alternarSenha(input) {
+            // Pega a posição atual do cursor
+            const start = input.selectionStart;
+            const end = input.selectionEnd;
 
+            // Verifica se está visível
+            const visivel = input.getAttribute("data-visivel") === "true";
+
+            // Alterna o tipo
+            input.type = visivel ? "password" : "text";
+            input.setAttribute("data-visivel", !visivel);
+
+            // Restaura a posição do cursor
+            requestAnimationFrame(() => {
+                input.setSelectionRange(start, end);
+            });
+        }
     </script>
     <script src="../js/logica/login_criador.js" type="module"></script>
 </body>
