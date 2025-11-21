@@ -1,0 +1,337 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+    --cor1: #56396f;
+    --cor2: #0d0d55;
+    --cor3: #38a8bc;
+    --cor4: #bd6c7d;
+    --cor5: #bfb5db;
+    --withe: #f1ffe7;
+    --black: #353535;
+
+}
+
+* {
+    margin: 0px;
+}
+
+body main {
+    background-image: linear-gradient(to right, black, #191919ea, rgba(0, 0, 0, 0)), url("../imgs/capa.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+h4 {
+    font-family: 'Press Start 2P';
+    font-size: 15px;
+    text-align: center;
+    color: var(--withe);
+}
+
+/* mudança de telas Login / Cadastro */
+main {
+    transition: opacity 0.5s ease, visibility 0.5s;
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    /* evita ocupar espaço */
+}
+
+.mostrar {
+    opacity: 1;
+    visibility: visible;
+    position: static;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~ login ~~~~~~~~~~~~~~~~~~~~~~~*/
+#login {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 20px;
+    gap: 25px;
+    font-weight: bold;
+    height: 100vh;
+}
+.login {
+    padding: 45px;
+    border-radius: 15px;
+    background-color: var(--black);
+    border-left: 5px solid var(--cor3);
+    border-bottom: 5px solid var(--cor3);
+}
+
+#login img {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    display: block;
+    filter: drop-shadow(-5px 5px 0 var(--withe));
+}
+
+/*~~~~~~~~~~ configuraçoes ~~~~~~~~~~~*/
+#formulario_login_aluno,
+#formulario_login_criador {
+    color: var(--withe);
+}
+
+#email_aluno,
+#email_aluno2,
+#senha_aluno,
+#senha_aluno2,
+#confirmar_senha_aluno,
+#nick_aluno {
+    border: none;
+    background-color: var(--cor5);
+    outline: none;
+    color: black;
+    height: 30px;
+    width: 20rem;
+    border-radius: 3px 5px;
+    font-size: 15px;
+}
+
+/*~~ Botao para trocar para area de cadastro ~~*/
+#cadastre-se {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    gap: 10px;
+    font-size: 15px;
+    color: var(--withe);
+    background-color: var(--cor1);
+    border-radius: 10px;
+    border: 2px solid var(--cor1);
+}
+
+#cadastre-se button {
+    outline: none;
+    border: none;
+    background-color: var(--withe);
+    padding: 5px;
+    border-radius: 5px;
+    border-bottom: 2px solid var(--cor3);
+    color: var(--cor2);
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~ Cadastro ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#cadastro {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 20px;
+    gap: 25px;
+    font-weight: bold;
+    height: 110vh;
+}
+
+.cadastro {
+    padding: 45px;
+    border-radius: 15px;
+    background-color: var(--black);
+    border-left: 5px solid var(--cor3);
+    border-bottom: 5px solid var(--cor3);
+}
+
+#cadastro img {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    display: block;
+    filter: drop-shadow(-5px 5px 0 var(--withe));
+}
+
+#aceito_termos_aluno,
+#aceito_p {
+    cursor: pointer;
+}
+
+label a {
+    color: var(--cor1);
+}
+
+label a:hover {
+    color: var(--cor3);
+}
+
+/*~~ Botao para trocar para area de login ~~*/
+.faca_login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    gap: 10px;
+    font-size: 15px;
+    color: var(--withe);
+    background-color: var(--cor1);
+    border-radius: 10px;
+    border: 2px solid var(--cor1);
+}
+
+.faca_login button {
+    outline: none;
+    border: none;
+    background-color: var(--withe);
+    padding: 5px;
+    border-radius: 5px;
+    border-bottom: 2px solid var(--cor3);
+    color: var(--cor2);
+}
+
+/*~~ configuracao de ocultacao de senha ~~*/
+.senha {
+    position: relative;
+}
+
+.senha input {
+    padding: 0 40px 0 10px;
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 20px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid var(--cor1);
+}
+
+/* Ícone de olho aberto padrão */
+#senha_aluno,
+#senha_aluno2,
+#senha_criador,
+#senha_criador2,
+#confirmar_senha_aluno,
+#confirmar_senha_criador {
+    background-image: url('../imgs/visivel.png');
+}
+
+/* Ícone de olho fechado quando visível */
+#senha_aluno[data-visivel="true"], #confirmar_senha_aluno[data-visivel="true"], #senha_aluno2[data-visivel="true"] {
+    background-image: url('../imgs/nao_visivel.png');
+}
+
+#senha_criador[data-visivel="true"], #confirmar_senha_criador[data-visivel="true"], #senha_criador2[data-visivel="true"] {
+    background-image: url('../imgs/nao_visivel.png');
+}
+
+/*~~~~~~~~~ configuracoes ~~~~~~~~~~~*/
+#formulario_cadastro_aluno,
+#formulario_cadastro_criador {
+    color: var(--withe);
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    text-align: start;
+}
+
+#email_criador,
+#email_criador2,
+#senha_criador,
+#senha_criador2,
+#confirmar_senha_criador,
+#nome_criador,
+#nick_criador {
+    border: none;
+    background-color: var(--cor5);
+    outline: none;
+    color: black;
+    height: 30px;
+    width: 20rem;
+    border-radius: 3px 5px;
+    font-size: 15px;
+}
+
+/*~~~ enviar formularios ~~~*/
+.starts_login_aluno,
+.starts_login_criador {
+    outline: none;
+    border: none;
+    background-color: var(--cor1);
+    color: var(--withe);
+    border-radius: 10px;
+    width: 100%;
+    height: 40px;
+    font-size: 15px;
+    transition: background-color 0.3s ease, transform 0.9s ease;
+}
+
+.starts_login_aluno:hover,
+.starts_login_criador:hover {
+    background-color: var(--cor3);
+    color: var(--withe);
+}
+
+.starts_cadastro_aluno,
+.starts_cadastro_criador {
+    margin: 0 auto;
+    outline: none;
+    border: none;
+    background-color: var(--cor1);
+    color: var(--withe);
+    border-radius: 10px;
+    width: 100%;
+    height: 40px;
+    font-size: 15px;
+    transition: background-color 0.3s ease, transform 0.9s ease;
+}
+
+.starts_cadastro_aluno:hover,
+.starts_cadastro_criador:hover {
+    background-color: var(--cor3);
+    color: var(--withe);
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ tipo de conta ~~~~~~~~~~~~~~~~~~~~~*/
+#tipo_conta {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    font-size: 20px;
+    gap: 25px;
+    font-weight: bold;
+    height: 100vh;
+}
+#escolha {
+    padding: 45px;
+    border-radius: 15px;
+    background-color: var(--black);
+    border-left: 5px solid var(--cor3);
+    border-bottom: 5px solid var(--cor3);
+}
+
+#tipo_conta img {
+    width: 120px;
+    height: 120px;
+    margin-left: auto;
+    margin-right: auto;
+    filter: drop-shadow(-5px 5px 0 var(--withe));
+}
+
+.entrada {
+    background-color: var(--cor1);
+    width: 250px;
+    height: 35px;
+    border-radius: 5px;
+    color: var(--withe);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.5s ease, transform 0.3s ease;
+}
+
+.entrada:hover {
+    transform: scale(1.08);
+    background-color: var(--cor3);
+}

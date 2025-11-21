@@ -1,0 +1,779 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+    --cor0: #a681c7;
+    --cor1: #56396f;
+    --cor2: #0d0d55;
+    --cor3: #38a8bc;
+    --cor4: #bd6c7d;
+    --cor5: #d3fc72;
+    --withe: #f1ffe7;
+    --black: #353535;
+}
+
+* {
+    margin: 0px;
+}
+
+body {
+    background-color: var(--withe);
+    font-family: sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: var(--withe);
+}
+
+h1 {
+    font-family: 'Press Start 2P', monospace, Arial, sans-serif;
+    font-size: 20px;
+    text-align: center;
+}
+
+hr {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid var(--cor1);
+}
+
+/* ~~~~~~~ cabeçalho ~~~~~~*/
+header {
+    padding: 15px 50px;
+    background-color: var(--black);
+    border-bottom: 10px double var(--cor4);
+}
+
+header img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+#menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 55px;
+}
+
+#menu ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    font-size: 14px;
+    font-family: 'Press Start 2P';
+    align-items: center;
+    color: var(--withe);
+}
+
+#menu a:hover {
+    color: var(--cor5);
+}
+
+.penelope_img_header {
+    filter: drop-shadow(-2px 2px 0 var(--withe));
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~ jogo.html ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+h3 {
+    font-family: 'Press Start 2P', monospace, Arial, sans-serif;
+    font-size: 15px;
+}
+
+section#apresentacao_jogue {
+    /* cabeçalho */
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+    margin: 10px;
+}
+
+#cabecalho_jogue {
+    /* parte do topo (icone + nome do jogo*/
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: var(--black);
+    padding: 10px;
+}
+
+img.capa_jogo {
+    /* capa do jogo */
+    height: 20rem;
+    width: 35rem;
+    background-color: var(--black);
+    border-radius: 5px;
+}
+
+#descricao {
+    /* caixa de descriçao do jogo */
+    background-color: var(--black);
+    color: var(--withe);
+    font-size: 20px;
+    border-radius: 3px;
+    border-bottom: 5px double var(--cor5);
+    width: 45rem;
+    height: 100%;
+    padding: 15px;
+    margin: 50px 0;
+}
+
+/* carrosel de imgs do jogo */
+#galeria_jogo {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 80rem;
+    overflow: hidden;
+    /* corta as laterais */
+    display: flex;
+    align-items: center;
+}
+
+.faixa_slides {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s ease-in-out;
+    padding: 20px 40px;
+}
+
+div.img_jogo {
+    flex: 0 0 400px;
+    /* largura fixa */
+    height: 15rem;
+    background-color: var(--black);
+    border-radius: 5px;
+    max-width: 100%;
+    width: 30rem;
+}
+
+.ctrl {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: var(--withe);
+    border: none;
+    font-size: 2rem;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 5;
+}
+
+.ctrl:hover {
+    background: var(--cor1);
+}
+
+.ctrl.prev {
+    left: 10px;
+}
+
+.ctrl.next {
+    right: 10px;
+}
+
+/* parte principal(onde o jogo vai rodar) */
+#jogue {
+    /* quadro onde o jogo vai rodar */
+    background-color: var(--black);
+    width: 100%;
+    max-width: 80rem;
+    height: 40rem;
+    border: none;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* area do grupo que desenvolveu o jogo */
+.grupo_desenvolvedor {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+}
+
+.integrante img {
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+}
+
+/*~~~~~~ area de dinamismo ~~~~~~~~*/
+@media (max-width: 1200px) {}
+
+@media (max-width: 992px) {
+    div#cabecalho_jogue img {
+        width: 250px;
+        height: 150px;
+    }
+
+    #descricao {
+        width: 40rem;
+    }
+
+    .integrante img {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    #descricao {
+        width: 25rem;
+        padding: 20px;
+    }
+
+    section.grupo_desenvolvedor {
+        display: grid;
+        margin: 15px;
+        gap: 35px;
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 colunas iguais */
+        grid-template-rows: repeat(2, 200px);
+        /* 2 linhas de 200px */
+    }
+
+    .integrante img {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    #descricao {
+        width: 22rem;
+    }
+
+    .integrante img {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+
+/*~~~~~~~~~~~ roda pe ~~~~~~~~~~~~~~~~*/
+footer {
+    background-color: var(--black);
+    border-top: 10px double var(--cor4);
+    color: var(--withe);
+    text-align: center;
+    align-items: center;
+    padding: 20px;
+}
+
+footer img {
+    width: 55px;
+    height: 55px;
+    align-items: end;
+}
+
+footer p {
+    font-size: 20px;
+}
+
+.link_empresa {
+    color: #a681c7;
+    cursor: pointer;
+}
+
+.link_empresa:hover {
+    color: var(--cor4);
+}
+
+h5 {
+    font-family: 'Press Start 2P';
+    color: var(--cor5);
+}
+
+/*~~~~~~ area de dinamismo ~~~~~~~~*/
+@media (max-width: 1200px) {
+    section#apresentacao {
+        flex-direction: column;
+        margin: 20px 50px;
+        padding: 25px 5rem;
+    }
+
+    .carrosel_jogos {
+        max-width: 60rem;
+    }
+}
+
+@media (max-width: 992px) {
+    section#apresentacao img {
+        width: 250px;
+        height: 220px;
+    }
+
+    .carrosel_jogos {
+        max-width: 50rem;
+    }
+
+    .slides {
+        padding: 10px;
+        gap: 25px;
+    }
+
+    .jogo {
+        flex: 0 0 200px;
+        height: 15rem;
+        width: 25rem;
+    }
+
+    div.jogo img {
+        height: 15rem;
+        width: 25rem;
+    }
+
+}
+
+@media (max-width: 768px) {
+    section#apresentacao {
+        margin: 20px;
+        padding: 25px 5rem;
+    }
+
+    #secao_jogos h3 {
+        font-size: 20px;
+    }
+
+    .carrosel_jogos {
+        max-width: 30rem;
+    }
+
+    footer img {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+@media (max-width: 480px) {}
+
+/*~~~~~~~~~~~~~~~~~~~~~~ perfil.html ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#icon {
+    /* div da parte de cima */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#icon img {
+    height: 200px;
+    width: 200px;
+    background-color: var(--black);
+    border-radius: 50%;
+    border-left: 10px solid var(--cor0);
+    border-right: 5px solid var(--cor2);
+}
+
+#icon button {
+    border: none;
+    background-color: var(--withe);
+    color: var(--cor1);
+    cursor: pointer;
+}
+
+#icon button:hover {
+    border-radius: 5px;
+    background-color: var(--cor0);
+    color: var(--withe);
+}
+
+#configuracao_perfil {
+    /* conteudo principal (main) */
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    padding: 20px;
+    font-size: 20px;
+    width: 500px;
+    border-radius: 10px;
+    background-color: var(--black);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: var(--withe);
+}
+
+#botao_publicar {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 100px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: var(--cor0);
+}
+
+#botao_publicar:hover {
+    background-color: var(--cor1);
+}
+
+form input {
+    border: none;
+    outline: none;
+    border-radius: 2px;
+    background-color: var(--withe);
+}
+
+/*~~~~~~~~~~ novo nome ~~~~~~~*/
+.nome input {
+    width: 100%;
+    padding: 5px 40px 5px 10px;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+#nick {
+    width: 200px;
+    height: 25px;
+}
+
+/*~~~~atualiza nome~~~~~*/
+#atualizar_nome {
+    width: 90px;
+    align-items: center;
+    background-color: var(--black);
+    border: 3px solid var(--cor5);
+    color: var(--withe);
+    cursor: pointer;
+}
+
+#atualizar_nome:hover {
+    background-color: var(--cor0);
+}
+
+/*~~~~~~~~~~~nova senha~~~~~~~*/
+#nova_senha {
+    /* titulo2 h2 */
+    text-align: center;
+}
+
+.senha {
+    /* compo div das senhas*/
+    position: relative;
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+.senha input {
+    width: 100%;
+    padding: 5px 40px 5px 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 20px;
+    cursor: pointer;
+}
+
+/* Ícone de olho aberto padrão */
+#senha {
+    background-image: url('../imgs/visivel.png');
+}
+
+#confirmar {
+    background-image: url('../imgs/visivel.png');
+}
+
+/* Ícone de olho fechado quando visível */
+#senha[data-visivel="true"] {
+    background-image: url('../imgs/nao_visivel.png');
+}
+
+#confirmar[data-visivel="true"] {
+    background-image: url('../imgs/nao_visivel.png');
+}
+
+/*~~~~atualiza senha~~~*/
+
+#atualizar {
+    width: 90px;
+    background-color: var(--black);
+    color: var(--withe);
+    border: 3px solid var(--black);
+    outline: 3px solid var(--cor5);
+}
+
+#atualizar:hover {
+    background-color: var(--cor0);
+}
+
+/*~~~~~~ area de dinamismo ~~~~~~~~*/
+@media (max-width: 1200px) {}
+
+@media (max-width: 992px) {
+    #icon img {
+        height: 150px;
+        width: 150px;
+    }
+
+    #configuracao_perfil {
+        width: 450px;
+    }
+}
+
+@media (max-width: 768px) {
+    #icon img {
+        border-left: 5px solid var(--cor0);
+        border-right: 3px solid var(--cor2);
+    }
+
+    #configuracao_perfil {
+        width: 380px;
+        padding: 25px;
+    }
+}
+
+@media (max-width: 480px) {}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ publicacao_jogo.html ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+h2,
+h4 {
+    font-size: 20px;
+    text-align: center;
+}
+
+#publicacoes {
+    display: flex;
+}
+
+/*~~~~~~~~~~ publique jogo ~~~~~~~*/
+#publique_jogo {
+    margin: 0 auto;
+    padding: 50px 10px;
+    width: 100%;
+    max-width: 35rem;
+    background-color: var(--black);
+    border: 5px solid var(--withe);
+    outline: 5px solid var(--black);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: var(--withe);
+    font-size: 20px;
+}
+
+#publique_jogo input {
+    width: 100%;
+    height: 30px;
+    align-items: center;
+}
+
+#descricao_jogo {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+}
+textarea#descricao_j {
+    width: 100%;
+    max-height: 100px;
+    min-height: 50px;
+    font-size: 15px;
+    background-color: var(--withe);
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
+
+#selecione-filtro-ano {
+    background-color: var(--withe);
+    outline: none;
+    width: 100%;
+    height: 35px;
+    text-align: center;
+    border-radius: 10px;
+    border: none;
+}
+
+/* filtro de turma para midia */
+#selecione-filtro-turma {
+    background-color: var(--withe);
+    outline: none;
+    width: 100%;
+    height: 35px;
+    text-align: center;
+    border-radius: 10px;
+    border: none;
+}
+
+/* area das imgs */
+.upload-area {
+    border: 2px dotted var(--withe);
+    border-radius: 12px;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 20px;
+    height: 100px;
+    width: 350px;
+    max-height: 200px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.upload-area:hover {
+    border-color: var(--cor0);
+}
+
+/*~~~~~~ area do arquivo(principal) ~~~~~~~~*/
+.btn-arquivo {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--cor0);
+    color: white;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-arquivo:hover {
+    background: var(--cor1);
+}
+
+#nomeArquivo {
+    margin-left: 10px;
+    font-style: italic;
+    color: var(--withe);
+}
+
+/*~~~~~ area dos integrantes ~~~~~~*/
+div#informacoes_grupo {
+    margin: 0 auto;
+}
+
+#informacoes_grupo input {
+    height: 40px;
+}
+
+#informacoes_grupo p {
+    text-align: center;
+}
+
+.txt_nome_integrante {
+    border-radius: 5px;
+}
+
+/*~~~~~~~~ botao publica jogo ~~~~~~~*/
+div#publicar_j {
+    display: flex;
+    justify-content: center;
+}
+
+#publicar_j input {
+    background-color: var(--cor0);
+    color: var(--withe);
+    width: 250px;
+    height: 50px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+#publicar_j input:hover {
+    background-color: var(--cor1);
+    outline: 1px solid var(--withe);
+}
+
+/*~~~~~~~~~~ publique midia ~~~~~~~~~~*/
+#publique_midia {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px 10px;
+    width: 100%;
+    height: 100%;
+    max-width: 35rem;
+    background-color: var(--black);
+    border: 5px solid var(--withe);
+    outline: 5px solid var(--black);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: var(--withe);
+    font-size: 20px;
+}
+
+#midia {
+    gap: 10px;
+}
+
+#midia input {
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 30px;
+}
+
+textarea#descricao_m {
+    width: 100%;
+    max-width: 30rem;
+    max-height: 100px;
+    min-height: 50px;
+    font-size: 15px;
+    background-color: var(--withe);
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
+
+/*~~~~~~~~ botao publica midia ~~~~~~~*/
+div#publicar_m {
+    display: flex;
+    justify-content: center;
+}
+
+#publicar_m input {
+    background-color: var(--cor0);
+    color: var(--withe);
+    width: 250px;
+    height: 50px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+#publicar_m input:hover {
+    background-color: var(--cor1);
+    outline: 1px solid var(--withe);
+}
+
+/*~~~~~~ area de dinamismo ~~~~~~~~*/
+@media (max-width: 1200px) {
+    #publicacoes {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 992px) {}
+
+@media (max-width: 768px) {
+
+    #publicacoes h1 {
+        font-size: 15px;
+    }
+
+    #publique_jogo,
+    #publique_midia {
+        padding: 15px;
+        font-size: 15px;
+        width: 25rem;
+    }
+
+    .upload-area {
+        height: 100px;
+        width: 300px;
+    }
+
+}
+
+@media (max-width: 480px) {}
