@@ -128,6 +128,48 @@ header img {
         transform: translateX(0); /* aparece */
     }
 }
+
+/*~~~~~~~~~~~ roda pe ~~~~~~~~~~~~~~~~*/
+footer {
+    background-color: var(--black);
+    border-top: 10px double var(--cor4);
+    color: var(--withe);
+    text-align: center;
+    align-items: center;
+    padding: 20px;
+}
+
+footer img {
+    width: 55px;
+    height: 55px;
+    align-items: end;
+}
+
+footer p {
+    font-size: 20px;
+}
+
+.link_empresa {
+    color: #a681c7;
+    cursor: pointer;
+}
+
+.link_empresa:hover {
+    color: var(--cor4);
+}
+
+h5 {
+    font-family: 'Press Start 2P';
+    color: var(--cor5);
+}
+
+/*~~~~~~ area de dinamismo ~~~~~~~~*/
+@media (max-width: 768px) {
+    footer img {
+        width: 45px;
+        height: 45px;
+    }
+}
 /*~~~~~~~~~~~~~~~~~~~~~~ jogo.html ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 h3 {
     font-family: 'Press Start 2P', monospace, Arial, sans-serif;
@@ -151,11 +193,22 @@ section#apresentacao_jogue {
     padding: 10px;
 }
 
-img.capa_jogo {
-    /* capa do jogo */
+.capa_jogo {
+    /* config capa do jogo */
     height: 20rem;
     width: 35rem;
+    background-image: url(../imgs/capa.jpeg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
     background-color: var(--black);
+    background-color: var(--black);
+    border-radius: 5px;
+}
+
+.capa_jogo img{ /* configuraçao para a img(capa do jogo)*/
+    height: 20rem;
+    width: 35rem;
     border-radius: 5px;
 }
 
@@ -195,7 +248,7 @@ div.img_jogo {
     flex: 0 0 400px;
     /* largura fixa */
     height: 15rem;
-    background-image: url(../imgs/quarto-img.jpeg);
+    background-image: url(../imgs/capa.jpeg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -266,7 +319,11 @@ div.img_jogo {
         align-items: center;
         flex-direction: column;
     }
-    div#cabecalho_jogue img {
+    .capa_jogo {
+        width: 20rem;
+        height: 12rem;
+    }
+    .capa_jogo img {
         width: 20rem;
         height: 12rem;
     }
@@ -289,17 +346,11 @@ div.img_jogo {
 
     section#grupo_desenvolvedor {
         display: grid;
-        margin: 15px;
-        gap: 35px;
+        gap: 5px;
         grid-template-columns: repeat(2, 1fr);
         /* 2 colunas iguais */
         grid-template-rows: repeat(2, 200px);
         /* 2 linhas de 200px */
-    }
-
-    .integrante img {
-        width: 200px;
-        height: 200px;
     }
 }
 
@@ -307,111 +358,7 @@ div.img_jogo {
     #descricao {
         width: 22rem;
     }
-
-    .integrante img {
-        width: 150px;
-        height: 150px;
-    }
 }
-
-
-/*~~~~~~~~~~~ roda pe ~~~~~~~~~~~~~~~~*/
-footer {
-    background-color: var(--black);
-    border-top: 10px double var(--cor4);
-    color: var(--withe);
-    text-align: center;
-    align-items: center;
-    padding: 20px;
-}
-
-footer img {
-    width: 55px;
-    height: 55px;
-    align-items: end;
-}
-
-footer p {
-    font-size: 20px;
-}
-
-.link_empresa {
-    color: #a681c7;
-    cursor: pointer;
-}
-
-.link_empresa:hover {
-    color: var(--cor4);
-}
-
-h5 {
-    font-family: 'Press Start 2P';
-    color: var(--cor5);
-}
-
-/*~~~~~~ area de dinamismo ~~~~~~~~*/
-@media (max-width: 1200px) {
-    section#apresentacao {
-        flex-direction: column;
-        margin: 20px 50px;
-        padding: 25px 5rem;
-    }
-
-    .carrosel_jogos {
-        max-width: 60rem;
-    }
-}
-
-@media (max-width: 992px) {
-    section#apresentacao img {
-        width: 250px;
-        height: 220px;
-    }
-
-    .carrosel_jogos {
-        max-width: 50rem;
-    }
-
-    .slides {
-        padding: 10px;
-        gap: 25px;
-    }
-
-    .jogo {
-        flex: 0 0 200px;
-        height: 15rem;
-        width: 25rem;
-    }
-
-    div.jogo img {
-        height: 15rem;
-        width: 25rem;
-    }
-
-}
-
-@media (max-width: 768px) {
-    section#apresentacao {
-        margin: 20px;
-        padding: 25px 5rem;
-    }
-
-    #secao_jogos h3 {
-        font-size: 20px;
-    }
-
-    .carrosel_jogos {
-        max-width: 30rem;
-    }
-
-    footer img {
-        width: 45px;
-        height: 45px;
-    }
-}
-
-@media (max-width: 480px) {}
-
 /*~~~~~~~~~~~~~~~~~~~~~~ perfil.html ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 #icon {
     /* div da parte de cima */
