@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/menusAdicionados.css"><!--para o aviso de cadastro sucedido-->
+    <link rel="shortcut icon" href="imgs/Penelope.png" type="image/x-icon">
+    <title>Golden Maker&reg</title>
+</head>
+
+<body>
+    <header>
+        <!--<a href="paginas/perfil.html"><img src="imgs/download.jpeg" alt="perfil"></a>-->
+        <div id="menu">
+            <img src="imgs/Penelope.png" alt="logo_golden_maker" class="penelope_img_header">
+            <ul>
+                <li><a href="paginas/tipo_cadastro.html">Login/Cadastro</a></li>
+                <li><a href="paginas/perfil.html">Perfil</a></li>
+                <li><a href="paginas/galeria.html">Galeria</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div id="img_fundo">
+
+        <section id="apresentacao">
+            <div id="txt">
+                <h1 id="titulo1">Hello Gamer!</h1><br>
+                <div class="texto_apresentacao">
+                    <p>Este site oferece um espaço livre e criativo para produtores independentes mostrarem seu talento,
+                        conquistarem visibilidade, trocarem experiências e colaborarem com outros criadores.</p><br>
+                    <p>Nosso objetivo é incentivar a originalidade, fortalecer a presença dos produtores independentes
+                        no mercado e valorizar o impacto cultural de suas obras.</p>
+                </div>
+            </div>
+            <img src="imgs/WhatsApp_Image_2025-11-22_at_14.01.05-removebg-preview.png" alt="Logo Golden Maker"><br>
+            <!--<img src="imgs/Cyber_bunny-removebg-preview.png" alt="penelope">-->
+        </section>
+    </div><br>
+
+    <section id="secao_jogos">
+        <!--<h3>Golden Maker</h3><br>-->
+        <div id="procurar">
+            <select id="select_ano" style="height: 34px; border-radius: 10px; border: 2px solid var(--black); background-color: var(--withe); font-size: 15px; padding: 0 5px; min-width: 150px;">
+            </select>
+            <input type="text" id="txt_pesquisa" name="pesquisa" placeholder="Busque jogos..." />
+        </div>
+        <!--<div id="busca_jogos">
+            <h3>Busque por Generos</h3>
+            <p>Terror:
+                <input type="checkbox" name="genero" class="genero">
+            </p>
+        </div>--><br>
+
+        <article id="apresentacao_jogos">
+            <div>
+                <div class="carrosel_jogos">
+                    <button class="btn prev">&#10094;</button>
+                    <div class="slides" id="slides-jogos">
+                        <a href="paginas/jogo.html">
+                            <div class="jogo"><img src="imgs/capa_modelo.jpg" class="capa_jogo" alt="capa do jogo">
+                            </div>
+                        </a>
+                        <a href="paginas/jogo.html">
+                            <div class="jogo"></div>
+                        </a>
+                        <a href="paginas/jogo.html">
+                            <div class="jogo"></div>
+                        </a>
+                        <a href="paginas/jogo.html">
+                            <div class="jogo"></div>
+                        </a>
+                    </div>
+                    <button class="btn next">&#10095;</button>
+                </div>
+            </div>
+        </article>
+
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"
+            preserveAspectRatio="xMidYMax meet">
+            <path class="wave" fill="#bd6c7d" fill-opacity="1"
+                d="M0,288L48,266.7C96,245,192,203,288,186.7C384,171,480,181,576,197.3C672,213,768,235,864,250.7C960,267,1056,277,1152,272C1248,267,1344,245,1392,234.7L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+            </path>
+        </svg>
+
+    </section>
+
+    <footer id="roda_pe">
+        <h2>ARCANE <img src="imgs/flor.png" alt="flor de lis"> BOOT</h2>
+        <h5>adventure starts here</h5><br>
+        <p>Acompanhe nossa <a href="https://sweet-aludra.github.io/TCC_empresa/index.html"
+                class="link_empresa">empresa</a>!</p>
+    </footer>
+
+    <div id="toast-notification" class="toast"></div>
+
+    <script>
+        document.querySelectorAll(".carrosel_jogos").forEach(carrosel => {
+            const slides = carrosel.querySelector(".slides")
+            const itens = slides.querySelectorAll("a") // pega os <a>, não só os divs
+            const prev = carrosel.querySelector(".prev")
+            const next = carrosel.querySelector(".next")
+
+            let index = 0
+
+            function updateCarousel() {
+                const itemWidth = itens[0].offsetWidth + 20; // largura + gap
+                slides.style.transform = `translateX(${-index * itemWidth}px)`;
+            }
+
+            prev.addEventListener("click", () => {
+                index--;
+                if (index < 0) {
+                    index = itens.length - 1; // volta para o último
+                }
+                updateCarousel();
+            });
+
+            next.addEventListener("click", () => {
+                index++;
+                if (index >= itens.length) {
+                    index = 0; // volta para o primeiro
+                }
+                updateCarousel();
+            });
+        });
+
+    </script>
+    <script src="./js/tela/fetch.js" type="module"></script> <!-- para a mensagem de aviso de cadastro bem sucedido -->
+    <script src="./js/tela/mostrar_index.js" type="module"></script><!-- pra dar fecth nos jogos e mostrar no carrosel -->
+</body>
+
+</html>

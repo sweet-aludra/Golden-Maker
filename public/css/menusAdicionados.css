@@ -1,0 +1,149 @@
+:root {
+    --cor1: #56396f;
+    --cor2: #0d0d55;
+    --cor3: #38a8bc;
+    --cor4: #bd6c7d;
+    --cor5: #bfb5db;
+    --withe: #f1ffe7;
+    --black: #353535;
+
+}
+
+/* menu de editar dda tela perfil.html */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #353535; /* Usando a cor --black do seu tema */
+    color: #f1ffe7; /* Usando a cor --withe */
+    padding: 20px 30px;
+    border-radius: 10px;
+    text-align: center;
+    border: 5px solid #56396f; /* Usando a cor --cor1 */
+}
+
+.modal-preview-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 15px 0;
+    cursor: pointer;
+    border: 3px solid #d3fc72; /* Usando a cor --cor5 */
+}
+
+.modal-actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.modal-actions button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#btnConfirmarEdicao {
+    background-color: #38a8bc; /* --cor3 */
+    color: white;
+}
+
+#btnCancelarEdicao {
+    background-color: #bd6c7d; /* --cor4 */
+    color: white;
+}
+
+
+
+/* menu de mensagem curta que desaparace */
+.toast {
+    visibility: hidden; /* Começa escondido */
+    min-width: 250px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 16px;
+    position: fixed; /* Fica fixo na tela */
+    z-index: 1001;
+    left: 50%;
+    transform: translateX(-50%); /* Centraliza horizontalmente */
+    top: 30px; /* Posição na parte de cima */
+    font-size: 17px;
+    opacity: 0;
+    transition: visibility 0.5s, opacity 0.5s linear; /* Animação suave */
+}
+
+/* Classe para mostrar o toast */
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Estilos para diferentes tipos de mensagem (customizável) */
+.toast.success {
+    background-color: var(--cor1); /* Verde para sucesso */
+    border-left: 5px solid var(--cor4);
+}
+
+.toast.error {
+    background-color: #bd6c7d; /* Vermelho para erro */
+    border-left: 5px solid #f1ffe7;
+}
+
+
+
+/* Estilo para o Botão de Logout */
+.logout-btn {
+    display: block;
+    width: 150px;
+    margin-left: auto; 
+    padding: 12px;
+    background-color: var(--cor5); 
+    color: var(--withe);
+    border: 20px black;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: var(--cor4); 
+    outline: 2px solid var(--withe);
+}
+
+/* dps tirar daqui, isso e pro botão de baixar o jogo :^ */
+#download_container {
+    padding: 10px 20px;
+    background-color: var(--cor0);
+    color: var(--withe);
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 0 auto;
+    display: block;
+}
+#download_container:hover {
+    background: var(--cor1);
+}
+
+.fonte {
+    font-family: 'Press Start 2P';
+}
