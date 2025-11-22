@@ -1,14 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 :root {
+    --cor0: #a681c7;
     --cor1: #56396f;
     --cor2: #0d0d55;
     --cor3: #38a8bc;
     --cor4: #bd6c7d;
-    --cor5: #bfb5db;
+    --cor5: #d3fc72;
+    --cor6: #bfb5db;
     --withe: #f1ffe7;
     --black: #353535;
-
 }
 
 * {
@@ -93,7 +94,7 @@ main {
 #confirmar_senha_aluno,
 #nick_aluno {
     border: none;
-    background-color: var(--cor5);
+    background-color: var(--cor6);
     outline: none;
     color: black;
     height: 30px;
@@ -243,7 +244,7 @@ label a:hover {
 #nome_criador,
 #nick_criador {
     border: none;
-    background-color: var(--cor5);
+    background-color: var(--cor6);
     outline: none;
     color: black;
     height: 30px;

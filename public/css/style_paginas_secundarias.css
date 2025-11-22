@@ -13,8 +13,13 @@
 
 * {
     margin: 0px;
+    box-sizing: border-box;
 }
 
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
 body {
     background-color: var(--withe);
     font-family: sans-serif;
@@ -51,13 +56,13 @@ header img {
     border-radius: 50%;
 }
 
+/* Menu */
 #menu {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 55px;
 }
-
 #menu ul {
     list-style: none;
     display: flex;
@@ -124,7 +129,6 @@ header img {
         transform: translateX(0); /* aparece */
     }
 }
-
 /*~~~~~~~~~~~ roda pe ~~~~~~~~~~~~~~~~*/
 footer {
     background-color: var(--black);

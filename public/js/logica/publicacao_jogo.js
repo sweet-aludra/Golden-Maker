@@ -1,5 +1,10 @@
 import { showToast } from '../tela/ui_Funcoes.js'
 
+// configuraçao do menu(nav)
+function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("active");
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll(".upload-area").forEach(area => {
