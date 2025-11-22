@@ -76,7 +76,6 @@ header img {
     filter: drop-shadow(-2px 2px 0 var(--withe));
 }
 
-<<<<<<< HEAD:css/style_paginas_secundarias.css
 /* MENU NORMAL (DESKTOP) */
 #navLinks {
     display: flex;
@@ -167,8 +166,6 @@ h5 {
         height: 45px;
     }
 }
-=======
->>>>>>> e7c91acd65a43ac5ffd3a3ed9dbcdeb1476742d1:public/css/style_paginas_secundarias.css
 /*~~~~~~~~~~~~~~~~~~~~~~ jogo.html ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 h3 {
     font-family: 'Press Start 2P', monospace, Arial, sans-serif;
@@ -247,13 +244,10 @@ div.img_jogo {
     flex: 0 0 400px;
     /* largura fixa */
     height: 15rem;
-<<<<<<< HEAD:css/style_paginas_secundarias.css
     background-image: url(../imgs/capa.jpeg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-=======
->>>>>>> e7c91acd65a43ac5ffd3a3ed9dbcdeb1476742d1:public/css/style_paginas_secundarias.css
     background-color: var(--black);
     border-radius: 5px;
     max-width: 100%;
@@ -317,7 +311,6 @@ div.img_jogo {
 @media (max-width: 1200px) {}
 
 @media (max-width: 992px) {
-<<<<<<< HEAD:css/style_paginas_secundarias.css
     section#apresentacao_jogue {
         align-items: center;
         flex-direction: column;
@@ -329,11 +322,6 @@ div.img_jogo {
     .capa_jogo img {
         width: 20rem;
         height: 12rem;
-=======
-    div#cabecalho_jogue img {
-        width: 250px;
-        height: 150px;
->>>>>>> e7c91acd65a43ac5ffd3a3ed9dbcdeb1476742d1:public/css/style_paginas_secundarias.css
     }
 
     #descricao {
