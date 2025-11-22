@@ -1,9 +1,11 @@
 :root {
+    --cor0: #a681c7;
     --cor1: #56396f;
     --cor2: #0d0d55;
     --cor3: #38a8bc;
     --cor4: #bd6c7d;
-    --cor5: #bfb5db;
+    --cor5: #d3fc72;
+    --cor6: #bfb5db;
     --withe: #f1ffe7;
     --black: #353535;
 
@@ -113,7 +115,7 @@
     width: 150px;
     margin-left: auto; 
     padding: 12px;
-    background-color: var(--cor5); 
+    background-color: var(--cor6); 
     color: var(--withe);
     border: 20px black;
     border-radius: 5px;
