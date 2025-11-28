@@ -7,8 +7,43 @@
     --cor3: #38a8bc;
     --cor4: #bd6c7d;
     --cor5: #d3fc72;
-    --withe: #f1ffe7;
+    --withe: #e6ede1;
+    --withe-fundo:#e7e7dd;
     --black: #353535;
+}
+
+/* configuração da mudança de tema de claro para escuro (alterando somente o fundo) */
+.dark-theme {
+    --withe-fundo: #353535;
+}
+#toggle-theme {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+
+    background-size: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    background-color: transparent; /* sem fundo */
+    transition: transform 0.3s;
+}
+
+/* Ícone padrão = sol (tema claro) */
+#toggle-theme {
+    background-image: url('../imgs/sun.png');
+}
+
+/* Quando tema escuro estiver ativo */
+.dark-theme #toggle-theme {
+    background-image: url('../imgs/mon.png');
+}
+
+/* Efeito ao clicar */
+#toggle-theme:active {
+    transform: scale(0.9);
 }
 
 * {
@@ -21,7 +56,7 @@ html, body {
     width: 100%;
 }
 body {
-    background-color: var(--withe);
+    background-color: var(--withe-fundo);
     font-family: sans-serif;
 }
 
@@ -190,7 +225,7 @@ select {
   padding: 10px;
   border-radius: 10px;
   border: 2px solid var(--black);
-  background-color: transparent;
+  background-color: var(--withe);
   font-size: 15px;
   cursor: pointer;
 }
@@ -201,7 +236,7 @@ select:focus {
 
 #txt_pesquisa {
     border: 2px solid var(--black);
-    background-color: transparent;
+    background-color: var(--withe);
     border-radius: 10px;
     font-size: 15px;
     width: 440px;

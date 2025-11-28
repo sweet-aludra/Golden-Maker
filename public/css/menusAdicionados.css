@@ -5,9 +5,12 @@
     --cor3: #38a8bc;
     --cor4: #bd6c7d;
     --cor5: #d3fc72;
-    --cor6: #bfb5db;
-    --withe: #f1ffe7;
+    --withe: #e6ede1;
+    --withe-fundo:#e7e7dd;
     --black: #353535;
+}
+.dark-theme {
+    --withe-fundo: #353535;
 }
 
 /* menu de editar dda tela perfil.html */

@@ -4,6 +4,23 @@ import { showToast } from '../tela/ui_Funcoes.js'
 function toggleMenu() {
     document.getElementById("navLinks").classList.toggle("active");
 }
+// acessibilidade para mudança de cor
+const btn = document.getElementById("toggle-theme");
+
+// quando carrega a página
+if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-theme");
+}
+
+btn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-theme");
+
+    if (document.body.classList.contains("dark-theme")) {
+        localStorage.setItem("theme", "dark");
+    } else {
+        localStorage.setItem("theme", "light");
+    }
+});
 
 document.addEventListener('DOMContentLoaded', () => {
 
