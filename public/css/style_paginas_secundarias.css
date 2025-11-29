@@ -20,6 +20,7 @@
     width: 60px;
     height: 60px;
     border-radius: 50%;
+    margin-left: 100px;
     border: none;
     cursor: pointer;
 
@@ -66,11 +67,12 @@ a {
 }
 
 h1 {
-    font-family: 'Press Start 2P', monospace, Arial, sans-serif;
     font-size: 20px;
     text-align: center;
 }
-
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Press Start 2P', monospace, Arial, sans-serif;
+}
 hr {
     width: 100%;
     margin-left: auto;
@@ -86,9 +88,8 @@ header {
 }
 
 header img {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
+    width: 105px;
+    height: 105px;
 }
 
 /* Menu */
@@ -113,7 +114,11 @@ header img {
 }
 
 .penelope_img_header {
-    filter: drop-shadow(-2px 2px 0 var(--withe));
+    filter: drop-shadow(-5px 2px 0 var(--withe));
+    margin-top: 10px;
+    margin-left: 40px;
+    position: absolute;
+    transform: translateX(-50%);
 }
 
 /* MENU NORMAL (DESKTOP) */
@@ -148,10 +153,10 @@ header img {
 
     #navLinks {
         position: absolute;
-        top: 100px;
+        top: 90px;
         right: 0;
         width: 220px;
-        height: 150px;
+        height: auto;
         background: var(--black);
         flex-direction: column;
         padding: 35px;
@@ -374,6 +379,21 @@ div.img_jogo {
 }
 
 @media (max-width: 768px) {
+    header img {
+        width: 85px;
+        height: 85px;
+    }
+    .penelope_img_header {
+        filter: drop-shadow(-4px 2px 0 var(--withe));
+        margin-top: 25px;
+        margin-left: 40px;
+        position: absolute;
+        transform: translateX(-50%);
+    }
+    #toggle-theme {
+        margin-left: 80px;
+    }
+
     #descricao {
         width: 25rem;
         padding: 20px;
@@ -1011,13 +1031,9 @@ section#MVV {
 
     /*~~~~~~~~~ MVV ~~~~~~~~~~*/
     .bloco {
-        background-color: var(--black);
         padding: 15px;
         width: 22rem;
-        color: var(--withe);
         font-size: 20px;
-        border-radius: 15px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .bloco p{
         margin: 0 15px;
@@ -1032,4 +1048,16 @@ section#MVV {
     }
 }
 
-@media (max-width: 480px) {}
+@media (max-width: 480px) {
+    .logo-empresa {
+        width: 175px;
+        height: 215px;
+        margin-top: 25px;
+    }
+    /*~~~~~~~~~ MVV ~~~~~~~~~~*/
+    .bloco {
+        padding: 15px;
+        width: 20rem;
+        font-size: 20px;
+    }
+}
