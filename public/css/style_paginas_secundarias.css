@@ -842,12 +842,176 @@ div#publicar_m {
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~ sobre-nos.html ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#empresa-introducao {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 30px 20rem;
+    gap: 5px;
+}
+.logo-empresa {
+    width: 200px;
+    height: 250px;
+    animation: flutuar 3s ease-in-out infinite;
+}
+
+@keyframes flutuar {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+#img_flor {
+    width: 55px;
+    height: 55px;
+}
+
+#empresa-apresentacao h1 {
+    font-size: 30px;
+}
+
+#empresa-apresentacao h3 {
+    font-size: 20px;
+}
+
+#empresa-apresentacao p {
+    font-size: 23px;
+}
+
+/*~~~~~~~~~~ seção dos integrantes ~~~~*/
+section#equipe_carrosel {
+    background-color: var(--black);
+    display: flex;
+    padding: 15px 10px;
+    margin: 0 90px;
+    font-size: 20px;
+    border-radius: 15px;
+    color: var(--withe);
+}
+
+section#equipe_carrosel img {
+    height: 185px;
+    width: 120px;
+    border-radius: 40px;
+    filter: drop-shadow(-5px 7px 0 var(--cor1));
+}
+
+section#equipe_carrosel img:hover {
+    transform: scale(1.05);
+}
+
+.pessoa {
+    text-align: center;
+}
+
+.pessoa h5 {
+    font-size: 15px;
+}
+
+.pessoa p {
+    margin: 0 25px;
+}
+/* ~~~~~~~~~~~~ MVV ~~~~~~~~~~~~~~~~*/
+section#MVV {
+    margin: 20px auto;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    color: var(--white);
+}
+
+.bloco {
+    background-color: var(--black);
+    padding: 20px;
+    width: 280px;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Aumenta ao passar o mouse */
+.bloco:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(44, 44, 44, 0.4); /* opcional: sombra mais forte no hover */
+}
 
 /*~~~~~~ area de dinamismo ~~~~~~~~*/
-@media (max-width: 1200px) {}
+@media (max-width: 1200px) {
+    #empresa-introducao {
+        flex-direction: column;
+        padding: 10px 15rem;
+        gap: 20px;
+    }
 
-@media (max-width: 992px) {}
+    /*~~~~ area da equipe ~~~~*/
+    section#equipe_carrosel {
+        max-width: 200%;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        justify-content: unset;
+    }
 
-@media (max-width: 768px) {}
+    #equipe_carrosel::-webkit-scrollbar {
+        height: 10px;
+    }
+
+    #equipe_carrosel::-webkit-scrollbar-thumb {
+        background: var(--cor1);
+        border-radius: 2px;
+    }
+
+    #equipe_carrosel::-webkit-scrollbar-thumb:hover {
+        background: var(--cor3);
+    }
+}
+
+@media (max-width: 992px) {
+    #empresa-introducao {
+        flex-direction: column;
+        padding: 10px 10rem;
+    }
+    .logo-empresa {
+        width: 180px;
+        height: 220px;
+    }
+
+    #img_flor {
+        width: 52px;
+        height: 52px;
+    }
+
+    #empresa-apresentacao h1 {
+        font-size: 20px;
+    }
+
+    #empresa-apresentacao h3 {
+        font-size: 15px;
+    }
+
+    #empresa-apresentacao p {
+        font-size: 20px;
+    }
+
+    /*~~~~ area da equipe ~~~~*/
+    section#equipe_carrosel {
+        font-size: 15px;
+        margin: 0 20px;
+    }
+
+    section#equipe_carrosel img {
+        height: 120px;
+        width: 95px;
+    }
+}
+
+@media (max-width: 768px) {
+    #empresa-introducao {
+        flex-direction: column;
+        padding: 5px 2rem;
+        gap: 20px;
+    }
+}
 
 @media (max-width: 480px) {}
