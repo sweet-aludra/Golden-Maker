@@ -429,8 +429,7 @@ div.img_jogo {
 
 #configuracao_perfil {
     /* conteudo principal (main) */
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     margin-bottom: 50px;
     padding: 20px;
     font-size: 20px;
@@ -573,7 +572,12 @@ form input {
     }
 }
 
-@media (max-width: 480px) {}
+@media (max-width: 480px) {
+    #configuracao_perfil {
+        width: 350px;
+        padding: 15px;
+    }
+}
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ publicacao_jogo.html ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 h2,
@@ -623,6 +627,16 @@ textarea#descricao_j {
     outline: none;
     border: none;
     border-radius: 5px;
+}
+
+#numero_fotos, #numero_integrantes {
+    width: 50%;
+    height: 30px;
+    text-align: center;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--withe);
 }
 
 /* filtro de ano/turma para midia */
@@ -797,7 +811,7 @@ div#publicar_m {
     #publique_jogo,
     #publique_midia {
         padding: 15px;
-        font-size: 15px;
+        ffont-size: 20px;
         width: 25rem;
     }
 
@@ -807,5 +821,33 @@ div#publicar_m {
     }
 
 }
+
+@media (max-width: 480px) {
+    #publique_jogo,
+    #publique_midia {
+        padding: 25px;
+        font-size: 18px;
+        width: 20rem;
+    }
+
+    #numero_integrantes {
+        width: 30%;
+    }
+
+    #publicar_j input, #publicar_m input {
+        width: 170px;
+        height: 45px;
+        font-size: 20px;
+    }
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~ sobre-nos.html ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~ area de dinamismo ~~~~~~~~*/
+@media (max-width: 1200px) {}
+
+@media (max-width: 992px) {}
+
+@media (max-width: 768px) {}
 
 @media (max-width: 480px) {}
