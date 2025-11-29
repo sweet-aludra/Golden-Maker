@@ -920,15 +920,19 @@ section#MVV {
     gap: 20px;
     justify-content: center;
     flex-wrap: wrap;
-    color: var(--white);
 }
 
 .bloco {
     background-color: var(--black);
-    padding: 20px;
-    width: 280px;
+    padding: 15px;
+    width: 25rem;
+    color: var(--withe);
+    font-size: 25px;
     border-radius: 15px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.bloco p{
+    margin: 0 20px;
 }
 
 /* Aumenta ao passar o mouse */
@@ -1003,6 +1007,20 @@ section#MVV {
     section#equipe_carrosel img {
         height: 120px;
         width: 95px;
+    }
+
+    /*~~~~~~~~~ MVV ~~~~~~~~~~*/
+    .bloco {
+        background-color: var(--black);
+        padding: 15px;
+        width: 22rem;
+        color: var(--withe);
+        font-size: 20px;
+        border-radius: 15px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .bloco p{
+        margin: 0 15px;
     }
 }
 
