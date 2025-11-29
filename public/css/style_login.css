@@ -17,7 +17,7 @@
 }
 
 body main {
-    background-image: linear-gradient(to right, black, #191919ea, rgba(0, 0, 0, 0)), url("../imgs/capa.jpg");
+    background-image: url("../imgs/3170033.jpg");
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -34,7 +34,7 @@ h4 {
     font-family: 'Press Start 2P';
     font-size: 15px;
     text-align: center;
-    color: var(--withe);
+    color: black;
 }
 
 /* mudança de telas Login / Cadastro */
@@ -68,7 +68,7 @@ main {
 .login {
     padding: 45px;
     border-radius: 15px;
-    background-color: var(--black);
+    background-color: var(--cor6);
     border-left: 5px solid var(--cor3);
     border-bottom: 5px solid var(--cor3);
 }
@@ -78,13 +78,13 @@ main {
     height: 100px;
     margin: 0 auto;
     display: block;
-    filter: drop-shadow(-5px 5px 0 var(--withe));
+    filter: drop-shadow(-5px 5px 0 var(--cor1));
 }
 
 /*~~~~~~~~~~ configuraçoes ~~~~~~~~~~~*/
 #formulario_login_aluno,
 #formulario_login_criador {
-    color: var(--withe);
+    color: black;
 }
 
 #email_aluno,
@@ -94,7 +94,7 @@ main {
 #confirmar_senha_aluno,
 #nick_aluno {
     border: none;
-    background-color: var(--cor6);
+    background-color: var(--withe);
     outline: none;
     color: black;
     height: 30px;
@@ -125,6 +125,7 @@ main {
     border-radius: 5px;
     border-bottom: 2px solid var(--cor3);
     color: var(--cor2);
+    cursor: pointer;
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~ Cadastro ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -135,13 +136,13 @@ main {
     font-size: 20px;
     gap: 25px;
     font-weight: bold;
-    height: 110vh;
+    height: 120vh;
 }
 
 .cadastro {
     padding: 45px;
     border-radius: 15px;
-    background-color: var(--black);
+    background-color: var(--cor6);
     border-left: 5px solid var(--cor3);
     border-bottom: 5px solid var(--cor3);
 }
@@ -151,7 +152,7 @@ main {
     height: 100px;
     margin: 0 auto;
     display: block;
-    filter: drop-shadow(-5px 5px 0 var(--withe));
+    filter: drop-shadow(-5px 5px 0 var(--cor1));
 }
 
 #aceito_termos_aluno,
@@ -189,6 +190,7 @@ label a:hover {
     border-radius: 5px;
     border-bottom: 2px solid var(--cor3);
     color: var(--cor2);
+    cursor: pointer;
 }
 
 /*~~ configuracao de ocultacao de senha ~~*/
@@ -229,7 +231,7 @@ label a:hover {
 /*~~~~~~~~~ configuracoes ~~~~~~~~~~~*/
 #formulario_cadastro_aluno,
 #formulario_cadastro_criador {
-    color: var(--withe);
+    color: black;
     flex-direction: column;
     display: flex;
     justify-content: center;
@@ -244,7 +246,7 @@ label a:hover {
 #nome_criador,
 #nick_criador {
     border: none;
-    background-color: var(--cor6);
+    background-color: var(--withe);
     outline: none;
     color: black;
     height: 30px;
@@ -307,9 +309,9 @@ label a:hover {
 #escolha {
     padding: 45px;
     border-radius: 15px;
-    background-color: var(--black);
-    border-left: 5px solid var(--cor3);
-    border-bottom: 5px solid var(--cor3);
+    background-color: var(--cor6);
+    border-left: 5px solid var(--cor4);
+    border-bottom: 5px solid var(--cor4);
 }
 
 #tipo_conta img {
@@ -317,7 +319,7 @@ label a:hover {
     height: 120px;
     margin-left: auto;
     margin-right: auto;
-    filter: drop-shadow(-5px 5px 0 var(--withe));
+    filter: drop-shadow(-5px 5px 0 var(--cor1));
 }
 
 .entrada {
@@ -334,5 +336,5 @@ label a:hover {
 
 .entrada:hover {
     transform: scale(1.08);
-    background-color: var(--cor3);
+    background-color: var(--cor4);
 }
