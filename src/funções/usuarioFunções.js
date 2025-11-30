@@ -1,6 +1,7 @@
 const db = require('../database')
 const bcrypt = require('bcrypt')
 const path = require('path')
+const fs = require('fs')
 
 //função criar cadastro
 const criarItem = (nome, email, senha, callback) => {
@@ -22,7 +23,7 @@ const criarItem = (nome, email, senha, callback) => {
             if (err) {
                 return callback(err)
             }
-            const fotopadraoDir = '/fotoperfil/foto_padrão.png' 
+            const fotopadraoDir = 'fotoperfil/foto_padrão.jpeg' 
 
             const sql = `INSERT INTO usuario (nome, email, senha, foto_perfil) VALUES (?, ?, ?, ?)`
             db.run(sql, [nome, email, senhaHash, fotopadraoDir], function(err) {
@@ -84,19 +85,46 @@ const trocarfoto = (req, res) => {
     const tabela = tipo === 'criador' ? 'criador' : 'usuario' // determina se é um usuario ou criador
     const emailColumn = tipo === 'criador' ? 'email_etec' : 'email' 
 
-    const sql = `UPDATE ${tabela} SET foto_perfil = ? WHERE ${emailColumn} = ?`
-    db.run(sql, [novaFoto, email], function(err) {
+    // Primeiro busca a foto antiga
+    const sqlSelect = `SELECT foto_perfil FROM ${tabela} WHERE ${emailColumn} = ?`
+
+    db.get(sqlSelect, [email], (err, row) => {
         if (err) {
             console.error(err.message)
-            return res.status(500).json({ erro: 'Erro ao atualizar a foto no banco de dados.' })
+            return res.status(500).json({ erro: 'Erro ao buscar dados do usuário.' })
         }
-        // Verifica se alguma linha foi realmente alterada
-        if (this.changes > 0) {
-            req.session.usuario.foto = novaFoto;
-            res.status(200).json({ message: 'Foto de perfil atualizada com sucesso!', novaFoto: novaFoto })
-        } else {
-            res.status(404).json({ erro: 'Usuário não encontrado para atualização.' })
-        }
+
+        const fotoAntiga = row ? row.foto_perfil : null
+
+        // Atualiza para a nova foto
+        const sql = `UPDATE ${tabela} SET foto_perfil = ? WHERE ${emailColumn} = ?`
+        
+        db.run(sql, [novaFoto, email], function(err) {
+            if (err) {
+                console.error(err.message)
+                return res.status(500).json({ erro: 'Erro ao atualizar a foto no banco de dados.' })
+            }
+            // Verifica se alguma linha foi realmente alterada
+            if (this.changes > 0) {
+                
+                // veridica se a foto é a padrão
+                const nomeFotoPadrao = 'fotoperfil/foto_padrão.jpeg'
+
+                if (fotoAntiga && !fotoAntiga.includes(nomeFotoPadrao)) {
+                    // Monta o caminho correto para deletar
+                    const caminhoParaDeletar = path.join(__dirname, '../../public', fotoAntiga.replace(/^\//, ''))
+                    
+                    fs.unlink(caminhoParaDeletar, (errUnlink) => {
+                        if (errUnlink) console.error("Erro ao deletar foto antiga (ignorado):", errUnlink)
+                    })
+                }
+
+                req.session.usuario.foto = novaFoto
+                res.status(200).json({ message: 'Foto de perfil atualizada com sucesso!', novaFoto: novaFoto })
+            } else {
+                res.status(404).json({ erro: 'Usuário não encontrado para atualização.' })
+            }
+        })
     })
 }
 
@@ -167,5 +195,61 @@ const trocarNome = (req, res) => {
     });
 };
 
+// função para trocar a senha 
+const trocarSenha = (req, res) => {
+    // Verifica login
+    if (!req.session.usuario) {
+        return res.status(401).json({ erro: 'Você precisa estar logado.' });
+    }
 
-module.exports = {criarItem, verificarLogin, trocarfoto, trocarNome}
+    const { senhaAtual, novaSenha } = req.body;
+    const { id, tipo, email } = req.session.usuario;
+
+    // Validações básicas
+    if (!senhaAtual || !novaSenha) {
+        return res.status(400).json({ erro: 'Preencha a senha atual e a nova senha.' });
+    }
+    
+    // Define qual tabela usar baseado no tipo de usuário
+    const tabela = tipo === 'criador' ? 'criador' : 'usuario';
+    const idColuna = tipo === 'criador' ? 'id_criador' : 'id_usuario';
+
+    // Busca a senha HASH atual no banco
+    const sqlSelect = `SELECT senha FROM ${tabela} WHERE ${idColuna} = ?`;
+    
+    db.get(sqlSelect, [id], (err, row) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).json({ erro: 'Erro ao buscar dados.' });
+        }
+        if (!row) {
+            return res.status(404).json({ erro: 'Usuário não encontrado.' });
+        }
+
+        // Compara a senha digitada (senhaAtual) com a do banco (row.senha)
+        bcrypt.compare(senhaAtual, row.senha, (errBcrypt, match) => {
+            if (errBcrypt) return res.status(500).json({ erro: 'Erro ao verificar senha.' });
+            
+            if (!match) {
+                return res.status(401).json({ erro: 'A Senha Atual está incorreta.' });
+            }
+
+            // Se a senha atual estiver certa, cria o hash da nova senha
+            bcrypt.hash(novaSenha, 10, (errHash, novaSenhaHash) => {
+                if (errHash) return res.status(500).json({ erro: 'Erro ao criptografar nova senha.' });
+
+                // Atualiza no banco
+                const sqlUpdate = `UPDATE ${tabela} SET senha = ? WHERE ${idColuna} = ?`;
+                
+                db.run(sqlUpdate, [novaSenhaHash, id], function(errUpdate) {
+                    if (errUpdate) {
+                        return res.status(500).json({ erro: 'Erro ao salvar nova senha.' });
+                    }
+                    res.status(200).json({ message: 'Senha alterada com sucesso!' });
+                });
+            });
+        });
+    });
+};
+
+module.exports = {criarItem, verificarLogin, trocarfoto, trocarNome, trocarSenha}

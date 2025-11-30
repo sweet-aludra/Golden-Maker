@@ -49,7 +49,7 @@
         </section>
 
         <hr><br>
-        <button id="download_container"></button><br><!--botão para dowload do zip guardado-->
+        <div id="download_container"></div><br><!--botão para dowload do zip guardado-->
         <hr><br>
 
         <section id="galeria_jogo">
@@ -87,13 +87,23 @@
         // quando carrega a página
         if (localStorage.getItem("theme") === "dark") {
             document.body.classList.add("dark-theme");
+            const mudarCorTexto = document.querySelectorAll('p, span, h1, h2, h3, li, a')
+                for (const element of mudarCorTexto) {
+                    element.style.color = 'white'
+                }
+
         }
 
         btn.addEventListener("click", () => {
             document.body.classList.toggle("dark-theme");
 
             if (document.body.classList.contains("dark-theme")) {
-                localStorage.setItem("theme", "dark");
+                localStorage.setItem("theme", "dark")
+
+                const mudarCorTexto = document.querySelectorAll('p, span, h1, h2, h3, li, a')
+                for (const element of mudarCorTexto) {
+                    element.style.color = 'white'
+                }
             } else {
                 localStorage.setItem("theme", "light");
             }

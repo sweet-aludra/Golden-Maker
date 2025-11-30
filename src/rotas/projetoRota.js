@@ -5,6 +5,7 @@ const fs = require('fs')
 const crypto = require('crypto')
 
 const { publicarProjeto, listarProjetos, buscarProjetoPorId } = require('../funções/projetoFuncoes')
+const verificarModoAdmin = require('../funções/configFuncoes')
 
 const rota = express.Router()
 
@@ -50,7 +51,7 @@ const verificarCriador = (req, res, next) => {
 };
 
 // --- Rotas ---
-rota.post('/projetos', verificarCriador, (req, res, next) => { // Wrapper Multer
+rota.post('/projetos', verificarModoAdmin, verificarCriador, (req, res, next) => { // Wrapper Multer
         const uploader = upload.fields([
             { name: "imagem_capa", maxCount: 1 },
             { name: "fotos_jogo", maxCount: 6 },

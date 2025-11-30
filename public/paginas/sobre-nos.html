@@ -123,11 +123,13 @@
         }
 
         // acessibilidade para mudança de cor
-        const btn = document.getElementById("toggle-theme");
+        const btn = document.getElementById("toggle-theme")
+        const texto = document.getElementById('empresa-apresentacao')
 
         // quando carrega a página
         if (localStorage.getItem("theme") === "dark") {
             document.body.classList.add("dark-theme");
+            texto.style.color = 'white'
         }
 
         btn.addEventListener("click", () => {
@@ -135,8 +137,12 @@
 
             if (document.body.classList.contains("dark-theme")) {
                 localStorage.setItem("theme", "dark");
+
+                texto.style.color = 'white'
             } else {
                 localStorage.setItem("theme", "light");
+
+                texto.style.color = 'black'
             }
         });
     </script>

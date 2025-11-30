@@ -6,7 +6,7 @@ const path = require('path')
 const multer = require('multer')
 
 //busca do arquivo funções 
-const {criarItem, verificarLogin, trocarfoto, trocarNome} = require('../funções/usuarioFunções')
+const {criarItem, verificarLogin, trocarfoto, trocarNome, trocarSenha} = require('../funções/usuarioFunções')
 
 //rota para cadastrar Aluno
 rota.post('/cadastraAluno', (req, res) => {
@@ -129,7 +129,10 @@ rota.post('/trocarfoto', (req, res, next) => {
 })
 
 //rota para trocar o nome
-rota.put('/trocarnome', trocarNome);
+rota.put('/trocarnome', trocarNome)
+
+// rota para trocar a senha
+rota.put('/senha', trocarSenha)
 
 
 module.exports = rota

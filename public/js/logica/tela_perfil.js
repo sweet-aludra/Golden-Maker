@@ -157,3 +157,57 @@ if (botaoLogout) {
         }
     });
 }
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    
+    const formSenha = document.getElementById('campo_nova_senha')
+
+    formSenha.addEventListener('submit', async (e) => {
+        e.preventDefault()
+
+        // Pega os valores
+        const formData = new FormData(formSenha);
+        const senhaAtual = formData.get('senhaAtual');
+        const novaSenha = formData.get('nova_senha');
+        const confirmarSenha = document.getElementById('confirmar').value;
+
+        // Validação no Frontend
+        if (novaSenha !== confirmarSenha) {
+            // Use sua função de showToast ou alert
+            showToast('A nova senha e a confirmação não coincidem', 'error')
+            return
+        }
+
+        if (novaSenha.length < 6 && novaSenha.length > 100) {
+                showToast('A nova senha deve ter pelo menos 6 caracteres', 'error')
+                return
+        }
+
+        try {
+            // Envia para o backend (note que enviamos JSON, não FormData, pois não tem arquivo)
+            const response = await fetch('/senha', { // Ajuste se sua rota base for diferente
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ senhaAtual, novaSenha })
+            })
+
+            const data = await response.json();
+
+            if (response.ok) {
+                showToast('Senha Trocada com sucesso!', 'success')
+                formSenha.reset() // Limpa o formulário
+            } else {
+                showToast('Erro: ' + data.erro, 'error')
+            }
+
+        } catch (err) {
+            console.error(err)
+            alert('Erro de conexão ao tentar trocar a senha.')
+        }
+    });
+});

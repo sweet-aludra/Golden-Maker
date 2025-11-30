@@ -530,7 +530,7 @@ form input {
 }
 
 /* Ícone de olho aberto padrão */
-#senha {
+#senha, #senha2 {
     background-image: url('../imgs/visivel.png');
 }
 
@@ -539,7 +539,7 @@ form input {
 }
 
 /* Ícone de olho fechado quando visível */
-#senha[data-visivel="true"] {
+#senha, #senha2[data-visivel="true"] {
     background-image: url('../imgs/nao_visivel.png');
 }
 

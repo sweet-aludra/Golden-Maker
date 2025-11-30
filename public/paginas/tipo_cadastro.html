@@ -16,10 +16,32 @@
       <div>
         <a href="cadastro_aluno.html" class="entrada">Aluno</a>
         <br>
-        <a href="cadastro_publicador.html" class="entrada">Criador</a>
+        <a href="cadastro_publicador.html" class="entrada" id="btn-criador">Criador</a>
       </div>
     </div>
   </main>
 </body>
+<script>
+  document.addEventListener('DOMContentLoaded', async () => {
+        try {
+            // Pergunta ao servidor qual é o status
+            const response = await fetch('/api/status')
+            const data = await response.json()
+
+            // Se não for modo Admin 
+            if (!data.modoAdmin) {
+                // Pega o botão pelo ID que criamos
+                const btnCriador = document.getElementById('btn-criador')
+                
+                // Se achou o botão, esconde ele!
+                if (btnCriador) {
+                    btnCriador.style.display = 'none'
+                }
+            }
+        } catch (err) {
+            console.error("Erro ao verificar status do servidor:", err)
+        }
+    })
+</script>
 <script src="../js/tela/fetch.js" type="module"></script>
 </html>
