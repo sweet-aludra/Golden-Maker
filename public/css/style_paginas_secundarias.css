@@ -20,7 +20,6 @@
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    margin-left: 100px;
     border: none;
     cursor: pointer;
 
@@ -88,8 +87,8 @@ header {
 }
 
 header img {
-    width: 105px;
-    height: 105px;
+    width: 95px;
+    height: 95px;
 }
 
 /* Menu */
@@ -115,10 +114,6 @@ header img {
 
 .penelope_img_header {
     filter: drop-shadow(-5px 2px 0 var(--withe));
-    margin-top: 10px;
-    margin-left: 40px;
-    position: absolute;
-    transform: translateX(-50%);
 }
 
 /* MENU NORMAL (DESKTOP) */
