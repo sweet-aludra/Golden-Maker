@@ -1,7 +1,6 @@
 @echo off
 echo "  instalando dependencias"
-
-
+cd ..
 :: Roda o comando de instalação
 npm install
 

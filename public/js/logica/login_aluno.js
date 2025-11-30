@@ -72,7 +72,6 @@ formLogin.addEventListener('submit', async (event) => {
             showToast('Essa combinação de Email/Senha não funcionaram', 'error');
             throw new Error(`Erro no servidor:${erroTexto}`)
         }
-        console.log(await resposta.text());
         sessionStorage.setItem('toastMessage', 'Login realizado com sucesso!');
         sessionStorage.setItem('toastType', 'success');
         window.location.href = '../../index.html' 

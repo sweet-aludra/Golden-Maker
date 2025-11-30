@@ -5,9 +5,11 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "app:admin": "cross-env MODO_APP=admin node src/server.js",
+    "app:publico": "cross-env MODO_APP=publico node src/server.js"
   },
-  "author": "",
+  "author": "Grupo TCC 2025 3AMS",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^6.0.0",
@@ -18,5 +20,8 @@
     "multer": "^2.0.2",
     "path": "^0.12.7",
     "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "cross-env": "^10.1.0"
   }
 }

@@ -1,9 +1,10 @@
 const express = require('express')
 const rota = express.Router()
 const { criarCriador, verificarLoginCriador } = require('../funções/criadorFuncoes')
+const verificarModoAdmin = require('../funções/configFuncoes')
 
 // Rota para cadastrar Criador
-rota.post('/cadastraCriador', (req, res) => {
+rota.post('/cadastraCriador', verificarModoAdmin, (req, res) => {
     const { nome_criador, nick_criador, email_criador, nova_senha } = req.body
     criarCriador(nome_criador, nick_criador, email_criador, nova_senha, (err, novoCriador) => {
         if (err) {
@@ -22,7 +23,7 @@ rota.post('/cadastraCriador', (req, res) => {
 })
 
 // Rota para login de Criador
-rota.post('/loginCriador', (req, res) => {
+rota.post('/loginCriador', verificarModoAdmin, (req, res) => {
     const { email, senha } = req.body
     verificarLoginCriador(email, senha, (err, criador) => {
         if (err) {

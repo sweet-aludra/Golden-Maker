@@ -35,7 +35,7 @@
 
     <div id="icon">
         <img src="../imgs/download.jpeg" alt="icon" data-action="trocarFoto">
-        <button data-action="menuEditar">Editar</button>
+        <button data-action="menuEditar" id="btn-editar">Editar</button>
         <h3 data-action="trocarNome">@nick_name</h3>
     </div><br>
 
@@ -59,14 +59,18 @@
             </form>
 
             <form id="campo_nova_senha">
-                <h3 id="nova_senha">Nova Senha:</h3><br>
+                <h3 id="nova_senha">Alterar Senha:</h3><br>
                 <div class="senha"> <!--campo para alterar a senha da conta-->
-                    <p>Senha:
-                        <input type="password" name="nova_senha" id="senha" onclick="alternarSenha(this)"
+                    <p>Senha Atual:
+                        <input type="password" name="senhaAtual" id="senha" onclick="alternarSenha(this)"
                             data-visivel="false" required>
                     </p><br>
-                    <p>Confirme a senha:
-                        <input type="password" name="nova_senha" id="confirmar" onclick="alternarSenha(this)"
+                    <p>Nova Senha:
+                        <input type="password" name="nova_senha" id="senha2" onclick="alternarSenha(this)"
+                            data-visivel="false" required>
+                    </p><br>
+                    <p>Confirme a Nova Senha:
+                        <input type="password" id="confirmar" onclick="alternarSenha(this)"
                             data-visivel="false" required>
                     </p><br>
                     <input type="submit" value="Atualizar" id="atualizar">

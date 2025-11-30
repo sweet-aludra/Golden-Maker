@@ -9,11 +9,11 @@ const app = express()
 app.use(express.json())
 
 // preparação do 'modo app'
-const modoApp = process.env.MODO_APP;
+const modoApp = process.env.MODO_APP
 
-global.MODO_ADMIN = (modoApp === 'admin');
+global.MODO_ADMIN = (modoApp === 'admin')
 
-// 3. Imprima uma mensagem para o professor saber em que modo o servidor ligou
+// Imprime uma mensagem para o professor saber em que modo o servidor ligou
 if (global.MODO_ADMIN) {
     console.log("🔵 Servidor iniciado em (MODO ADMIN)")
     console.log("   publicação e edição de projetos ATIVADO")
@@ -21,6 +21,12 @@ if (global.MODO_ADMIN) {
     console.log("🟢 Servidor iniciado em (MODO APRESENTAÇÃO)")
     console.log("   publicação e edição de projetos BLOQUEADO")
 }
+// rota global para verificar modo do server
+app.get('/api/status', (req, res) => {
+    res.json({ 
+        modoAdmin: global.MODO_ADMIN || false 
+    })
+})
 
 app.use(cors()) // permite a comunicação do backend pro frontend
 
