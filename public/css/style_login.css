@@ -338,3 +338,37 @@ label a:hover {
     transform: scale(1.08);
     background-color: var(--cor4);
 }
+
+/*~~~~~~ area de dinamismo ~~~~~~~~*/
+@media (max-width: 1200px) {}
+
+@media (max-width: 992px) {}
+
+@media (max-width: 768px) {}
+
+@media (max-width: 480px) {
+    #escolha, .cadastro, .login {
+        padding: 20px;
+    }
+
+    #email_criador,
+    #email_criador2,
+    #senha_criador,
+    #senha_criador2,
+    #confirmar_senha_criador,
+    #nome_criador,
+    #nick_criador {
+        height: 30px;
+        width: 15rem;
+    }
+
+    #email_aluno,
+    #email_aluno2,
+    #senha_aluno,
+    #senha_aluno2,
+    #confirmar_senha_aluno,
+    #nick_aluno {
+        height: 30px;
+        width: 15rem;
+    }
+}

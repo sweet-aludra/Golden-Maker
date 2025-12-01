@@ -378,16 +378,6 @@ div.img_jogo {
         width: 85px;
         height: 85px;
     }
-    .penelope_img_header {
-        filter: drop-shadow(-4px 2px 0 var(--withe));
-        margin-top: 25px;
-        margin-left: 40px;
-        position: absolute;
-        transform: translateX(-50%);
-    }
-    #toggle-theme {
-        margin-left: 80px;
-    }
 
     #descricao {
         width: 25rem;

@@ -430,7 +430,6 @@ h5 {
 /*~~~~~~ area de dinamismo ~~~~~~~~*/
 @media (max-width: 1200px) {
     section#apresentacao {
-        flex-direction: column;
         margin: 20px 50px;
         padding: 25px 5rem;
     }
@@ -473,20 +472,11 @@ h5 {
         width: 85px;
         height: 85px;
     }
-    .penelope_img_header {
-        filter: drop-shadow(-4px 2px 0 var(--withe));
-        margin-top: 25px;
-        margin-left: 40px;
-        position: absolute;
-        transform: translateX(-50%);
-    }
-    #toggle-theme {
-        margin-left: 80px;
-    }
 
     section#apresentacao {
+        flex-direction: column;
         margin: 20px;
-        padding: 25px 5rem;
+        padding: 25px;
     }
 
     #secao_jogos h3 {
@@ -509,7 +499,7 @@ h5 {
 @media (max-width: 480px) {
     section#apresentacao {
         margin: 20px;
-        padding: 25px 1rem;
+        padding: 20px;
     }
     .texto_apresentacao {
         text-align: center;
