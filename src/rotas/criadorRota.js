@@ -8,7 +8,7 @@ rota.post('/cadastraCriador', verificarModoAdmin, (req, res) => {
     const { nome_criador, nick_criador, email_criador, nova_senha } = req.body
     criarCriador(nome_criador, nick_criador, email_criador, nova_senha, (err, novoCriador) => {
         if (err) {
-            return res.status(500).json({ erro: err.message })
+            return res.status(401).json({ erro: err.message })
         }
         req.session.usuario = {
             id: novoCriador.id_criador,

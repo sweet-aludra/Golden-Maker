@@ -47,7 +47,10 @@
                     <label for="descricao_j">Descrição do jogo:</label>
                     <textarea id="descricao_j" name="descricao" rows="6" cols="40" required></textarea><br>
                     <p>Ano de Criação:<br>
-                        <input type="number" name="ano" id="ano_jogo" placeholder="Ex: 2025" min="2000" max="2099">
+                        
+
+                        <select name="ano" id="ano_jogo" class="input-estiloso">
+                        </select>
                     </p>
                 </div><br>
                 <hr><br>
@@ -70,7 +73,7 @@
                         <option value="4">5 fotos</option>
                         <option value="5">6 fotos</option>
                     </select><br><br>
-                    <div id="container_dinamico2"></div>
+                    <div id="container_dinamico2"></div><br>
                     <div class="upload-area">
                         <input type="file" name="fotos_jogo" class="fileUpload" accept="image/*" hidden>
                         <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
@@ -141,7 +144,9 @@
             </form>
         </section><br><br>
 
+    
         <!--Area de publicações de projetos(video/foto) de outras turmas-->
+        
         <section id="publique_midia">
             <br>
             <h1>Publique Video / Foto!</h1><br>
@@ -179,6 +184,7 @@
             </form>
         </section>
     </main><br>
+    
 
     <footer id="roda_pe">
         <h2>ARCANE <img src="../imgs/flor.png" alt="flor de lis"> BOOT</h2>

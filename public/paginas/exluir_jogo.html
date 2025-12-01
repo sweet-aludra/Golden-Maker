@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/menusAdicionados.css"><!--para o aviso de cadastro sucedido-->
+    <link rel="shortcut icon" href="../imgs/Penelope.png" type="image/x-icon">
+    <title>Gerenciar Projetos - Golden Maker</title>
+    <style>
+        .container-excluir {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 10;
+        }
+        .btn-excluir {
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        .btn-excluir:hover {
+            background-color: darkred;
+            transform: scale(1.1);
+        }
+        /* Ajuste para o card não ser clicável inteiramente, ou o X não funcionar */
+        .jogo { position: relative; }
+    </style>
+</head>
+<body>
+    
+    <header>
+        <div id="menu">
+            <div class="logo">
+                <a href="../index.html"><img src="../imgs/Penelope.png" alt="logo_golden_maker" class="penelope_img_header"></a>
+                <button id="toggle-theme"></button>
+            </div>
+            <div id="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+                    <!-- Menu -->
+            <ul id="navLinks">
+                <li><a href="paginas/tipo_cadastro.html">Login/Cadastro</a></li>
+                <li><a href="paginas/perfil.html">Perfil</a></li>
+                <li><a href="paginas/galeria.html">Galeria</a></li>
+                <li><a href="paginas/sobre-nos.html">Sobre-nós</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <h1 style="text-align: center;">Gerenciar Projetos (Excluir)</h1>
+        
+        <section id="secao_jogos">
+            <article id="apresentacao_jogos">
+                <div>
+                    <div class="carrosel_jogos">
+                        <div class="slides" id="slides-jogos">
+                            <button class="btn prev">&#10094;</button>
+                                <section id="lista_jogos" class="jogos-container"></section>
+                            
+                            <button class="btn next">&#10095;</button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Onda que fica ao fundo -->
+            <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"
+                preserveAspectRatio="xMidYMax meet">
+                <path class="wave" fill="#bd6c7d" fill-opacity="1"
+                    d="M0,288L48,266.7C96,245,192,203,288,186.7C384,171,480,181,576,197.3C672,213,768,235,864,250.7C960,267,1056,277,1152,272C1248,267,1344,245,1392,234.7L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                </path>
+            </svg>
+        </section>
+
+            <footer id="roda_pe">
+        <h2>ARCANE <img src="../imgs/flor.png" alt="flor de lis"> BOOT</h2>
+        <h5>adventure starts here</h5><br>
+        <p>Acompanhe nossa <a href="https://sweet-aludra.github.io/TCC_empresa/index.html"
+                class="link_empresa">empresa</a>!</p>
+    </footer>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const container = document.getElementById('lista_jogos');
+
+            // 1. Busca os projetos (reusando a API que já existe)
+            try {
+                const response = await fetch('/api/projetos');
+                const projetos = await response.json();
+
+                if (projetos.length === 0) {
+                    container.innerHTML = '<p style="color:white; text-align:center;">Nenhum projeto encontrado.</p>';
+                    return;
+                }
+
+                // 2. Cria os cards (com o botão X)
+                projetos.forEach(projeto => {
+                    const card = document.createElement('div');
+                    card.className = 'jogo'; // Usa sua classe CSS existente
+                    
+                    // Fundo do card
+                    const imagemUrl = projeto.imagem ? projeto.imagem : '../imgs/capa_modelo.jpg';
+                    const safeImgUrl = encodeURI(imagemUrl);
+                    card.style.backgroundImage = `url('${safeImgUrl}')`;
+                    
+                    card.innerHTML = `
+                        <div class="container-excluir">
+                            <button class="btn-excluir" onclick="deletarProjeto(${projeto.id}, this)">X</button>
+                        </div>
+
+                        <a class="info_jogo">
+                            <h3>${projeto.nome}</h3>
+                            <p>${projeto.ano}</p>
+                        </a>
+                    `;
+                    
+                    container.appendChild(card);
+                });
+
+            } catch (err) {
+                console.error(err);
+                container.innerHTML = '<p style="color:red; text-align:center;">Erro ao carregar projetos.</p>';
+            }
+        });
+
+        // 3. Função de Deletar
+        async function deletarProjeto(id, btnElement) {
+            // Confirmação para evitar acidentes
+            const confirmacao = confirm("Tem certeza que deseja EXCLUIR este projeto permanentemente? Isso não pode ser desfeito.");
+            
+            if (confirmacao) {
+                try {
+                    const res = await fetch(`/api/projetos/${id}`, {
+                        method: 'DELETE'
+                    });
+                    
+                    const data = await res.json();
+
+                    if (res.ok) {
+                        alert("Projeto excluído!");
+                        // Remove o card da tela visualmente sem precisar recarregar
+                        const card = btnElement.closest('.jogo');
+                        card.remove();
+                    } else {
+                        alert("Erro: " + (data.erro || "Falha ao excluir"));
+                    }
+                } catch (err) {
+                    alert("Erro de conexão.");
+                }
+            }
+        }
+    </script>
+    
+    <script>
+
+        setTimeout(function() {
+        // configuraçao do menu(nav)
+        function toggleMenu() {
+            document.getElementById("navLinks").classList.toggle("active");
+        }
+
+        // acessibilidade para mudança de cor
+        const btn = document.getElementById("toggle-theme");
+
+        // quando carrega a página
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark-theme");
+        }
+
+        btn.addEventListener("click", () => {
+            document.body.classList.toggle("dark-theme");
+
+            if (document.body.classList.contains("dark-theme")) {
+                localStorage.setItem("theme", "dark");
+            } else {
+                localStorage.setItem("theme", "light");
+            }
+        });
+
+        //carrosel dos jogos
+        document.querySelectorAll(".carrosel_jogos").forEach(carrosel => {
+            const slides = carrosel.querySelector(".slides")
+            const itens = slides.querySelectorAll("a") // pega os <a>, não só os divs
+            const prev = carrosel.querySelector(".prev")
+            const next = carrosel.querySelector(".next")
+
+            let index = 0
+
+            function updateCarousel() {
+                const itemWidth = itens[0].offsetWidth + 20; // largura + gap
+                slides.style.transform = `translateX(${-index * itemWidth}px)`;
+            }
+
+            prev.addEventListener("click", () => {
+                index--;
+                if (index < 0) {
+                    index = itens.length - 1; // volta para o último
+                }
+                updateCarousel();
+            });
+
+            next.addEventListener("click", () => {
+                index++;
+                if (index >= itens.length) {
+                    index = 0; // volta para o primeiro
+                }
+                updateCarousel();
+            });
+        });
+
+        }, 1000); // 5000 milliseconds = 5 seconds
+
+
+    </script>
+</body>
+</html>

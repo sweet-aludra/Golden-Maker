@@ -1,4 +1,6 @@
 const db = require('../database')
+const path = require('path')
+const fs = require('fs')
 
 const inserirMultiplos = (tabela, colunas, valoresArray, idProjeto, next) => {
     if (!valoresArray || valoresArray.length === 0) {
@@ -13,7 +15,7 @@ const inserirMultiplos = (tabela, colunas, valoresArray, idProjeto, next) => {
     valoresArray.forEach(item => {
         if (erroOcorrido) return
 
-        let params;
+        let params
         if (tabela === 'fotos_jogo') {
             params = [item] // 'item' é o caminho_foto
         } else if (tabela === 'integrantes') {
@@ -147,10 +149,48 @@ const buscarProjetoPorId = (id, callback) => {
     })
 }
 
+// rota para exlusão de porjeto
+const excluirProjeto = (id, callback) => {
+    // 1. Busca os dados. Note que 'nome_jogo' no seu banco parece estar salvando o caminho do arquivo
+    const sqlBusca = `SELECT nome_jogo FROM projeto WHERE id_projeto = ?`
+    
+    db.get(sqlBusca, [id], (err, row) => {
+        if (err) return callback(err);
+        if (!row) return callback(new Error('Projeto não encontrado.'))
+
+        // 2. Lógica de exclusão corrigida
+        if (row.nome_jogo) {
+            // O banco já traz algo como: "Projetos/2025/Pasta/arquivo.zip"
+            // Então só precisamos juntar com a pasta 'public'
+            const caminhoCompletoArquivo = path.join(__dirname, '../../public', row.nome_jogo)
+
+            // IMPORTANTE: row.nome_jogo aponta para o ARQUIVO (.zip), mas queremos apagar a PASTA.
+            // path.dirname() pega a pasta pai desse arquivo.
+            const caminhoPasta = path.dirname(caminhoCompletoArquivo)
+
+            // Agora sim, apagamos a pasta
+            fs.rm(caminhoPasta, { recursive: true, force: true }, (errRm) => {
+                if (errRm) {
+                    console.error(`Erro ao apagar pasta ${caminhoPasta}:`, errRm)
+                }
+            })
+        }
+
+        // 3. Apaga do Banco de Dados
+        const sqlDelete = `DELETE FROM projeto WHERE id_projeto = ?`
+        
+        db.run(sqlDelete, [id], function(errDelete) {
+            if (errDelete) return callback(errDelete);
+            callback(null, { message: 'Projeto excluído com sucesso.' })
+        })
+    })
+}
+
 
 // exporta as funções
 module.exports = {
     publicarProjeto,
     listarProjetos,
-    buscarProjetoPorId
+    buscarProjetoPorId,
+    excluirProjeto
 }
