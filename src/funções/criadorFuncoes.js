@@ -3,44 +3,33 @@ const bcrypt = require('bcrypt')
 
 // Função para criar um novo criador
 const criarCriador = (nome, nick, email_etec, senha, callback) => {
-    const nickLimpo = nick.trim()
-    const emailLimpo = email_etec.trim()
-
-    const checkSql = `SELECT * FROM criador WHERE email_etec = ? OR nick = ?`
-    
-    db.get(checkSql, [emailLimpo, nickLimpo], (err, row) => {
-        if (err) return callback(err)
-
+    const checkSql = `SELECT * FROM criador WHERE email_etec = ? OR nick = ?`;
+    db.get(checkSql, [email_etec, nick], (err, row) => {
+        if (err) return callback(err);
         if (row) {
-            if (row.email_etec.toLowerCase() === emailLimpo.toLowerCase()) {
-                return callback(new Error('Este email já está em uso.'))
-            }
-            if (row.nick.toLowerCase() === nickLimpo.toLowerCase()) {
-                return callback(new Error('Este nick já está em uso.'))
-            }
+            if (row.email_etec === email_etec) return callback(new Error('Este email já está em uso.'))
+            if (row.nick === nick) return callback(new Error('Este nick já está em uso.'))
         }
 
         bcrypt.hash(senha, 10, (err, senhaHash) => {
             if (err) return callback(err);
-
-            const fotopadraoDir = 'fotoperfil/foto_padrão.jpeg';
+            const fotopadraoDir = 'fotoperfil/foto_padrão.jpeg'
+            const sql = `INSERT INTO criador (nome, nick, email_etec, senha, foto_perfil) VALUES (?, ?, ?, ?, ?)`
             
-            const sql = `INSERT INTO criador (nome, nick, email_etec, senha, foto_perfil) VALUES (?, ?, ?, ?, ?)`;
-            
-            db.run(sql, [nome, nickLimpo, emailLimpo, senhaHash, fotopadraoDir], function(err) {
+            db.run(sql, [nome, nick, email_etec, senhaHash, fotopadraoDir], function(err) {
                 if (err) return callback(err);
 
-                const newCreatorSql = `SELECT id_criador, nick, email_etec, foto_perfil FROM criador WHERE id_criador = ?`;
+                const newCreatorSql = `SELECT id_criador, nick, email_etec, foto_perfil FROM criador WHERE id_criador = ?`
                 db.get(newCreatorSql, [this.lastID], (err, newCreator) => {
                     if (newCreator) {
-                        newCreator.tipo = 'criador';
+                        newCreator.tipo = 'criador'
                     }
-                    callback(err, newCreator);
-                });
-            });
-        });
-    });
-};
+                    callback(err, newCreator)
+                })
+            })
+        })
+    })
+}
 
 // Função para verificar o login do criador
 const verificarLoginCriador = (email, senha, callback) => {

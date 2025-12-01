@@ -52,12 +52,57 @@ async function carregarDadosDoJogo() {
 
         const hrefBtnJogar = `goldenmaker://iniciar-jogo?nome=${jogo.nome}&url=${encodeURIComponent(urlDownload)}&executavel=${executavel}`
 
-        if (downloadContainer && nomeDoJogo && jogo.nome && executavel) { // 'jogo.nome_jogo' é o caminho do .zip
-            downloadContainer.innerHTML = `
-                <a href="${hrefBtnJogar}" class="btn-download"> Jogar ${executavel}</a>
-            `
-        }else {
-            downloadContainer.innerHTML = `<p>Este projeto não possui arquivos para jogar.</p>`
+if (downloadContainer && nomeDoJogo && jogo.nome && executavel) { 
+            // Limpa o container
+            downloadContainer.innerHTML = ''
+
+            //  cria o botão
+            const btnLink = document.createElement('a')
+            btnLink.href = hrefBtnJogar
+            btnLink.className = 'btn-download'
+            btnLink.textContent = `Jogar ${executavel}`
+            
+            // Aplica os seus estilos de alinhamento direto no elemento
+            btnLink.style.display = 'flex'
+            btnLink.style.justifyContent = 'center'
+            btnLink.style.alignItems = 'center'
+            btnLink.style.width = '100%'
+            btnLink.style.height = '100%'
+            btnLink.style.textDecoration = 'none'
+
+            // cria a mensagem de aviso 
+            const msgAviso = document.createElement('p');
+            msgAviso.innerHTML = "Jogos pesados podem levar alguns segundos para abrir."
+            msgAviso.style.display = 'none'
+            msgAviso.style.marginTop = '10px'
+            msgAviso.style.fontSize = '0.9rem'
+            msgAviso.style.textAlign = 'center'
+
+            // logica de clique
+            btnLink.addEventListener('click', () => {
+                btnLink.textContent = "Abrindo..."
+                btnLink.style.opacity = "0.7"
+                btnLink.style.cursor = "wait"
+                
+                // Mostra o aviso
+                msgAviso.style.display = 'block'
+
+                // Reseta o botão depois de 15 segundos caso o usuário queira tentar de novo
+                setTimeout(() => {
+                    btnLink.textContent = `Jogar ${executavel}`
+                    btnLink.style.opacity = "1";
+                    btnLink.style.cursor = "pointer";
+                    msgAviso.textContent = "Se o jogo não abriu, verifique se o Launcher está aberto."
+                    msgAviso.style.color = 'var(--withe)';
+                }, 15000);
+            })
+
+            // Adiciona os elementos na tela
+            downloadContainer.appendChild(btnLink)
+            downloadContainer.appendChild(msgAviso)
+
+        } else {
+            downloadContainer.innerHTML = `<p>Este projeto não possui arquivos para jogar.</p>`;
         }
 
 
@@ -69,7 +114,9 @@ async function carregarDadosDoJogo() {
                     const div = document.createElement('div')
                     div.className = 'img_jogo'
                     // Define a imagem como background para se ajustar ao CSS
-                    div.style.backgroundImage = `url(${fotoUrl})`
+
+                    const safeUrl = encodeURI(fotoUrl);
+                    div.style.backgroundImage = `url(${safeUrl})`
                     div.style.backgroundSize = 'cover'
                     div.style.backgroundPosition = 'center'
                     faixaCarrossel.appendChild(div)

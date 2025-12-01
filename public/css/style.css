@@ -596,6 +596,7 @@ div#procurar-galeria {
 .slides {
     display: flex;
     margin-left: 5px;
+    margin-bottom: 20px;
     transition: transform 0.5s ease-in-out;
     /* espaço interno pra mostrar o corte */
 }

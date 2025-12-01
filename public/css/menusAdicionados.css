@@ -158,3 +158,18 @@
 .fonte {
     font-family: 'Press Start 2P';
 }
+
+
+#botao_excluir {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 100px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: var(--cor4);
+}
+
+#botao_excluir:hover {
+    background-color: var(--cor1);
+}

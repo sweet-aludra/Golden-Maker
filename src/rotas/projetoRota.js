@@ -4,7 +4,7 @@ const path = require('path')
 const fs = require('fs')
 const crypto = require('crypto')
 
-const { publicarProjeto, listarProjetos, buscarProjetoPorId } = require('../funções/projetoFuncoes')
+const { publicarProjeto, listarProjetos, buscarProjetoPorId, excluirProjeto } = require('../funções/projetoFuncoes')
 const verificarModoAdmin = require('../funções/configFuncoes')
 
 const rota = express.Router()
@@ -12,7 +12,7 @@ const rota = express.Router()
 // Configuração do Multer (Salvar em local temporário) 
 const storageTemp = multer.diskStorage({
     filename: (req, file, cb) => {
-        const ext = path.extname(file.originalname , ext)
+        const ext = path.extname(file.originalname)
         const bytesAleatorios = crypto.randomBytes(4)
         const nomeAleatorio = bytesAleatorios.toString('hex')
         // const randomName = crypto.randomUUID() // para nome aleatorio mais longo
@@ -37,7 +37,7 @@ const fileFilter = (req, file, cb) => {
 
 const upload = multer({
     storage: storageTemp,
-    limits: { fileSize: 100 * 1024 * 1024 }, // 100MB
+    limits: { fileSize: 100 * 1024 * 1024 *1024}, // 100MB
     fileFilter: fileFilter
 })
 
@@ -247,6 +247,18 @@ rota.get('/projetos/:id', (req, res) => {
             integrantes: projeto.integrantes || [] // Garante que é array antes de stringify
         }
         res.json(respostaFormatada)
+    })
+})
+
+// Rota para EXCLUIR projeto
+rota.delete('/projetos/:id', verificarModoAdmin, (req, res) => {
+    const { id } = req.params
+    
+    excluirProjeto(id, (err) => {
+        if (err) {
+            return res.status(500).json({ erro: err.message || 'Erro ao excluir projeto.' })
+        }
+        res.json({ message: 'Projeto deletado com sucesso!' })
     })
 })
 

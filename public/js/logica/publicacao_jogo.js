@@ -42,6 +42,23 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
 
+    // logica de colocar o ano no select
+    const selectAno = document.getElementById('ano_jogo')
+    if (selectAno) {
+        const anoAtual = new Date().getFullYear()
+        const anoMinimo = 2000 
+        
+        // Loop do ano atual descendo até 2000
+        for (let i = anoAtual; i >= anoMinimo; i--) { // adicione +1 no let i =  caso queira colocar mais anos pra frente
+            const option = document.createElement('option')
+            option.value = i
+            option.textContent = i
+            selectAno.appendChild(option)
+        }
+        
+        selectAno.value = anoAtual
+    }
+
     // Envio do formulário via Fetch
     const formJogo = document.getElementById("form-projeto")
     if (formJogo) { // Verifica se o formulário existe na página
@@ -53,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // --- Validação Simples no Frontend ---
             const nomeJogo = formData.get('nome')
             const descricaoJogo = formData.get('descricao')
-            const imagemCapaFile = formData.get('imagem_capa') // Pega o ARQUIVO
+            const imagemCapaFile = formData.get('imagem_capa') 
             const nomeExecJogo = formData.get('nome_executavel')
 
             // verifica se os campos então vazios
@@ -168,11 +185,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             for (let f = 3; f <= numeroDeFotos; f++) {
                 const htmlDoCampo2 = `
-                            <div class="upload-area">
+                            <br><div class="upload-area">
                                 <input type="file" name="fotos_jogo" class="fileUpload" accept="image/*" hidden>
                                 <img class="preview" style="display:none; max-width:200px; margin-top:10px;">
                                 <span>Clique para adicionar foto</span> <!-- so adiconando pra ver como fica-->
-                            </div><br>
+                            </div>
                     `
                 containerDinamico2.insertAdjacentHTML('beforeend', htmlDoCampo2)
 
