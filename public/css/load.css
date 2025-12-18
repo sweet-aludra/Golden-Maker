@@ -1,0 +1,25 @@
+/* Tela inteira cobrindo o site */
+#loader {
+    position: fixed;
+    inset: 0;
+    background: #353535f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.4s ease;
+}
+
+/* Centraliza o conteúdo interno */
+.spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Controla o tamanho real do GIF */
+.spinner img {
+    width: 250px;     /* ajuste como quiser */
+    height: auto;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+}

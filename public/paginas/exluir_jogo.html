@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/menusAdicionados.css"><!--para o aviso de cadastro sucedido-->
+    <link rel="stylesheet" href="../css/load.css">
     <link rel="shortcut icon" href="../imgs/Penelope.png" type="image/x-icon">
     <title>Gerenciar Projetos - Golden Maker</title>
     <style>
@@ -38,6 +39,11 @@
     </style>
 </head>
 <body>
+    <div id="loader">
+        <div class="spinner">
+            <img src="../imgs/animacao-santiago.gif" alt="Carregando...">
+        </div>
+    </div>
     
     <header>
         <div id="menu">
@@ -96,6 +102,19 @@
     </main>
 
     <script>
+        //tela de carregamento
+        window.addEventListener("load", () => {
+            const loader = document.getElementById("loader");
+
+            setTimeout(() => {
+                loader.style.opacity = "0";
+
+                setTimeout(() => {
+                    loader.style.display = "none";
+                }, 400);
+            }, 1000); // 1 segundos visível
+        });
+
         document.addEventListener('DOMContentLoaded', async () => {
             const container = document.getElementById('lista_jogos');
 

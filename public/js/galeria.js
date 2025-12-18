@@ -1,3 +1,16 @@
+//tela de carregamento
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loader");
+
+  setTimeout(() => {
+    loader.style.opacity = "0";
+
+    setTimeout(() => {
+      loader.style.display = "none";
+    }, 400);
+  }, 1000); // 1 segundos visível
+});
+
 // configuraçao do menu(nav)
 function toggleMenu() {
   document.getElementById("navLinks").classList.toggle("active");

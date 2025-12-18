@@ -5,11 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style_paginas_secundarias.css">
     <link rel="stylesheet" href="../css/menusAdicionados.css">
+    <link rel="stylesheet" href="../css/load.css">
     <link rel="shortcut icon" href="../imgs/Penelope.png" type="image/x-icon">
     <title>Golden Maker&reg</title>
 </head>
 
 <body>
+    <div id="loader">
+        <div class="spinner">
+            <img src="../imgs/animacao-santiago.gif" alt="Carregando...">
+        </div>
+    </div>
+    
     <header>
         <div id="menu">
             <div>
@@ -108,6 +115,19 @@
     <div id="toast-notification" class="toast"></div>
 
     <script>
+        //tela de carregamento
+        window.addEventListener("load", () => {
+            const loader = document.getElementById("loader");
+
+            setTimeout(() => {
+                loader.style.opacity = "0";
+
+                setTimeout(() => {
+                    loader.style.display = "none";
+                }, 400);
+            }, 1000); // 1 segundos visível
+        });
+
         // configuraçao do menu(nav)
         function toggleMenu() {
             document.getElementById("navLinks").classList.toggle("active");
