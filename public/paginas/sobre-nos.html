@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />
     <link rel="stylesheet" href="../css/style_paginas_secundarias.css">
     <link rel="stylesheet" href="../css/load.css">
     <link rel="shortcut icon" href="../imgs/Penelope.png" type="image/x-icon">
@@ -19,15 +20,9 @@
         <div id="menu">
             <div>
                 <img src="../imgs/Penelope.png" alt="logo_golden_maker" class="penelope_img_header">
-                <button id="toggle-theme"></button>
             </div>
 
-            <!-- Botão hambúrguer -->
-            <div id="hamburger" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <i class="material-symbols-outlined" id="hamburger" onclick="toggleMenu()">menu</i>
 
             <!-- Menu -->
             <ul id="navLinks">
@@ -91,7 +86,7 @@
         </div>
     </section><br>
 
-    <section id="MVV">
+    <!--<section id="MVV">
         <div class="bloco">
             <h2>Missão</h2><br>
             <p> Nossa missão é <span style="color: var(--cor0);">impactar</span>
@@ -115,7 +110,7 @@
                colocamos em pratica nos humanizamos, se
                tornando alguém melhor em sociedade.</p>
         </div>
-    </section>
+    </section>-->
 
     <footer id="roda_pe">
         <h2>ARCANE <img src="../imgs/flor.png" alt="flor de lis"> BOOT</h2>
@@ -142,29 +137,6 @@
             document.getElementById("navLinks").classList.toggle("active");
         }
 
-        // acessibilidade para mudança de cor
-        const btn = document.getElementById("toggle-theme")
-        const texto = document.getElementById('empresa-apresentacao')
-
-        // quando carrega a página
-        if (localStorage.getItem("theme") === "dark") {
-            document.body.classList.add("dark-theme");
-            texto.style.color = 'white'
-        }
-
-        btn.addEventListener("click", () => {
-            document.body.classList.toggle("dark-theme");
-
-            if (document.body.classList.contains("dark-theme")) {
-                localStorage.setItem("theme", "dark");
-
-                texto.style.color = 'white'
-            } else {
-                localStorage.setItem("theme", "light");
-
-                texto.style.color = 'black'
-            }
-        });
     </script>
 </body>
 </html>
