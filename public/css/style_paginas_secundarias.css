@@ -83,44 +83,58 @@ header img {
 }
 
 /* MENU NORMAL (DESKTOP) */
-#navLinks {
-    display: flex;
-    gap: 20px;
-    list-style: none;
+#hamburger {
+    display: none; /* ESCONDIDO */
 }
 
-/* BOTÃO HAMBURGUER */
-#hamburger {
-    font-size: 2.5em;
-    display: none; 
-    flex-direction: column;
-    justify-content: space-between;
-    cursor: pointer;
-    color: var(--withe);
+menu#navLinks {
+    display: flex;
+    gap: 20px;
+}
+
+menu#navLinks > ul {
+    display: flex;
+    gap: 20px;
+}
+
+menu#navLinks > ul > li {
+    list-style: none;
 }
 
 /* MOBILE */
 @media (max-width: 768px) {
+
     #hamburger {
         display: flex;
+        color: var(--withe);
+        font-size: 2.5em;
+        cursor: pointer;
     }
 
-    #navLinks {
+    menu#navLinks {
+        display: none; /* ESCONDIDO */
         position: absolute;
         top: 90px;
         right: 0;
-        width: 220px;
-        height: auto;
+        width: 270px;
         background: var(--black);
+        padding: 30px;
         flex-direction: column;
-        padding: 35px;
         gap: 30px;
-        transform: translateX(100%); 
-        transition: transform 0.3s ease;
+        border-radius: 35px 0 0 15px;
+        z-index: 9999;
     }
 
-    #navLinks.active {
-        transform: translateX(0); /* aparece */
+    menu#navLinks.active {
+        display: flex; /* APARECE AO CLICAR */
+    }
+
+    menu#navLinks > ul {
+        flex-direction: column;
+        gap: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 /*~~~~~~~~~~~ roda pe ~~~~~~~~~~~~~~~~*/

@@ -55,12 +55,14 @@
            <i class="material-symbols-outlined" id="hamburger" onclick="toggleMenu()">menu</i>
             
             <!-- Menu -->
-            <ul id="navLinks">
-                <li><a href="paginas/tipo_cadastro.html">Login/Cadastro</a></li>
-                <li><a href="paginas/perfil.html">Perfil</a></li>
-                <li><a href="paginas/galeria.html">Galeria</a></li>
-                <li><a href="paginas/sobre-nos.html">Sobre-nós</a></li>
-            </ul>
+            <menu id="navLinks">
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="galeria.html">Galeria</a></li>
+                    <li><a href="perfil.html">Perfil</a></li>
+                    <li><a href="sobre-nos.html">Sobre-nós</a></li>
+                </ul>
+            </menu>
         </div>
     </header>
 
@@ -110,6 +112,14 @@
                     loader.style.display = "none";
                 }, 400);
             }, 1000); // 1 segundos visível
+        });
+
+        // configuraçao do menu(nav)
+        const hamburger = document.getElementById("hamburger");
+        const navLinks = document.getElementById("navLinks");
+
+        hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
         });
 
         document.addEventListener('DOMContentLoaded', async () => {

@@ -12,9 +12,12 @@ window.addEventListener("load", () => {
 });
 
 // configuraçao do menu(nav)
-function toggleMenu() {
-  document.getElementById("navLinks").classList.toggle("active");
-}
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("navLinks");
+
+hamburger.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
 
 document.querySelectorAll(".carrosel-galeria-videos").forEach(carrosel => {
   const slides = carrosel.querySelector(".slides");
